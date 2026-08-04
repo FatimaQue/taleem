@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Joining Taaleem — onboarding guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --maroon:#9B1B30;
+  --maroon-deep:#71131F;
+  --maroon-wash:#FBF0F1;
+  --green:#6CBE45;
+  --green-deep:#4A8C2C;
+  --green-wash:#F1F8EC;
+  --ink:#1B1A18;
+  --ink-2:#55514C;
+  --ink-3:#8A847C;
+  --paper:#FFFFFF;
+  --wash:#F7F5F1;
+  --rule:#E5E1D9;
+  --rule-soft:#EFECE5;
+  --amber-wash:#FDF4E4;
+  --amber-ink:#6B4310;
+  --display:'Outfit',system-ui,sans-serif;
+  --body:'IBM Plex Sans',system-ui,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+  --maxw:820px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:var(--body);
+  font-size:16px;
+  line-height:1.65;
+  color:var(--ink);
+  background:var(--paper);
+  -webkit-font-smoothing:antialiased;
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none!important;animation:none!important}
+}
+
+/* ---- Taaleem slide frame: maroon above, green below ---- */
+.frame{height:10px;background:var(--maroon)}
+.frame-foot{height:10px;background:var(--green)}
+
+/* ---- masthead ---- */
+.masthead{
+  background:var(--maroon);
+  color:#fff;
+  padding:14px 28px 16px;
+}
+.masthead-in{max-width:1180px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.wordmark{font-family:var(--display);font-size:26px;font-weight:500;letter-spacing:-.01em;line-height:1}
+.wordmark sup{font-size:11px;font-weight:400;color:var(--green);margin-left:2px;top:-9px;position:relative}
+.masthead-tag{font-family:var(--mono);font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.72)}
+.mast-links{display:flex;gap:18px;font-size:14px}
+.mast-links a{color:rgba(255,255,255,.9);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.3);padding-bottom:1px}
+.mast-links a:hover{color:#fff;border-color:#fff}
+
+/* ---- signature: the "whose move is it" strip ---- */
+.status{
+  background:var(--wash);
+  border-bottom:1px solid var(--rule);
+}
+.status-in{
+  max-width:1180px;margin:0 auto;padding:12px 28px;
+  display:flex;align-items:center;gap:18px;flex-wrap:wrap;
+}
+.status-step{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);white-space:nowrap}
+.status-bar{flex:1;min-width:120px;height:5px;background:#E3DFD7;border-radius:3px;overflow:hidden}
+.status-bar i{display:block;height:100%;width:45%;background:var(--green)}
+.status-verdict{font-family:var(--display);font-size:16px;font-weight:500;color:var(--maroon);white-space:nowrap}
+.status-verdict span{font-family:var(--body);font-size:13px;font-weight:400;color:var(--ink-2);display:block;line-height:1.3}
+
+/* ---- filter bar ---- */
+.filters{border-bottom:1px solid var(--rule);background:var(--paper)}
+.filters-in{max-width:1180px;margin:0 auto;padding:11px 28px;display:flex;gap:22px;flex-wrap:wrap;align-items:center}
+.fgroup{display:flex;align-items:center;gap:7px}
+.flabel{font-family:var(--mono);font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3)}
+.chip{
+  font-family:var(--body);font-size:13px;padding:4px 12px;border-radius:100px;
+  border:1px solid var(--rule);background:var(--paper);color:var(--ink-2);cursor:pointer;
+  transition:background .15s,color .15s,border-color .15s;
+}
+.chip:hover{border-color:var(--ink-3)}
+.chip[aria-pressed="true"]{background:var(--maroon);border-color:var(--maroon);color:#fff}
+.chip:focus-visible,a:focus-visible,button:focus-visible{outline:2px solid var(--green-deep);outline-offset:2px}
+
+/* ---- shell ---- */
+.shell{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:242px minmax(0,1fr);gap:0;align-items:start}
+.sidebar{
+  border-right:1px solid var(--rule);
+  padding:26px 20px 60px 28px;
+  position:sticky;top:0;max-height:100vh;overflow-y:auto;
+}
+.navsec{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin:22px 0 7px}
+.navsec:first-child{margin-top:0}
+.sidebar a{
+  display:block;font-size:14px;color:var(--ink-2);text-decoration:none;
+  padding:4px 0 4px 11px;border-left:2px solid transparent;line-height:1.45;
+}
+.sidebar a:hover{color:var(--ink)}
+.sidebar a.on{color:var(--maroon);font-weight:600;border-left-color:var(--maroon)}
+
+main{padding:34px 28px 80px;min-width:0}
+.page{display:none;max-width:var(--maxw)}
+.page.on{display:block;animation:fade .28s ease}
+@keyframes fade{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+
+/* ---- typography ---- */
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--green-deep);margin-bottom:9px}
+h1{font-family:var(--display);font-size:38px;line-height:1.12;font-weight:500;letter-spacing:-.02em;margin:0 0 12px}
+h2{font-family:var(--display);font-size:23px;font-weight:500;letter-spacing:-.01em;margin:38px 0 12px;padding-bottom:7px;border-bottom:1px solid var(--rule)}
+h3{font-family:var(--display);font-size:17px;font-weight:600;margin:24px 0 7px}
+.lede{font-size:18px;line-height:1.6;color:var(--ink-2);margin:0 0 26px}
+p{margin:0 0 14px}
+a.link{color:var(--maroon);text-decoration:none;border-bottom:1px solid rgba(155,27,48,.3)}
+a.link:hover{border-color:var(--maroon)}
+ul{margin:0 0 14px;padding-left:20px}
+li{margin-bottom:6px}
+strong{font-weight:600}
+
+/* ---- callouts ---- */
+.note{border-radius:10px;padding:15px 18px;margin:20px 0;font-size:15px;line-height:1.6}
+.note p:last-child{margin-bottom:0}
+.note h3{margin:0 0 6px;font-size:16px}
+.note-urgent{background:var(--maroon-wash);border-left:3px solid var(--maroon)}
+.note-urgent h3{color:var(--maroon-deep)}
+.note-warn{background:var(--amber-wash);border-left:3px solid #C98A2E}
+.note-warn h3{color:var(--amber-ink)}
+.note-warn,.note-warn p{color:var(--amber-ink)}
+.note-calm{background:var(--wash);border-left:3px solid var(--rule)}
+.note-good{background:var(--green-wash);border-left:3px solid var(--green)}
+
+/* ---- cards ---- */
+.grid{display:grid;gap:13px;margin:20px 0}
+.g2{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(175px,1fr))}
+.card{border:1px solid var(--rule);border-radius:11px;padding:16px 18px;background:var(--paper)}
+.card h3{margin:0 0 5px;font-size:16px}
+.card p{font-size:14px;color:var(--ink-2);margin:0}
+.card-link{text-decoration:none;color:inherit;display:block;transition:border-color .15s,transform .15s}
+.card-link:hover{border-color:var(--maroon);transform:translateY(-1px)}
+.card-num{font-family:var(--mono);font-size:11px;color:var(--green-deep);letter-spacing:.09em;display:block;margin-bottom:6px}
+
+/* ---- data tables ---- */
+table{width:100%;border-collapse:collapse;margin:18px 0;font-size:14.5px}
+th{text-align:left;font-family:var(--mono);font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);font-weight:500;padding:0 12px 7px 0;border-bottom:1px solid var(--rule)}
+td{padding:9px 12px 9px 0;border-bottom:1px solid var(--rule-soft);vertical-align:top}
+td.mono{font-family:var(--mono);font-size:13.5px;white-space:nowrap}
+
+/* ---- journey tracker ---- */
+.track{margin:26px 0}
+.step{display:grid;grid-template-columns:32px minmax(0,1fr);gap:15px}
+.step-rail{display:flex;flex-direction:column;align-items:center}
+.dot{
+  width:27px;height:27px;border-radius:50%;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--mono);font-size:12px;
+  border:1px solid var(--rule);color:var(--ink-3);background:var(--paper);
+}
+.dot.done{background:var(--green);border-color:var(--green);color:#fff}
+.dot.now{background:var(--maroon);border-color:var(--maroon);color:#fff;font-weight:500}
+.line{flex:1;width:2px;background:var(--rule);margin:3px 0}
+.step-body{padding-bottom:22px;min-width:0}
+.step-title{font-family:var(--display);font-size:17px;font-weight:600;margin:2px 0 3px;display:flex;flex-wrap:wrap;align-items:center;gap:9px}
+.step-body p{font-size:14.5px;color:var(--ink-2);margin:0 0 8px}
+.step.is-done .step-title{color:var(--ink-3);font-weight:400}
+.step-now{border:2px solid var(--maroon);border-radius:11px;padding:16px 18px;margin-top:-2px}
+.step-meta{font-family:var(--mono);font-size:11.5px;color:var(--ink-3)}
+
+.tag{font-family:var(--mono);font-size:10px;letter-spacing:.07em;text-transform:uppercase;padding:3px 8px;border-radius:4px;white-space:nowrap;font-weight:500}
+.tag-you{background:var(--amber-wash);color:var(--amber-ink)}
+.tag-hr{background:var(--maroon-wash);color:var(--maroon-deep)}
+.tag-time{background:var(--wash);color:var(--ink-3)}
+
+/* ---- conditional content ---- */
+.is-hidden{display:none!important}
+.is-dimmed{opacity:.45}
+.dim-note{font-family:var(--mono);font-size:11px;color:var(--ink-3);display:none}
+.is-dimmed .dim-note{display:inline}
+
+.btn{
+  font-family:var(--body);font-size:14px;padding:7px 15px;border-radius:7px;
+  border:1px solid var(--maroon);background:var(--maroon);color:#fff;cursor:pointer;text-decoration:none;display:inline-block;
+}
+.btn:hover{background:var(--maroon-deep);border-color:var(--maroon-deep)}
+.btn-ghost{background:transparent;color:var(--maroon)}
+.btn-ghost:hover{background:var(--maroon-wash);color:var(--maroon-deep)}
+.btnrow{display:flex;gap:9px;flex-wrap:wrap;margin-top:12px}
+
+.footer{border-top:1px solid var(--rule);background:var(--wash);padding:22px 28px}
+.footer-in{max-width:1180px;margin:0 auto;display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;font-size:13.5px;color:var(--ink-2)}
+.emerg{font-family:var(--mono);font-size:12.5px}
+
+.mobnav{display:none}
+@media (max-width:900px){
+  .shell{grid-template-columns:1fr}
+  .sidebar{display:none;position:static;max-height:none;border-right:0;border-bottom:1px solid var(--rule);padding:18px 22px}
+  .sidebar.open{display:block}
+  .mobnav{display:inline-block;background:transparent;border:1px solid rgba(255,255,255,.45);color:#fff;border-radius:7px;padding:5px 12px;font-family:var(--body);font-size:13px;cursor:pointer}
+  main{padding:26px 22px 60px}
+  h1{font-size:30px}
+  .masthead,.status-in,.filters-in,.footer{padding-left:22px;padding-right:22px}
+  .status-in{gap:12px}
+}
+</style>
+</head>
+<body>
+
+<div class="frame"></div>
+
+<header class="masthead">
+  <div class="masthead-in">
+    <div>
+      <div class="wordmark">t&#257;aleem<sup>HR</sup></div>
+      <div class="masthead-tag">Onboarding guide</div>
+    </div>
+    <button class="mobnav" id="mobnav">Menu</button>
+    <div class="mast-links">
+      <a href="#help">Ask a question</a>
+      <a href="#journey">Where am I?</a>
+    </div>
+  </div>
+</header>
+
+<div class="status">
+  <div class="status-in">
+    <span class="status-step">Step 5 of 11 &middot; Entry permit</span>
+    <span class="status-bar"><i></i></span>
+    <span class="status-verdict">Nothing needs you right now
+      <span>HR is waiting on immigration. Next thing for you: step&nbsp;7.</span>
+    </span>
+  </div>
+</div>
+
+<div class="filters">
+  <div class="filters-in">
+    <div class="fgroup">
+      <span class="flabel">Joining</span>
+      <button class="chip" data-cat="origin" data-val="overseas" aria-pressed="true">From overseas</button>
+      <button class="chip" data-cat="origin" data-val="inuae" aria-pressed="false">Already in the UAE</button>
+    </div>
+    <div class="fgroup">
+      <span class="flabel">Based in</span>
+      <button class="chip" data-cat="emirate" data-val="dubai" aria-pressed="true">Dubai</button>
+      <button class="chip" data-cat="emirate" data-val="abudhabi" aria-pressed="false">Abu Dhabi</button>
+      <button class="chip" data-cat="emirate" data-val="other" aria-pressed="false">Other</button>
+    </div>
+    <div class="fgroup">
+      <span class="flabel">Moving</span>
+      <button class="chip" data-cat="family" data-val="alone" aria-pressed="false">On my own</button>
+      <button class="chip" data-cat="family" data-val="family" aria-pressed="true">With family</button>
+    </div>
+  </div>
+</div>
+
+<div class="shell">
+
+<nav class="sidebar" id="sidebar">
+  <div class="navsec">Start</div>
+  <a href="#home">Welcome on board</a>
+  <a href="#journey">Your journey, step by step</a>
+
+  <div class="navsec">Getting ready</div>
+  <a href="#documents">Your documents</a>
+  <a href="#attestation">Attestation</a>
+  <a href="#visas">Visas and sponsorship</a>
+  <a href="#approval">Teaching approval</a>
+  <a href="#oracle">Oracle</a>
+  <a href="#insurance">Medical insurance</a>
+
+  <div class="navsec">Moving to the UAE</div>
+  <a href="#uae">About the UAE</a>
+  <a href="#culture">Culture and customs</a>
+  <a href="#conduct">Code of conduct</a>
+
+  <div class="navsec">Getting settled</div>
+  <a href="#accommodation">Your accommodation</a>
+  <a href="#money">Money and banking</a>
+  <a href="#connectivity">Phone, wifi and apps</a>
+  <a href="#transport">Getting around</a>
+  <a href="#explore">Exploring the UAE</a>
+
+  <div class="navsec">Working at Taaleem</div>
+  <a href="#probation">Your probation</a>
+  <a href="#performance">Performance and appraisal</a>
+  <a href="#leave">Types of leave</a>
+  <a href="#inspections">School inspections</a>
+  <a href="#iloe">Unemployment insurance</a>
+
+  <div class="navsec">More</div>
+  <a href="#about">About Taaleem</a>
+  <a href="#help">Ask a question</a>
+</nav>
+
+<main>
+
+<!-- ============ HOME ============ -->
+<section class="page" id="home">
+  <div class="eyebrow">Welcome</div>
+  <h1>You're joining Taaleem.<br>Here's everything, in order.</h1>
+  <p class="lede">From the day you accept your offer through to the end of your first term. Use the filters at the top and we'll only show what applies to you.</p>
+
+  <div class="note note-urgent">
+    <h3>Start these three today</h3>
+    <p>They take the longest and everything else waits on them. None of them can be rushed at the last minute.</p>
+    <div class="grid g3" style="margin-bottom:0">
+      <a class="card card-link" href="#attestation"><span class="card-num">01</span><h3>Attest your certificates</h3><p>Six weeks or more, and it's on you to start it.</p></a>
+      <a class="card card-link" href="#documents"><span class="card-num">02</span><h3>Police clearance</h3><p>Must be dated within three months of joining.</p></a>
+      <a class="card card-link" href="#documents"><span class="card-num">03</span><h3>Two references</h3><p>From your Principal, covering five years.</p></a>
+    </div>
+  </div>
+
+  <h2>Where you are in the journey</h2>
+  <p>Eleven steps take you from signed offer to residence visa. Most are handled by your HR representative — only four need anything from you.</p>
+  <div class="btnrow"><a class="btn" href="#journey">Open your journey tracker</a></div>
+
+  <h2>The rest of the guide</h2>
+  <div class="grid g2">
+    <a class="card card-link" href="#documents"><h3>Getting ready</h3><p>Documents, attestation, visas, teaching approval, Oracle and insurance.</p></a>
+    <a class="card card-link" href="#uae"><h3>Moving to the UAE</h3><p>The country, its culture and customs, and the conduct expected of you.</p></a>
+    <a class="card card-link" href="#accommodation"><h3>Getting settled</h3><p>Your apartment, salary, banking, phone, driving and weekends.</p></a>
+    <a class="card card-link" href="#probation"><h3>Working at Taaleem</h3><p>Probation, appraisals, leave, inspections and your employee pack.</p></a>
+  </div>
+
+  <h2>People, not pages</h2>
+  <p>Some things are better asked than read. Your HR representative stays with you from offer through to your first term, your buddy is a teacher who arrived last year, and coffee mornings start in early August.</p>
+  <div class="btnrow"><a class="btn btn-ghost" href="#help">See who to contact</a></div>
+</section>
+
+<!-- ============ JOURNEY ============ -->
+<section class="page" id="journey">
+  <div class="eyebrow">Getting ready</div>
+  <h1>Your journey, step by step</h1>
+  <p class="lede">Eleven steps from signed offer to residence visa. Each one says whose move it is, so you always know whether you're waiting or holding things up.</p>
+
+  <div class="track">
+
+    <div class="step is-done">
+      <div class="step-rail"><span class="dot done">&#10003;</span><span class="line"></span></div>
+      <div class="step-body">
+        <div class="step-title">Recruitment</div>
+        <p class="step-meta">Offer accepted &middot; references requested from your referees</p>
+      </div>
+    </div>
+
+    <div class="step is-done">
+      <div class="step-rail"><span class="dot done">&#10003;</span><span class="line"></span></div>
+      <div class="step-body">
+        <div class="step-title">Documents</div>
+        <p class="step-meta">Uploaded to Oracle on 14 April</p>
+      </div>
+    </div>
+
+    <div class="step" data-dim="abudhabi">
+      <div class="step-rail"><span class="dot">3</span><span class="line"></span></div>
+      <div class="step-body">
+        <div class="step-title">Labour contract application <span class="tag tag-hr">HR does this</span></div>
+        <p>Your documents are submitted and processed by HR, then the labour contract comes to you for signature so the entry permit application can begin. <span class="dim-note">Abu Dhabi joiners only — this doesn't apply to you.</span></p>
+      </div>
+    </div>
+
+    <div class="step is-done" data-when="overseas">
+      <div class="step-rail"><span class="dot done">&#10003;</span><span class="line"></span></div>
+      <div class="step-body">
+        <div class="step-title">Flights</div>
+        <p class="step-meta">E-tickets sent 2 June &middot; arriving DXB, 18 August</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-rail"><span class="dot now">5</span><span class="line"></span></div>
+      <div class="step-body">
+        <div class="step-now">
+          <div class="step-title" style="margin-top:0">Entry permit <span class="tag tag-hr">HR is doing this</span></div>
+          <p>Your permit is with immigration. It arrives by email as soon as HR receives it. Nothing is needed from you until you land.</p>
+          <div class="note note-warn" data-when="family" style="margin:14px 0 0">
+            <h3>Your family does need you now, though</h3>
+            <p>Your spouse and children don't travel on your permit — they enter on visit visas. Check whether their nationality gets a visa on arrival or has to apply in advance, and book them a return flight home, which visit visas require.</p>
+          </div>
+          <div class="btnrow"><a class="btn btn-ghost" href="#visas">How the visa process works</a><a class="btn btn-ghost" href="#help">Message your HR rep</a></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-rail"><span class="dot">6</span><span class="line"></span></div>
+      <div class="step-body">
+        <div class="step-title">Orientation details <span class="tag tag-time">Early August</span></div>
+        <p>Airport meet and greet, your induction schedule, the school calendar and transport arrangements all arrive together. Coffee mornings with your HR rep start around now.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-rail"><span class="dot">7</span><span class="line"></span></div>
+      <div class="step-body">
+        <div class="step-title">Arrival <span class="tag tag-you">You do this</span></div>
+        <p>Get your entry permit stamped by immigration at the airport. A colleague will be waiting to meet you and take you to your apartment.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-rail"><span class="dot">8</span><span class="line"></span></div>
+      <div class="step-body">
+        <div class="step-title">Medical insurance <span class="tag tag-hr">HR does this</span></div>
+        <p>HR applies once your Emirates ID application form is complete. <span data-when="family">Your family should hold their own cover for the first 45 days while theirs is set up.</span></p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-rail"><span class="dot">9</span><span class="line"></span></div>
+      <div class="step-body">
+        <div class="step-title">Visa medical <span class="tag tag-you">You attend</span></div>
+        <p data-when="dubai">HR books the appointment. In Dubai this is at a Medical Fitness Centre — a blood test and an x-ray, or just the blood test if you've lived in Dubai before.</p>
+        <p data-when="abudhabi">HR books the appointment. In Abu Dhabi this is at the Etihad Visa Screening Centre — a blood test and an x-ray.</p>
+        <p data-when="other">HR books the appointment at a Medical Fitness Centre — a blood test and an x-ray.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-rail"><span class="dot">10</span><span class="line"></span></div>
+      <div class="step-body">
+        <div class="step-title">Residence visa and Emirates ID <span class="tag tag-time">Up to 10 days</span></div>
+        <p>Biometrics and an eye scan at an Emirates ID centre, then your card is sent to HR. This is the step that unlocks your bank account, your driving licence and your family's visas.</p>
+      </div>
+    </div>
+
+    <div class="step" data-when="family">
+      <div class="step-rail"><span class="dot">11</span></div>
+      <div class="step-body">
+        <div class="step-title">Family visas <span class="tag tag-you">You arrange and pay</span></div>
+        <p>Can't begin until step 10 is finished. You'll need attested marriage and birth certificates with Arabic legal translations — start those early, because they're slow.</p>
+        <div class="btnrow"><a class="btn btn-ghost" href="#visas">What you'll need</a></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ DOCUMENTS ============ -->
+<section class="page" id="documents">
+  <div class="eyebrow">Getting ready</div>
+  <h1>Your documents</h1>
+  <p class="lede">The Staff Information Form sent with your Letter of Intent lists everything required — for your teaching approval, your visa, your insurance and your personnel file.</p>
+
+  <div class="note note-warn">
+    <h3>Scans get rejected more often than anything else</h3>
+    <p>Send clear, colour copies as PDF or JPG. Photos of documents and CamScanner files cannot be used for official purposes and are rejected automatically. Use a colour scanner.</p>
+  </div>
+
+  <h2>References</h2>
+  <p>You need two, covering the last five years of employment. If you've had more than two employers in that time, you'll need more references to cover the full five years.</p>
+  <ul>
+    <li>Academic applicants: from your current or previous School Principal</li>
+    <li>Administrative applicants: from your direct Line Manager</li>
+    <li>Not from relatives or friends, and not from a private email address</li>
+    <li>Fully completed, signed and dated by every referee</li>
+  </ul>
+  <p>Referees are asked about your suitability to work with children, your conduct and attendance, any disciplinary procedures, and any substantiated concerns relating to the safety and welfare of children.</p>
+
+  <h2>Police clearance</h2>
+  <p>A police clearance or criminal background check from your country of residence, always covering the last five years.</p>
+  <table>
+    <tr><th>Requirement</th><th>Detail</th></tr>
+    <tr><td class="mono">Coverage</td><td>The last five years. If you've lived in your current country for under five years, you need a second check from your previous country too.</td></tr>
+    <tr><td class="mono">Age</td><td>Dated within three months of your joining date.</td></tr>
+    <tr><td class="mono">Scope</td><td>Must cover the whole country. State or county-restricted checks are not accepted for overseas candidates.</td></tr>
+  </table>
+
+  <h2>What happens next</h2>
+  <p>Everything goes to your HR representative through Oracle, and is used for your KHDA, ADEK or MOE approval, your visa application, your medical insurance and your school records.</p>
+  <div class="btnrow"><a class="btn btn-ghost" href="#attestation">Which documents need attesting</a></div>
+</section>
+
+<!-- ============ ATTESTATION ============ -->
+<section class="page" id="attestation">
+  <div class="eyebrow">Getting ready</div>
+  <h1>Attestation</h1>
+  <p class="lede">Your certificates have to be verified by the UAE Embassy and the Ministry of Foreign Affairs before they count here. It's the longest task in the whole process, and it's the one most likely to delay your start.</p>
+
+  <div class="note note-urgent">
+    <h3>Begin the day you accept</h3>
+    <p>Attestation routinely takes six weeks or more depending on your country. Your visa can't be processed without it, and you can't sponsor your family without it either.</p>
+  </div>
+
+  <h2>Which documents</h2>
+  <ul>
+    <li>Your degree and teaching qualification</li>
+    <li data-when="family">Your marriage certificate</li>
+    <li data-when="family">Birth certificates for your children</li>
+    <li data-when="family">A name change certificate, if applicable</li>
+  </ul>
+  <p data-when="family">Family documents need attesting a second time by the UAE Embassy in order for you to sponsor your dependents. Sponsorship is your responsibility and is done at your own cost — your HR representative will guide you through it.</p>
+
+  <h2 data-when="overseas">Attesting before you come</h2>
+  <ol data-when="overseas">
+    <li>Have your certificates notarised by a solicitor</li>
+    <li>UK certificates only: legalised by the FCO</li>
+    <li>Attested by the UAE Embassy in the country the certificates were issued</li>
+    <li>Bring the documents or copies to the UAE and submit them to the Ministry of Foreign Affairs for final attestation</li>
+  </ol>
+
+  <h2 data-when="inuae">Attesting once you're here</h2>
+  <ol data-when="inuae">
+    <li>Take the documents to your home country's embassy for authentication</li>
+    <li>Take them to the Department of Foreign Affairs to verify authenticity</li>
+    <li>Take them to the Ministry of Foreign Affairs in Dubai for final attestation</li>
+  </ol>
+  <p data-when="inuae">Alternatively, you can send your documents back to your home country and have the whole process completed there.</p>
+
+  <h2>Using a service</h2>
+  <p>Taaleem has partnered with two external attestation providers if you'd rather not handle it yourself. Both charge their own fees.</p>
+  <div class="grid g2">
+    <div class="card"><h3>Work Abroad Legal</h3><p>Attestation service partner</p></div>
+    <div class="card"><h3>Argentum</h3><p>Attestation service partner</p></div>
+  </div>
+
+  <div class="note note-calm">
+    <p><strong>Bring the originals.</strong> Not copies. You'll need the physical attested documents with you when you arrive.</p>
+  </div>
+</section>
+
+<!-- ============ VISAS ============ -->
+<section class="page" id="visas">
+  <div class="eyebrow">Getting ready</div>
+  <h1>Visas and sponsorship</h1>
+  <p class="lede">Your HR representative handles the entire visa process for you. This page explains what's happening, and the two points where you have to turn up in person.</p>
+
+  <div class="note note-calm">
+    <p>Working in the UAE requires an employment visa for the whole of your employment. Once you arrive you have a 30-day window to complete it, and HR will move it along within that time.</p>
+  </div>
+
+  <h2>How it runs</h2>
+  <ol>
+    <li>Your entry permit is processed and emailed to you</li>
+    <li>You arrive and your status is changed</li>
+    <li><strong>You attend a medical</strong> — blood test and x-ray<span data-when="dubai">, or blood test only if you've lived in Dubai before</span></li>
+    <li><strong>You attend an Emirates ID centre</strong> for biometrics and an eye scan<span data-when="dubai">, which you may be able to skip if you've lived in the UAE before</span></li>
+    <li>You return all documents and your passport to HR, who complete the process</li>
+    <li>Your Emirates ID is issued and handed to you once it reaches the school</li>
+  </ol>
+
+  <div class="note note-warn">
+    <p><strong>If your passport ever changes, tell HR immediately.</strong> Your visa is linked to your Emirates ID, and out-of-date passport details in the immigration system cause problems when you travel.</p>
+  </div>
+
+  <div data-when="family">
+    <h2>Sponsoring your family</h2>
+    <p>Family visa applications can only start once your own residence visa and Emirates ID are issued. Expect a gap of a few weeks.</p>
+    <table>
+      <tr><th>You'll need</th><th>Where it comes from</th></tr>
+      <tr><td>Your own visa and Emirates ID</td><td>Issued at step 10</td></tr>
+      <tr><td>An Arabic salary certificate</td><td>HR has a template</td></tr>
+      <tr><td>Attested marriage certificate with Arabic legal translation</td><td>You arrange</td></tr>
+      <tr><td>Attested birth certificates with Arabic legal translation</td><td>You arrange</td></tr>
+      <tr><td>Tenancy contract (Ejari)</td><td>Ask your Building Manager if you're in Taaleem accommodation</td></tr>
+      <tr><td>Fully signed employment contract</td><td>HR</td></tr>
+      <tr><td>Passports and photographs of your dependents</td><td>You provide</td></tr>
+    </table>
+    <p>Visit any AMER Centre to begin. Requirements change from time to time, so the GDRFA website will always have the most current position.</p>
+    <p class="step-meta">AMER: +971 42 300 500 &middot; WhatsApp +971 58 125 7700</p>
+  </div>
+
+  <h2>Occupational Health Certificate</h2>
+  <p>Required if you work with students aged six and under, if you're a PE teacher, or if your role touches public health or food handling. Issued by the Dubai Health Authority, valid for a year, and involves an x-ray, a blood sample and a stool sample. Your HR representative will tell you if you need one.</p>
+</section>
+
+<!-- ============ APPROVAL ============ -->
+<section class="page" id="approval">
+  <div class="eyebrow">Getting ready</div>
+  <h1>Teaching approval</h1>
+  <p class="lede">Every teacher and learning assistant must meet the regulator's criteria before they can be employed by a Taaleem school. Your HR representative submits this on your behalf — but only once your documents are in.</p>
+
+  <div class="note note-urgent">
+    <h3>This happens before you fly</h3>
+    <p>Your approval is applied for well before you arrive in August. Missing the document deadlines your HR representative gives you delays the approval, and the approval gates everything else.</p>
+  </div>
+
+  <h2>Who approves you</h2>
+  <table>
+    <tr><th>Regulator</th><th>Covers</th></tr>
+    <tr><td class="mono">KHDA</td><td>The Knowledge and Human Development Authority — the education quality and regulatory authority for the Government of Dubai.</td></tr>
+    <tr><td class="mono">ADEK</td><td>The Abu Dhabi Department of Education and Knowledge — the education authority for the Emirate of Abu Dhabi.</td></tr>
+    <tr><td class="mono">MOE</td><td>The Ministry of Education, responsible for regulating all forms of education across the UAE.</td></tr>
+  </table>
+
+  <div class="note note-good" data-when="dubai">
+    <p><strong>You're joining a Dubai school</strong>, so your approval goes through KHDA.</p>
+  </div>
+  <div class="note note-good" data-when="abudhabi">
+    <p><strong>You're joining an Abu Dhabi school</strong>, so your approval goes through ADEK.</p>
+  </div>
+
+  <p>Everything listed on your Staff Information Form is used in this application, which your HR representative submits through the regulator's online portal.</p>
+  <div class="btnrow"><a class="btn btn-ghost" href="#documents">Check your document list</a></div>
+</section>
+
+<!-- ============ ORACLE ============ -->
+<section class="page" id="oracle">
+  <div class="eyebrow">Getting ready</div>
+  <h1>Oracle</h1>
+  <p class="lede">Oracle is where your onboarding tasks live before you join, and where you'll request leave, download payslips and check your insurance afterwards.</p>
+
+  <h2>Before you join</h2>
+  <ol>
+    <li>Your login arrives by email and takes you to the Taaleem onboarding platform with a list of tasks</li>
+    <li>As you complete each task, your HR representative is notified automatically</li>
+    <li>Anything technical goes through your HR representative, who can raise a helpdesk query</li>
+  </ol>
+
+  <h2>Once you've joined</h2>
+  <p>After your Office 365 account is set up on your laptop, Oracle is reached through the Office 365 portal — look for the <strong>Oracle Fusion HCM</strong> icon. There's a short video demo and an Employee Self Service manual if you get stuck signing in.</p>
+
+  <div class="note note-calm">
+    <p><strong>What you'll use it for later:</strong> leave requests, letter requests, payslips, HR updates and your medical insurance details.</p>
+  </div>
+</section>
+
+<!-- ============ INSURANCE ============ -->
+<section class="page" id="insurance">
+  <div class="eyebrow">Getting ready</div>
+  <h1>Medical insurance</h1>
+  <p class="lede">Your cover is arranged by HR once your Emirates ID application form is complete, and managed day to day through the Sukoon app.</p>
+
+  <div class="note note-urgent">
+    <h3>In an emergency, go straight to a hospital</h3>
+    <p>Don't wait for approval. Rashid Hospital in Bur Dubai treats all emergency cases free of charge. For anything that isn't an emergency, use a clinic rather than a hospital.</p>
+  </div>
+
+  <div class="note note-warn" data-when="family">
+    <p><strong>Your family needs their own cover for the first 45 days.</strong> Their Taaleem insurance can't begin until your residency is issued, so arrange interim cover before you travel.</p>
+  </div>
+
+  <h2>What's covered</h2>
+  <p>Alongside standard medical cover, your policy includes psychiatry, eye care and blood tests. Once your employment visa is processed you can see everything in the Sukoon app.</p>
+  <div class="grid g2">
+    <div class="card"><h3>In the app</h3><p>Digital insurance card, symptom checker, find a facility, book appointments, submit and track claims, reimbursement by bank transfer, and video consultations.</p></div>
+    <div class="card"><h3>How to get it</h3><p>Download Sukoon from the App Store, Google Play or HUAWEI AppGallery. Keep your contact details current so notifications reach you.</p></div>
+  </div>
+
+  <h2>How billing works</h2>
+  <table>
+    <tr><th>Situation</th><th>What happens</th></tr>
+    <tr><td>Inside the network</td><td>Direct billing. Taaleem's network of clinics and hospitals is extensive — there's more than enough choice.</td></tr>
+    <tr><td>Outside the network</td><td>Additional cost, always pay and claim. Avoid where you can.</td></tr>
+    <tr><td>Every visit</td><td>There's a co-payment, plus a small percentage contribution on pharmacy prescriptions.</td></tr>
+  </table>
+
+  <h2>Getting help with a claim</h2>
+  <p>Claims support and escalations are handled by Lockton. Your HR representative has the current contacts, and there's an out-of-hours emergency hotline covering evenings after 5pm, weekends and public holidays.</p>
+  <div class="btnrow"><a class="btn btn-ghost" href="#help">Get the claims contacts</a></div>
+</section>
+
+<!-- ============ UAE ============ -->
+<section class="page" id="uae">
+  <div class="eyebrow">Moving to the UAE</div>
+  <h1>About the UAE</h1>
+  <p class="lede">A federation of seven emirates on the eastern side of the Arabian Peninsula, formed on 2 December 1971. Around 9.9 million people live here, and roughly 88 in every 100 are expatriates.</p>
+
+  <h2>The seven emirates</h2>
+  <table>
+    <tr><th>Emirate</th><th>Population</th><th>Dialling code</th></tr>
+    <tr><td>Dubai</td><td class="mono">3.32m</td><td class="mono">04</td></tr>
+    <tr><td>Abu Dhabi</td><td class="mono">3.23m</td><td class="mono">02</td></tr>
+    <tr><td>Sharjah</td><td class="mono">1.51m</td><td class="mono">06</td></tr>
+    <tr><td>Ajman</td><td class="mono">0.54m</td><td class="mono">06</td></tr>
+    <tr><td>Ras Al Khaimah</td><td class="mono">0.39m</td><td class="mono">07</td></tr>
+    <tr><td>Fujairah</td><td class="mono">0.25m</td><td class="mono">09</td></tr>
+    <tr><td>Umm Al Quwain</td><td class="mono">0.08m</td><td class="mono">06</td></tr>
+  </table>
+  <p>Al Ain, in the Emirate of Abu Dhabi, has its own dialling code of 03. The international code for the UAE is +971.</p>
+
+  <h2>Language and money</h2>
+  <p>Arabic is the official language, but Arabic and English are both official business languages and a great many others are spoken across the expatriate community. The currency is the Emirati Dirham (AED), divided into 100 fils, with notes from 5 to 1,000.</p>
+
+  <h2>Climate</h2>
+  <p>A desert climate: mild, pleasant winters and very hot summers, with humidity that makes the heat harder work than the number suggests.</p>
+  <table>
+    <tr><th>Season</th><th>What to expect</th></tr>
+    <tr><td class="mono">Dec&ndash;Feb</td><td>The coolest months, around 18&ndash;23&deg;C. Windy days in January. Popular for mountains and camping.</td></tr>
+    <tr><td class="mono">Jun&ndash;Aug</td><td>35&ndash;36&deg;C average and daytime highs of 40&ndash;45&deg;C, feeling like 50&ndash;55&deg;C. Almost everything is air conditioned.</td></tr>
+    <tr><td class="mono">Dec&ndash;Mar</td><td>What rain there is falls now, and it's infrequent — occasionally intense downpours.</td></tr>
+  </table>
+  <p>You'll be arriving in August, which is the hottest month of the year. It's a lot on day one, and it does become normal.</p>
+</section>
+
+<!-- ============ CULTURE ============ -->
+<section class="page" id="culture">
+  <div class="eyebrow">Moving to the UAE</div>
+  <h1>Culture and customs</h1>
+  <p class="lede">The UAE welcomes newcomers, and it does so with clear expectations. Knowing them makes life here easier from the first week.</p>
+
+  <h2>What matters here</h2>
+  <p>Hospitality, tolerance, family cohesion and solidarity run through Emirati society, along with real pride in that heritage. After faith, family comes first — children are considered jewels and family structures are close-knit.</p>
+  <p>The country's roots are in trade, fishing and pearl diving, which was the main source of income for many well into the early twentieth century. That history sits alongside a strong present-day push in science, technology and innovation.</p>
+
+  <h2>Ramadan</h2>
+  <p>The ninth month of the Islamic calendar, observed as a month of fasting, prayer, reflection and community. The dates shift each year because they follow the lunar cycle.</p>
+  <div class="note note-warn">
+    <p><strong>Don't eat, drink or smoke in public during daylight hours.</strong> This applies to non-Muslims too, and it's taken seriously — doing so can attract a fine or a reprimand from the police. Restaurants stay open and serve as normal, and most businesses work shorter hours.</p>
+  </div>
+
+  <h2>Food and drink</h2>
+  <p>An enormous range of cuisines, and supermarkets that cater to a very diverse population. Imported products cost more; local produce is cheap and good. Pork isn't served in most restaurants — designated venues hold pork licences, and selected supermarkets have separately labelled areas.</p>
+</section>
+
+<!-- ============ CONDUCT ============ -->
+<section class="page" id="conduct">
+  <div class="eyebrow">Moving to the UAE</div>
+  <h1>Code of conduct</h1>
+  <p class="lede">These are the professional, behavioural and moral obligations every Taaleem employee commits to, towards students, parents, colleagues and UAE society. Read this one properly — breaches can result in penalties against you.</p>
+
+  <h2>Appearance and behaviour</h2>
+  <ul>
+    <li>No tight or otherwise inappropriate clothing for a working environment</li>
+    <li>No clothing carrying text or images offensive to the religion and culture of the UAE</li>
+    <li>No verbal or physical violence with students, and no unjustified physical contact outside the functional requirements of teaching</li>
+    <li>No discussion of actions that contradict prevailing UAE customs and traditions</li>
+    <li>Nothing that hinders identification of staff during working hours, including face covering, other than medical masks or health reasons</li>
+  </ul>
+
+  <h2>Conversations with students</h2>
+  <p>Don't engage students in conversation about sensitive topics — including human reproduction and homosexuality — where it doesn't serve a clear educational purpose within the curriculum agreed for your school.</p>
+  <p>Similarly, avoid religious topics that provoke division or fall outside the country's approved Islamic Studies curriculum, and avoid the internal or external policies of any country, along with rumours or unverified claims that could disturb public order.</p>
+
+  <h2>Resources and conflicts of interest</h2>
+  <ul>
+    <li>No gifts from students or their families, on or off campus, and no favouritism or nepotism</li>
+    <li>No financial participation that could jeopardise the school's goals or activities</li>
+    <li>No use of work resources for personal purposes or personal gain, and no wasteful spending</li>
+    <li>No private lessons without the appropriate authorisation</li>
+  </ul>
+
+  <h2>Alcohol, smoking and substances</h2>
+  <ul>
+    <li>Never come to work under the influence of alcohol or drugs</li>
+    <li>No smoking on school campus or in the yards</li>
+    <li>No sharing of prohibited materials with colleagues or students</li>
+  </ul>
+
+  <h2>Confidentiality and social media</h2>
+  <ul>
+    <li>Don't publish photographs of the school, staff, students or parents without the prior consent of everyone involved</li>
+    <li>Don't spread rumours or negative comment through any form of electronic communication</li>
+    <li>Don't make public comments that detract from the reputation of colleagues, the Ministry of Education, or education generally — this applies outside working hours too</li>
+    <li>Don't share confidential or sensitive information with anyone not authorised to have it</li>
+    <li>Don't disclose curricula or examination content</li>
+  </ul>
+</section>
+
+<!-- ============ ACCOMMODATION ============ -->
+<section class="page" id="accommodation">
+  <div class="eyebrow">Getting settled</div>
+  <h1>Your accommodation</h1>
+  <p class="lede">If you opted for Taaleem Provided Accommodation, you'll be taken there straight from the airport.</p>
+
+  <div class="note note-good">
+    <p><strong>There'll be a welcome pack waiting</strong> with basic food and essentials, so you don't have to find a supermarket on your first night. Someone will also help you locate local amenities to get the apartment equipped.</p>
+  </div>
+
+  <h2>What's included</h2>
+  <p>All Taaleem accommodation is approved and sourced by the Housing Department, and includes gym and pool access.</p>
+  <table>
+    <tr><th>Cost</th><th>Who pays</th></tr>
+    <tr><td>Rent</td><td>Covered by Taaleem</td></tr>
+    <tr><td>Utilities, air conditioning and wifi</td><td>Payable by you, monthly</td></tr>
+  </table>
+
+  <h2>Meeting you at the airport</h2>
+  <p>A member of staff will be at arrivals to meet and greet you, whether or not you're in Taaleem accommodation. Your flight details come to HR with your e-tickets, so they know when to expect you.</p>
+
+  <div class="note note-calm" data-when="family">
+    <p>If your children will attend a Taaleem school, staff admissions are handled separately from your accommodation — raise it with your HR representative early, since places fill before term starts.</p>
+  </div>
+</section>
+
+<!-- ============ MONEY ============ -->
+<section class="page" id="money">
+  <div class="eyebrow">Getting settled</div>
+  <h1>Money and banking</h1>
+  <p class="lede">You can't open a UAE bank account until your visa and Emirates ID are complete, and you can't be paid without one. Bring enough money to cover your first few weeks.</p>
+
+  <div class="note note-warn">
+    <h3>Bring enough for the first few weeks</h3>
+    <p>There's a real gap between arriving and having a working local account. Make sure you can cover essentials, travel and setting up your apartment until your first payday.</p>
+  </div>
+
+  <h2>When you get paid</h2>
+  <table>
+    <tr><th>Situation</th><th>When</th></tr>
+    <tr><td>Standard</td><td>Salaries are released in the last week of the month.</td></tr>
+    <tr><td>Joined mid-month</td><td>Paid pro rata.</td></tr>
+    <tr><td>Joined after the 22nd</td><td>Paid with the following month's payroll.</td></tr>
+    <tr><td>Joining for August induction</td><td>First payment at the end of August: salary from your official joining date, plus relocation and housing allowances if you're eligible.</td></tr>
+  </table>
+  <p>Salaries are only payable in UAE Dirhams, transferred directly into a UAE bank account. Open one as soon as you can — HR will support you.</p>
+
+  <h2>Opening an account</h2>
+  <p>Taaleem has dedicated account managers at ADCB, Emirates NBD and HSBC.</p>
+  <p><strong>You'll need:</strong> your Letter of Intent, a salary certificate and a passport copy. Submit everything electronically and the bank will arrange a time to obtain your signature.</p>
+  <div class="note note-calm">
+    <p><strong>Your card arrives in 2&ndash;3 working days by Aramex courier.</strong> You need your original passport to receive it. If you won't have it, tell the bank in advance so Aramex can accept a passport copy instead — and note the copy must carry the Taaleem company stamp, which HR can arrange.</p>
+  </div>
+</section>
+
+<!-- ============ CONNECTIVITY ============ -->
+<section class="page" id="connectivity">
+  <div class="eyebrow">Getting settled</div>
+  <h1>Phone, wifi and apps</h1>
+  <p class="lede">Two operators cover the country: Etisalat and du. You can pick up a SIM card in arrivals by showing your passport.</p>
+
+  <div class="note note-calm">
+    <p><strong>For a postpaid plan you'll need more.</strong> Your original Emirates ID and a UAE bank-issued credit card, neither of which you'll have on day one. Start on prepaid and switch later.</p>
+  </div>
+
+  <h2>Emergency numbers</h2>
+  <table>
+    <tr><th>Service</th><th>Number</th></tr>
+    <tr><td>Police</td><td class="mono">999</td></tr>
+    <tr><td>Ambulance</td><td class="mono">998</td></tr>
+    <tr><td>Fire (Civil Defence)</td><td class="mono">997</td></tr>
+  </table>
+  <p>These work anywhere in the UAE. Worth saving before you land.</p>
+
+  <h2>Apps worth having</h2>
+  <div class="grid g2">
+    <div class="card"><h3>Getting around</h3><p>Careem, Uber and Cafu for rides and fuel. RTA Dubai Drive, Google Maps and Waze for navigation.</p></div>
+    <div class="card"><h3>Food</h3><p>Talabat and Deliveroo for restaurants. InstaShop, Noon and Kibsons for groceries.</p></div>
+    <div class="card"><h3>Weekends</h3><p>Dubai Calendar, Visit Abu Dhabi, The Entertainer and Privilee for events and offers.</p></div>
+    <div class="card"><h3>Language</h3><p>Duolingo, if you'd like to pick up some Arabic.</p></div>
+  </div>
+</section>
+
+<!-- ============ TRANSPORT ============ -->
+<section class="page" id="transport">
+  <div class="eyebrow">Getting settled</div>
+  <h1>Getting around</h1>
+  <p class="lede">Transport between your accommodation and school is provided throughout your induction week, so you don't need to solve this in your first few days.</p>
+
+  <h2>Before you have residency</h2>
+  <p>You can't get a UAE driving licence until your residency comes through, but renting is straightforward during the change-of-status period. Taaleem partners with Thrifty and Dollar, who will accommodate you in your first days here.</p>
+  <p><strong>To rent you'll need:</strong> a passport copy, a licence copy, and a tourist or employment visa copy. Costs vary, but budget roughly 1,500&ndash;1,600 AED a month as a starting point.</p>
+
+  <h2>Converting your licence</h2>
+  <p>Whether you can swap your licence without taking a test depends on where it was issued and on your citizenship. The RTA maintains the list of approved countries for direct exchange.</p>
+  <table>
+    <tr><th>You'll need</th></tr>
+    <tr><td>Emirates ID, original and copy</td></tr>
+    <tr><td>Your driving licence, original and copy</td></tr>
+    <tr><td>Electronic eye test results</td></tr>
+    <tr><td>An NOC from Taaleem, if required</td></tr>
+    <tr><td>A completed licence conversion form and two passport-sized photos</td></tr>
+    <tr><td>A copy of your passport page and residence visa</td></tr>
+  </table>
+  <table>
+    <tr><th>Fee</th><th>Amount</th></tr>
+    <tr><td>Opening a new file</td><td class="mono">AED 200</td></tr>
+    <tr><td>Issuing the licence</td><td class="mono">AED 600</td></tr>
+    <tr><td>Handbook manual</td><td class="mono">AED 50</td></tr>
+    <tr><td>Knowledge and innovation fees</td><td class="mono">AED 20</td></tr>
+  </table>
+
+  <h2>Tolls</h2>
+  <p data-when="dubai">Salik gates in Dubai charge AED 4 each time you pass through one.</p>
+  <p data-when="abudhabi">Abu Dhabi charges AED 4 per vehicle at toll gates during peak hours only — 7 to 9am and 5 to 7pm, Saturday to Thursday.</p>
+  <p data-when="other">Salik gates in Dubai charge AED 4 per crossing. Abu Dhabi charges AED 4 during peak hours only, 7 to 9am and 5 to 7pm, Saturday to Thursday.</p>
+</section>
+
+<!-- ============ EXPLORE ============ -->
+<section class="page" id="explore">
+  <div class="eyebrow">Getting settled</div>
+  <h1>Exploring the UAE</h1>
+  <p class="lede">Dubai and Abu Dhabi get the attention, but the other five emirates are worth your weekends too. Here's a starting list.</p>
+
+  <div class="grid g2">
+    <div class="card"><h3>Dubai</h3><p>Burj Khalifa, the historic souks either side of the creek, Sky Dive Dubai, Global Village, Miracle Garden, and Ski Dubai when the heat wins. The Metro and hop-on buses cover a lot of ground.</p></div>
+    <div class="card"><h3>Abu Dhabi</h3><p>Sheikh Zayed Grand Mosque, Louvre Abu Dhabi, Emirates Palace and the Corniche. Yas Island holds Ferrari World, Warner Bros World and Yas Waterworld.</p></div>
+    <div class="card"><h3>Ras Al Khaimah</h3><p>Mountains, rock climbing and camping, plus the world's longest zipline at Jebel Jais.</p></div>
+    <div class="card"><h3>Fujairah</h3><p>On the Gulf of Oman coast. Diving and snorkelling, Snoopy Island for coral, turtles and reef sharks, and the country's oldest castle.</p></div>
+    <div class="card"><h3>Sharjah</h3><p>The Khor Fakkan amphitheatre and waterfall, and a lot for families.</p></div>
+    <div class="card"><h3>Ajman and Umm Al Quwain</h3><p>The quieter end. Ajman Museum in a restored fort, Al Hamriya Beach, and mangroves and kite surfing at Umm Al Quwain.</p></div>
+  </div>
+
+  <div class="note note-calm">
+    <p>Social life here can get expensive quickly if you let it. Most people find that after the first few months they settle into something a lot more sustainable.</p>
+  </div>
+</section>
+
+<!-- ============ PROBATION ============ -->
+<section class="page" id="probation">
+  <div class="eyebrow">Working at Taaleem</div>
+  <h1>Your probation</h1>
+  <p class="lede">Six months, in line with UAE labour law, with structured check-ins along the way. It's designed as a conversation, not an exam.</p>
+
+  <h2>What happens when</h2>
+  <table>
+    <tr><th>When</th><th>What</th></tr>
+    <tr><td class="mono">October</td><td>Lesson observation and your first probation review. You may also have an additional mid-probation review if it would help.</td></tr>
+    <tr><td class="mono">February</td><td>Final probation review, before your probation is confirmed.</td></tr>
+  </table>
+
+  <p>Alongside formal lesson observations, you'll have a first probation meeting with your Line Manager within your first couple of months. These are two-way conversations — a chance to talk about how it's going and where you'd like more support.</p>
+
+  <div class="note note-good">
+    <p><strong>Don't wait for the formal meeting.</strong> If something isn't working, raise it with your Line Manager when it happens.</p>
+  </div>
+
+  <div class="note note-warn">
+    <p><strong>One thing to know:</strong> under UAE labour law there's no paid sick leave during probation. See <a class="link" href="#leave">types of leave</a> for the detail.</p>
+  </div>
+</section>
+
+<!-- ============ PERFORMANCE ============ -->
+<section class="page" id="performance">
+  <div class="eyebrow">Working at Taaleem</div>
+  <h1>Performance and appraisal</h1>
+  <p class="lede">Everyone has an annual appraisal, and the cycle runs with the academic year rather than the calendar year.</p>
+
+  <h2>The cycle</h2>
+  <div class="grid g2">
+    <div class="card"><span class="card-num">Plan</span><h3>Set objectives</h3><p>SMART objectives and an agreed personal development plan.</p></div>
+    <div class="card"><span class="card-num">Act</span><h3>Do the work</h3><p>Achieve the objectives, carry out your role, work through your development plan.</p></div>
+    <div class="card"><span class="card-num">Track</span><h3>Check progress</h3><p>Regular feedback and coaching along the way.</p></div>
+    <div class="card"><span class="card-num">Evaluate</span><h3>Review</h3><p>Review achievements, identify areas to improve, discuss career goals, agree actions.</p></div>
+  </div>
+
+  <h2>Your first year</h2>
+  <p>As a new employee your targets and KPIs are usually set by the end of Term 1. Towards the end of the academic year you'll have a formal end-of-year appraisal meeting with your Line Manager, who'll confirm exact dates with you.</p>
+  <p>Objectives should be specific, measurable, achievable, relevant and time-bound — clearly defined, quantifiable, realistic, aligned to the wider strategy, and set within a time frame.</p>
+</section>
+
+<!-- ============ LEAVE ============ -->
+<section class="page" id="leave">
+  <div class="eyebrow">Working at Taaleem</div>
+  <h1>Types of leave</h1>
+  <p class="lede">Beyond your annual leave, which follows the school calendar, there are four other kinds you should know about.</p>
+
+  <h2>Sick leave</h2>
+  <p class="step-meta">Maximum 15 calendar days per year</p>
+  <div class="note note-warn">
+    <p><strong>Call your Line Manager. Don't email or message.</strong> Notification must be by phone, before the start of normal office hours, and no later than 6:30am on the first morning of absence.</p>
+  </div>
+  <ul>
+    <li>A medical certificate is required from day three, and must be an official document from the Dubai or Abu Dhabi Health Authority, at your own expense</li>
+    <li>Under UAE labour law there's no paid sick leave during your probation period</li>
+    <li>Weekends immediately before or after a period of sick leave aren't counted — but if the absence runs across both sides of a weekend, those days do count, and the certificate must cover the whole period including the weekend</li>
+  </ul>
+
+  <h2>Compassionate leave</h2>
+  <p class="step-meta">Maximum 5 working days per year</p>
+  <p>Taaleem understands that living away from home means a bereavement may require you to travel at short notice. Compassionate leave covers the death of a close family member — parent, sibling, spouse, child, grandparent, mother-in-law or father-in-law.</p>
+
+  <h2>Emergency leave</h2>
+  <p class="step-meta">Maximum 5 working days per year</p>
+  <p>For the hospitalisation of a dependent, or an embassy or government appointment that can only be taken during working hours. Both compassionate and emergency leave are approved by your Principal, following your school's procedure.</p>
+  <div class="note note-good">
+    <p><strong>In a genuine emergency, contact someone first and sort the paperwork afterwards.</strong></p>
+  </div>
+
+  <h2>Well-being leave</h2>
+  <p class="step-meta">1 working day per academic year</p>
+  <p>A paid day dedicated to your physical, mental and emotional health. It has to be taken on its own and can't be combined with other types of leave.</p>
+</section>
+
+<!-- ============ INSPECTIONS ============ -->
+<section class="page" id="inspections">
+  <div class="eyebrow">Working at Taaleem</div>
+  <h1>School inspections</h1>
+  <p class="lede">KHDA in Dubai and ADEK in Abu Dhabi inspect schools rigorously. If you haven't been through one before, here's what actually happens.</p>
+
+  <h2>The week itself</h2>
+  <p>Schools get five days' notice. The inspection team arrives just before the school day on Monday and leaves on Thursday.</p>
+  <ul>
+    <li>Lesson observations are a significant part of it, across a cross-section of teachers in all phases — but it's unlikely everyone will be observed</li>
+    <li><strong>The observation schedule isn't shared in advance</strong>, and observations range from part of a lesson to a full one</li>
+    <li>Inspectors are looking at learning, teaching, attainment and progress, and also at learning support, behaviour, use of resources and provision for SEN students</li>
+    <li>Inspectors talk to groups of students, meet staff, the Governing Body and parents</li>
+  </ul>
+
+  <h2>What you need to have ready</h2>
+  <p>Your planning file and relevant assessment data. That's it.</p>
+
+  <div class="note note-good">
+    <h3>You won't be graded</h3>
+    <p>Feedback to teachers after lessons is optional, and you won't receive a judgement grade or anything in writing. Inspections judge the school, not you individually.</p>
+  </div>
+
+  <h2>Afterwards</h2>
+  <p>The lead inspector gives school leaders an emerging picture at the end of each day, so the school can supply more evidence if needed. An oral report on Thursday sets out strengths and main areas for improvement. Judgements stay provisional and confidential until quality assurance is complete, and the final report is published on the regulator's website later in the academic year.</p>
+</section>
+
+<!-- ============ ILOE ============ -->
+<section class="page" id="iloe">
+  <div class="eyebrow">Working at Taaleem</div>
+  <h1>Unemployment insurance</h1>
+  <p class="lede">The ILOE scheme provides income if you lose your job for reasons other than resignation or disciplinary action. Subscription has been mandatory since 1 January 2023 under Federal Decree Law No. 13 of 2022.</p>
+
+  <div class="note note-urgent">
+    <h3>You subscribe to this yourself</h3>
+    <p>It's mandatory but it isn't automatic — it's not deducted through payroll and Taaleem doesn't enrol you. Sort it once your Emirates ID arrives.</p>
+  </div>
+
+  <h2>What you'd receive</h2>
+  <p>60% of your average basic salary over the six months before the job loss, for up to three months — provided you've been subscribed for at least twelve consecutive months.</p>
+
+  <h2>To subscribe</h2>
+  <p>You need your Emirates ID or Unified Number, and a valid UAE mobile number. The scheme is open to Emiratis and residents working in the private and federal government sectors.</p>
+  <p class="step-meta">ILOE: 600 599 555 &middot; iloehelp@iloe.ae</p>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="page" id="about">
+  <div class="eyebrow">More</div>
+  <h1>About Taaleem</h1>
+  <p class="lede">The second largest private education provider in the UAE, and a workplace of more than 88 nationalities.</p>
+
+  <blockquote style="border-left:3px solid var(--green);margin:22px 0;padding:2px 0 2px 18px;font-family:var(--display);font-size:20px;line-height:1.45;color:var(--ink)">
+    People are, and always will be, our greatest asset.
+    <span style="display:block;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);margin-top:9px">Alan Williamson, CEO</span>
+  </blockquote>
+
+  <h2>Vision and mission</h2>
+  <p>Our vision is to be the most respected provider of early childhood, primary and secondary education in the Gulf region.</p>
+  <p>Our mission is to inspire students to identify their passions and talents, and to develop the holistic skills that let them compete on the global stage and become responsible world citizens. We place as much emphasis on emotional, social, moral and physical development as on the academic.</p>
+
+  <h2>Our values</h2>
+  <div class="grid g2">
+    <div class="card"><h3>Pioneering</h3><p>Visionary &middot; authentic &middot; aspirational &middot; focused</p></div>
+    <div class="card"><h3>Professional</h3><p>Skilled &middot; principled &middot; insightful &middot; creative</p></div>
+    <div class="card"><h3>Spirited</h3><p>Courageous &middot; determined &middot; engaging &middot; adaptable</p></div>
+    <div class="card"><h3>Nurturing</h3><p>Inclusive &middot; respectful &middot; compassionate &middot; communicative</p></div>
+  </div>
+
+  <h2>Our schools</h2>
+  <p>Taaleem operates British, American and IB curriculum schools across Dubai and Abu Dhabi, alongside public-private partnership schools spanning six emirates, plus a group of nurseries. Whichever school you're joining, your Principal will introduce it properly during your induction.</p>
+  <p class="step-meta">School counts and student numbers are maintained on taaleem.ae</p>
+</section>
+
+<!-- ============ HELP ============ -->
+<section class="page" id="help">
+  <div class="eyebrow">More</div>
+  <h1>Ask a question</h1>
+  <p class="lede">Nobody expects you to get through this from a website alone. Here's who does what.</p>
+
+  <div class="grid g2">
+    <div class="card"><h3>Your HR representative</h3><p>Your main contact from offer through to your first term. Documents, visas, insurance, accommodation and anything you're unsure about.</p></div>
+    <div class="card"><h3>Your buddy</h3><p>A current Taaleem teacher paired with you. They did all of this last year and remember exactly which bits were confusing.</p></div>
+    <div class="card"><h3>Coffee mornings</h3><p>Sessions your HR rep runs from early August to talk through onboarding and answer questions as a group.</p></div>
+    <div class="card"><h3>WhatsApp and Teams</h3><p>Groups for new joiners, so you arrive already knowing a few names.</p></div>
+  </div>
+
+  <h2>Meetings before you start</h2>
+  <p>Two online meetings happen before your first day.</p>
+  <table>
+    <tr><th>Meeting</th><th>Covers</th></tr>
+    <tr><td>SLT and HR introduction</td><td>Meet the Senior Leadership Team, an introduction to your school from the Principal, living in the UAE, an overview of the academic programme, and open Q&amp;A.</td></tr>
+    <tr><td>Onboarding meeting with HR</td><td>The visa process, medical insurance, what your first days look like, your school induction, policies and work culture, and your benefits — accommodation or housing allowance, joining and annual flights, and admissions for your children.</td></tr>
+  </table>
+
+  <div class="note note-calm">
+    <p>There will be a lot of information to take in. That's normal, and you're not expected to hold all of it in your head — this guide isn't going anywhere.</p>
+  </div>
+</section>
+
+</main>
+</div>
+
+<div class="footer">
+  <div class="footer-in">
+    <span class="emerg">Emergency in the UAE &nbsp;&middot;&nbsp; 999 police &nbsp;&middot;&nbsp; 998 ambulance &nbsp;&middot;&nbsp; 997 fire</span>
+    <span>Questions? Contact your HR representative</span>
+  </div>
+</div>
+
+<div class="frame-foot"></div>
+
+<script>
+(function(){
+  var state = {origin:'overseas', emirate:'dubai', family:'family'};
+  var CATS = {
+    overseas:'origin', inuae:'origin',
+    dubai:'emirate', abudhabi:'emirate', other:'emirate',
+    alone:'family', family:'family'
+  };
+
+  /* ---- conditional content ---- */
+  function matches(spec){
+    var groups = {};
+    spec.split(/\s+/).filter(Boolean).forEach(function(tok){
+      var cat = CATS[tok];
+      if(!cat) return;
+      (groups[cat] = groups[cat] || []).push(tok);
+    });
+    for(var cat in groups){
+      if(groups[cat].indexOf(state[cat]) === -1) return false;
+    }
+    return true;
+  }
+  function applyFilters(){
+    document.querySelectorAll('[data-when]').forEach(function(el){
+      el.classList.toggle('is-hidden', !matches(el.getAttribute('data-when')));
+    });
+    document.querySelectorAll('[data-dim]').forEach(function(el){
+      el.classList.toggle('is-dimmed', !matches(el.getAttribute('data-dim')));
+    });
+  }
+
+  document.querySelectorAll('.chip').forEach(function(chip){
+    chip.addEventListener('click', function(){
+      var cat = chip.dataset.cat, val = chip.dataset.val;
+      state[cat] = val;
+      document.querySelectorAll('.chip[data-cat="'+cat+'"]').forEach(function(c){
+        c.setAttribute('aria-pressed', String(c === chip));
+      });
+      applyFilters();
+    });
+  });
+
+  /* ---- routing ---- */
+  var pages = document.querySelectorAll('.page');
+  var links = document.querySelectorAll('.sidebar a');
+  function show(id){
+    var found = false;
+    pages.forEach(function(p){
+      var on = (p.id === id);
+      p.classList.toggle('on', on);
+      if(on) found = true;
+    });
+    if(!found){ document.getElementById('home').classList.add('on'); id = 'home'; }
+    links.forEach(function(a){
+      a.classList.toggle('on', a.getAttribute('href') === '#' + id);
+    });
+    if(window.innerWidth <= 900){
+      document.getElementById('sidebar').classList.remove('open');
+      window.scrollTo(0,0);
+    }
+  }
+  function route(){ show((location.hash || '#home').slice(1)); }
+  window.addEventListener('hashchange', route);
+
+  /* ---- mobile nav ---- */
+  document.getElementById('mobnav').addEventListener('click', function(){
+    document.getElementById('sidebar').classList.toggle('open');
+  });
+
+  applyFilters();
+  route();
+})();
+</script>
+</body>
+</html>
