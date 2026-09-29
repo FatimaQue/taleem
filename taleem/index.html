@@ -1,0 +1,2498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Taaleem Staff Onboarding — your guide to joining</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --maroon:#9B1B30;
+  --maroon-deep:#71131F;
+  --maroon-wash:#FBF0F1;
+  --green:#6CBE45;
+  --green-deep:#4A8C2C;
+  --green-wash:#F1F8EC;
+  --ink:#1B1A18;
+  --ink-2:#55514C;
+  --ink-3:#8A847C;
+  --paper:#FFFFFF;
+  --wash:#F7F5F1;
+  --rule:#E5E1D9;
+  --rule-soft:#EFECE5;
+  --amber-wash:#FDF4E4;
+  --amber-ink:#6B4310;
+  --display:'Poppins',sans-serif;
+  --body:'Poppins',sans-serif;
+  --mono:'Poppins',sans-serif;
+  --maxw:820px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:var(--body);
+  font-size:16px;
+  line-height:1.65;
+  color:var(--ink);
+  background:var(--paper);
+  -webkit-font-smoothing:antialiased;
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none!important;animation:none!important}
+}
+
+/* ---- Taaleem slide frame: maroon above, green below ---- */
+.frame{height:10px;background:var(--maroon)}
+
+/* ---- contact/social bar ---- */
+.contact-bar{background:var(--maroon);color:#fff}
+.contact-bar-in{max-width:1180px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:8px 28px;font-size:13px}
+.contact-info{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+.contact-info a{color:#fff;text-decoration:none;display:inline-flex;align-items:center;gap:7px;opacity:.95}
+.contact-info a:hover{opacity:1;text-decoration:underline}
+.contact-info svg{width:14px;height:14px;flex:none}
+.social-row{display:flex;align-items:center;gap:6px}
+.social-row span{font-size:12.5px;font-weight:500;margin-right:8px}
+.social-row a{width:26px;height:32px;border-radius:14px 2px 14px 2px;background:#fff;display:inline-flex;align-items:center;justify-content:center;flex:none}
+.social-row a svg{width:14px;height:14px}
+
+/* ---- masthead ---- */
+.masthead{
+  background:var(--wash);
+  border-bottom:1px solid var(--rule);
+  color:var(--ink);
+  padding:16px 28px;
+}
+.masthead-in{max-width:1180px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.wordmark{font-family:var(--display);font-size:26px;font-weight:500;letter-spacing:-.01em;line-height:1}
+.wordmark sup{font-size:11px;font-weight:400;color:var(--green);margin-left:2px;top:-9px;position:relative}
+.masthead-brand{display:flex;flex-direction:column;gap:2px}
+.masthead-logo{display:inline-flex;align-items:center;width:fit-content}
+.masthead-logo svg{display:block;height:46px;width:auto}
+/* a site descriptor, not brand copy — deliberately unlike the green italic
+   "inspiring young minds" inside the logo, which it sits directly beneath */
+.masthead-tag{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--ink-3);margin:6px 0 0 3px;
+}
+/* ---- site search ---- */
+/* margin-left:auto absorbs the free space before justify-content does, so the search
+   sits hard against the mast links on the right rather than floating mid-header */
+.search{position:relative;flex:0 1 320px;min-width:180px;margin-left:auto}
+.search-icon{
+  position:absolute;left:11px;top:50%;transform:translateY(-50%);
+  width:15px;height:15px;color:var(--ink-3);pointer-events:none;
+}
+.search input{
+  width:100%;font-family:var(--body);font-size:14px;color:var(--ink);
+  padding:8px 30px 8px 33px;border:1px solid var(--rule);border-radius:100px;
+  background:var(--paper);appearance:none;
+}
+.search input::placeholder{color:var(--ink-3)}
+.search input:focus{outline:none;border-color:var(--maroon);box-shadow:0 0 0 3px var(--maroon-wash)}
+.search input::-webkit-search-cancel-button{display:none}
+.search-clear{
+  position:absolute;right:8px;top:50%;transform:translateY(-50%);
+  width:20px;height:20px;border:0;border-radius:50%;background:var(--rule-soft);
+  color:var(--ink-2);font-size:15px;line-height:1;cursor:pointer;padding:0;
+}
+.search-clear:hover{background:var(--rule);color:var(--ink)}
+.search-results{
+  position:absolute;top:calc(100% + 6px);left:0;right:0;z-index:70;
+  background:var(--paper);border:1px solid var(--rule);border-radius:11px;
+  box-shadow:0 12px 32px rgba(0,0,0,.13);
+  max-height:min(60vh,420px);overflow-y:auto;padding:5px;
+}
+.search-hit{
+  display:block;width:100%;text-align:left;border:0;background:none;cursor:pointer;
+  padding:9px 11px;border-radius:8px;font-family:var(--body);
+}
+.search-hit:hover,.search-hit.on{background:var(--wash)}
+.search-hit .sh-sec{font-family:var(--mono);font-size:9.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--green-deep);display:block;margin-bottom:2px}
+.search-hit .sh-title{font-family:var(--display);font-size:14.5px;font-weight:600;color:var(--ink);display:block}
+.search-hit .sh-snip{font-size:12.5px;color:var(--ink-2);line-height:1.45;display:block;margin-top:2px}
+.search-hit mark{background:var(--amber-wash);color:inherit;padding:0 1px;border-radius:2px}
+.search-empty{padding:14px 12px;font-size:13.5px;color:var(--ink-2)}
+
+.mast-links{display:flex;gap:18px;font-size:14px}
+.mast-links a{color:var(--ink-2);text-decoration:none;border-bottom:1px solid var(--rule);padding-bottom:1px}
+.mast-links a:hover{color:var(--maroon);border-color:var(--maroon)}
+
+/* ---- signature: the "whose move is it" strip ---- */
+/* sticky so your position in the journey stays visible while you read */
+.status{
+  background:var(--wash);
+  border-bottom:1px solid var(--rule);
+  position:sticky;top:0;z-index:30;
+}
+.status-in{
+  max-width:1180px;margin:0 auto;padding:12px 28px;
+  display:flex;align-items:center;gap:18px;flex-wrap:wrap;
+}
+.status-step{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);white-space:nowrap}
+.status-bar{flex:1;min-width:120px;height:5px;background:#E3DFD7;border-radius:3px;overflow:hidden}
+.status-bar i{display:block;height:100%;width:9%;background:var(--green)}
+.status-verdict{font-family:var(--display);font-size:16px;font-weight:500;color:var(--maroon);white-space:nowrap}
+/* the detail line is generated from the current step, so its length varies — always let it wrap */
+.status-verdict span{font-family:var(--body);font-size:13px;font-weight:400;color:var(--ink-2);display:block;line-height:1.3;white-space:normal}
+
+/* ---- filter bar ---- */
+.filters{border-bottom:1px solid var(--rule);background:var(--paper)}
+/* sits outside the routed .page sections, so it shows on every page without repeating markup */
+.subject-bar{background:var(--wash);border-bottom:1px solid var(--rule)}
+.subject-bar-in{max-width:1180px;margin:0 auto;padding:7px 28px;font-size:12.5px;line-height:1.45;color:var(--ink-3)}
+.subject-bar-in strong{color:var(--ink-2);font-weight:600}
+.filters-in{max-width:1180px;margin:0 auto;padding:11px 28px;display:flex;gap:22px;flex-wrap:wrap;align-items:center}
+.fgroup{display:flex;align-items:center;gap:7px}
+.flabel{font-family:var(--mono);font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3)}
+.chip{
+  font-family:var(--body);font-size:13px;padding:4px 12px;border-radius:100px;
+  border:1px solid var(--rule);background:var(--paper);color:var(--ink-2);cursor:pointer;
+  transition:background .15s,color .15s,border-color .15s;
+}
+.chip:hover{border-color:var(--ink-3)}
+.chip[aria-pressed="true"]{background:var(--maroon);border-color:var(--maroon);color:#fff}
+.chip:focus-visible,a:focus-visible,button:focus-visible{outline:2px solid var(--green-deep);outline-offset:2px}
+
+/* ---- shell ---- */
+.shell{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:242px minmax(0,1fr);gap:0;align-items:start}
+.sidebar{
+  border-right:1px solid var(--rule);
+  padding:26px 20px 60px 28px;
+  /* --statush is measured from the sticky status strip so the nav clears it */
+  position:sticky;top:var(--statush,0px);max-height:calc(100vh - var(--statush,0px));overflow-y:auto;
+}
+.navsec{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin:22px 0 7px}
+/* first-of-type, not first-child: the mobile close button is the first child */
+.navsec:first-of-type{margin-top:0}
+.navclose{display:none}
+.sidebar a{
+  display:block;font-size:14px;color:var(--ink-2);text-decoration:none;
+  padding:4px 0 4px 11px;border-left:2px solid transparent;line-height:1.45;
+}
+.sidebar a:hover{color:var(--ink)}
+.sidebar a.on{color:var(--maroon);font-weight:600;border-left-color:var(--maroon)}
+
+main{padding:34px 28px 80px;min-width:0}
+.page{display:none;max-width:var(--maxw)}
+.page.on{display:block;animation:fade .28s ease}
+@keyframes fade{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+
+/* ---- typography ---- */
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--green-deep);margin-bottom:9px}
+.eyebrow-lg{font-family:var(--display);font-size:26px;font-weight:600;letter-spacing:.01em;text-transform:none;color:var(--green-deep);margin-bottom:6px;line-height:1.2}
+h1{font-family:var(--display);font-size:38px;line-height:1.12;font-weight:500;letter-spacing:-.02em;margin:0 0 12px}
+/* home headline holds a single line on desktop, wraps gracefully below */
+h1.h1-oneline{font-size:clamp(21px,2.7vw,31px);white-space:nowrap}
+@media (max-width:820px){
+  h1.h1-oneline{white-space:normal;font-size:28px}
+}
+h2{font-family:var(--display);font-size:23px;font-weight:500;letter-spacing:-.01em;margin:38px 0 12px;padding-bottom:7px;border-bottom:1px solid var(--rule)}
+h3{font-family:var(--display);font-size:17px;font-weight:600;margin:24px 0 7px}
+.lede{font-size:18px;line-height:1.6;color:var(--ink-2);margin:0 0 26px}
+p{margin:0 0 14px}
+a.link{color:var(--maroon);text-decoration:none;border-bottom:1px solid rgba(155,27,48,.3)}
+a.link:hover{border-color:var(--maroon)}
+ul{margin:0 0 14px;padding-left:20px}
+li{margin-bottom:6px}
+ul.checklist{list-style:none;padding-left:0;margin:14px 0 18px;border:1px solid var(--rule);border-radius:11px;overflow:hidden}
+ul.checklist li{margin:0;padding:10px 16px 10px 42px;position:relative;border-bottom:1px solid var(--rule-soft);font-size:15px}
+ul.checklist li:last-child{border-bottom:0}
+ul.checklist li::before{
+  content:'';position:absolute;left:16px;top:15px;width:13px;height:13px;
+  border:1.5px solid var(--green);border-radius:3px;
+}
+/* downloads list */
+ul.dl{list-style:none;padding-left:0;margin:14px 0 24px;border:1px solid var(--rule);border-radius:11px;overflow:hidden}
+ul.dl li{margin:0;padding:14px 18px;border-bottom:1px solid var(--rule-soft);display:flex;flex-direction:column;gap:3px}
+ul.dl li:last-child{border-bottom:0}
+.dl-name{font-family:var(--display);font-size:15.5px;font-weight:600;color:var(--maroon);text-decoration:none;display:flex;align-items:center;flex-wrap:wrap;gap:9px}
+a.dl-name:hover{text-decoration:underline}
+.dl-type{
+  font-family:var(--mono);font-size:9.5px;letter-spacing:.09em;text-transform:uppercase;
+  border:1px solid var(--rule);border-radius:100px;padding:2px 8px;color:var(--ink-3);font-weight:500;
+}
+.dl-desc{font-size:14px;color:var(--ink-2);line-height:1.5}
+.footer-note{
+  max-width:1180px;margin:34px auto 0;padding:22px 28px 0;
+  border-top:1px solid rgba(255,255,255,.15);
+}
+.footer-note p{font-size:12.5px;line-height:1.6;color:rgba(255,255,255,.62);margin:0 0 10px}
+.footer-note p:last-child{margin-bottom:0}
+.footer-note strong{color:rgba(255,255,255,.85);font-weight:600}
+@media (max-width:560px){ .footer-note{padding-left:22px;padding-right:22px} }
+ul.applist{list-style:none;padding-left:0;margin:10px 0 22px}
+ul.applist li{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;margin:0;padding:9px 0;border-bottom:1px solid var(--rule-soft)}
+ul.applist li>:first-child{font-weight:600;min-width:150px}
+ul.applist span:last-child{font-size:14px;color:var(--ink-2);flex:1;min-width:220px}
+.applist-plain{color:var(--ink)}
+strong{font-weight:600}
+
+/* ---- callouts ---- */
+.note{border-radius:10px;padding:15px 18px;margin:20px 0;font-size:15px;line-height:1.6}
+.note p:last-child{margin-bottom:0}
+.note h3{margin:0 0 6px;font-size:16px}
+.note-urgent{background:var(--maroon-wash);border-left:3px solid var(--maroon)}
+.note-urgent h3{color:var(--maroon-deep)}
+.note-warn{background:var(--amber-wash);border-left:3px solid #C98A2E}
+.note-warn h3{color:var(--amber-ink)}
+.note-warn,.note-warn p{color:var(--amber-ink)}
+.note-calm{background:var(--wash);border-left:3px solid var(--rule)}
+.note-good{background:var(--green-wash);border-left:3px solid var(--green)}
+/* used everywhere a process differs between Taaleem schools, so school-specific claims
+   are visible rather than reading as group-wide policy */
+.note-school{background:#F2F4F8;border-left:3px solid #5B6B8C}
+.note-school h3{color:#3C4A66;margin:0 0 6px;font-size:16px}
+.note-school .school-tag{
+  display:inline-block;font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;
+  text-transform:uppercase;color:#3C4A66;background:rgba(255,255,255,.85);
+  border-radius:100px;padding:3px 9px;margin-bottom:8px;
+}
+/* awaiting content from the client — deliberately conspicuous so it cannot ship unnoticed */
+.pending{
+  border:1px dashed var(--maroon);border-radius:8px;padding:10px 14px;margin:12px 0;
+  background:var(--maroon-wash);font-size:14px;color:var(--maroon-deep);
+}
+.pending b{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:3px}
+
+/* ---- "what this means for you": the homepage's answer to the filter bar ---- */
+.you-box{border:1px solid var(--rule);border-left:3px solid var(--green);border-radius:11px;padding:16px 20px;margin:0 0 26px;background:var(--paper)}
+.you-head{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--green-deep);margin-bottom:9px}
+/* no dividers: items are shown/hidden by filter, so :first-child/:last-child
+   would not match the first and last *visible* rows */
+.you-list{list-style:none;padding-left:0;margin:0;display:flex;flex-direction:column;gap:9px}
+.you-list li{margin:0;font-size:14.5px;line-height:1.55;color:var(--ink-2)}
+.you-list b{color:var(--ink);font-weight:600}
+
+/* ---- cards ---- */
+.grid{display:grid;gap:13px;margin:20px 0}
+.g2{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(175px,1fr))}
+/* fixed four-up rather than auto-fit: auto-fit would wrap 3+1 and leave an orphan card */
+.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.card{border:1px solid var(--rule);border-radius:11px;padding:16px 18px;background:var(--paper)}
+.card-media{margin:-16px -18px 12px;border-radius:11px 11px 0 0;overflow:hidden;height:96px;background:var(--wash)}
+.card-media img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* ---- hero image ---- */
+/* the source is square, so the frame stays fairly tall to avoid slicing the subject */
+.hero{margin:6px 0 26px;border-radius:12px;overflow:hidden;background:var(--wash)}
+.hero img{display:block;width:100%;height:360px;object-fit:cover;object-position:center var(--focus,42%)}
+/* portrait source in a wide frame: only ~29% of its height survives the crop, so each
+   one sets its own --focus to land the subject inside the visible band */
+.hero-tall img{object-position:center var(--focus,50%)}
+/* square source: keep it near its native 512px so the desk and documents stay in
+   frame and the image isn't upscaled */
+.hero-sm{max-width:520px;margin-left:auto;margin-right:auto}
+.hero-sm img{height:420px;object-position:center 60%}
+@media (max-width:820px){ .hero img{height:280px} }
+@media (max-width:560px){ .hero img{height:220px} .hero-sm img{height:300px} }
+
+/* ---- image placeholders ---- */
+.img-ph{
+  height:220px;border-radius:12px;margin:6px 0 26px;position:relative;
+  background:linear-gradient(150deg,var(--maroon-wash) 0%,var(--wash) 55%,var(--green-wash) 100%);
+  border:1px solid var(--rule);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
+  color:var(--ink-2);text-align:center;padding:20px;
+}
+.img-ph::after{
+  content:'Image to come';position:absolute;top:11px;right:12px;
+  font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--maroon);background:rgba(255,255,255,.72);border-radius:100px;padding:3px 9px;
+}
+.img-ph svg{width:26px;height:26px;opacity:.5;color:var(--maroon)}
+.img-ph b{font-family:var(--display);font-size:15px;font-weight:600;color:var(--ink)}
+.img-ph span{font-size:12.5px;max-width:400px;line-height:1.55;color:var(--ink-2)}
+.img-ph-sm{height:150px}
+.card h3{margin:0 0 5px;font-size:16px}
+.card p{font-size:14px;color:var(--ink-2);margin:0}
+.card-link{text-decoration:none;color:inherit;display:block;transition:border-color .15s,transform .15s}
+.card-link:hover{border-color:var(--maroon);transform:translateY(-1px)}
+.card-num{font-family:var(--mono);font-size:11px;color:var(--green-deep);letter-spacing:.09em;display:block;margin-bottom:6px}
+
+/* ---- data tables ---- */
+table{width:100%;border-collapse:collapse;margin:18px 0;font-size:14.5px}
+th{text-align:left;font-family:var(--mono);font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);font-weight:500;padding:0 12px 7px 0;border-bottom:1px solid var(--rule)}
+td{padding:9px 12px 9px 0;border-bottom:1px solid var(--rule-soft);vertical-align:top}
+td.mono{font-family:var(--mono);font-size:13.5px;white-space:nowrap}
+
+/* ---- journey tracker ---- */
+.track{margin:26px 0}
+.step{display:grid;grid-template-columns:32px minmax(0,1fr);gap:15px}
+.step-rail{display:flex;flex-direction:column;align-items:center}
+.dot{
+  width:27px;height:27px;border-radius:50%;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--mono);font-size:12px;
+  border:1px solid var(--rule);color:var(--ink-3);background:var(--paper);
+}
+.dot.done{background:var(--green);border-color:var(--green);color:#fff}
+.dot.now{background:var(--maroon);border-color:var(--maroon);color:#fff;font-weight:500}
+.line{flex:1;width:2px;background:var(--rule);margin:3px 0}
+.step-body{padding-bottom:22px;min-width:0}
+.step-title{font-family:var(--display);font-size:17px;font-weight:600;margin:2px 0 3px;display:flex;flex-wrap:wrap;align-items:center;gap:9px}
+.step-body p{font-size:14.5px;color:var(--ink-2);margin:0 0 8px}
+.step.is-done .step-title{color:var(--ink-3);font-weight:400}
+.step.is-now .step-inner{border:2px solid var(--maroon);border-radius:11px;padding:16px 18px;margin-top:-2px}
+.step.is-now .step-inner .step-title{margin-top:0}
+.step-meta{font-family:var(--mono);font-size:11.5px;color:var(--ink-3)}
+
+/* steps are selectable — clicking one sets "where I am" */
+.step-inner{cursor:pointer;border-radius:11px;transition:background .15s}
+.step-inner:hover{background:var(--wash)}
+.step.is-now .step-inner:hover{background:transparent}
+.step-inner:focus-visible{outline:2px solid var(--green-deep);outline-offset:3px}
+.track-hint{font-size:13.5px;color:var(--ink-3);margin:0 0 4px}
+.status-in{cursor:default}
+.status-bar i{transition:width .3s ease}
+
+.tag{font-family:var(--mono);font-size:10px;letter-spacing:.07em;text-transform:uppercase;padding:3px 8px;border-radius:4px;white-space:nowrap;font-weight:500}
+.tag-you{background:var(--amber-wash);color:var(--amber-ink)}
+.tag-hr{background:var(--maroon-wash);color:var(--maroon-deep)}
+.tag-time{background:var(--wash);color:var(--ink-3)}
+
+/* ---- conditional content ---- */
+.is-hidden{display:none!important}
+.is-dimmed{opacity:.45}
+.dim-note{font-family:var(--mono);font-size:11px;color:var(--ink-3);display:none}
+.is-dimmed .dim-note{display:inline}
+
+.btn{
+  font-family:var(--body);font-size:14px;padding:7px 15px;border-radius:7px;
+  border:1px solid var(--maroon);background:var(--maroon);color:#fff;cursor:pointer;text-decoration:none;display:inline-block;
+}
+.btn:hover{background:var(--maroon-deep);border-color:var(--maroon-deep)}
+.btn-ghost{background:transparent;color:var(--maroon)}
+.btn-ghost:hover{background:var(--maroon-wash);color:var(--maroon-deep)}
+.btnrow{display:flex;gap:9px;flex-wrap:wrap;margin-top:12px}
+
+/* ---- schools carousel ---- */
+.schools-carousel{background:#fff;border-top:1px solid var(--rule);padding:22px 0}
+.schools-carousel-in{max-width:1180px;margin:0 auto;padding:0 28px;display:flex;align-items:center;gap:14px}
+.schools-arrow{width:32px;height:32px;border-radius:50%;border:1px solid var(--rule);background:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;flex:none;color:var(--ink-3);padding:0}
+.schools-arrow:hover{border-color:var(--maroon);color:var(--maroon)}
+.schools-arrow svg{width:14px;height:14px}
+.schools-viewport{
+  flex:1;min-width:0;overflow:hidden;
+  /* soften the edges so logos fade in and out instead of being chopped */
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);
+}
+/* the loop is driven from JS, not a CSS animation, so the arrows can nudge the same
+   position value that autoplay advances. The set is cloned once and the offset wraps
+   modulo one set's width, which makes it endless in both directions. */
+.schools-track{display:flex;align-items:center;gap:40px;width:max-content;padding:6px 0;will-change:transform}
+.schools-track img{height:46px;width:auto;max-width:150px;object-fit:contain;flex:none}
+
+.footer{border-top:1px solid var(--rule);background:var(--wash);padding:22px 28px}
+.footer-in{max-width:1180px;margin:0 auto;display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;font-size:13.5px;color:var(--ink-2)}
+.emerg{font-family:var(--mono);font-size:12.5px}
+
+.mobnav{display:none}
+.nav-backdrop{display:none}
+@media (max-width:900px){
+  .shell{grid-template-columns:1fr}
+
+  /* ---- mobile nav: slide-in drawer ---- */
+  .mobnav{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:42px;height:38px;padding:0;flex:none;
+    background:var(--paper);border:1px solid var(--rule);border-radius:8px;
+    color:var(--maroon);cursor:pointer;order:2;
+  }
+  .mobnav:hover{border-color:var(--maroon)}
+  .mobnav-bars{display:block;position:relative;width:18px;height:12px}
+  .mobnav-bars i{
+    position:absolute;left:0;width:100%;height:2px;border-radius:2px;background:currentColor;
+    transition:top .2s ease,transform .2s ease,opacity .15s ease;
+  }
+  .mobnav-bars i:nth-child(1){top:0}
+  .mobnav-bars i:nth-child(2){top:5px}
+  .mobnav-bars i:nth-child(3){top:10px}
+  /* deliberately no burger-to-X morph: the backdrop sits above the masthead, so while the
+     drawer is open this button is not clickable. The drawer's own close button is the X. */
+
+  .masthead-brand{order:1}
+  .search{order:3;flex-basis:100%;max-width:none;margin-left:0;margin-top:4px}
+  .mast-links{order:4;width:100%;margin-top:2px}
+
+  .sidebar{
+    position:fixed;top:0;left:0;bottom:0;z-index:60;
+    width:min(320px,86vw);height:100%;max-height:none;
+    padding:56px 22px 40px;
+    background:var(--paper);border-right:1px solid var(--rule);
+    overflow-y:auto;-webkit-overflow-scrolling:touch;
+    box-shadow:0 0 40px rgba(0,0,0,.18);
+    transform:translateX(-100%);visibility:hidden;
+    transition:transform .25s ease,visibility 0s linear .25s;
+  }
+  .sidebar.open{transform:none;visibility:visible;transition:transform .25s ease,visibility 0s}
+  .sidebar a{padding:7px 0 7px 11px;font-size:15px}
+
+  .navclose{
+    display:inline-flex;align-items:center;justify-content:center;
+    position:absolute;top:12px;right:14px;width:34px;height:34px;padding:0;
+    background:transparent;border:1px solid var(--rule);border-radius:8px;
+    color:var(--ink-2);cursor:pointer;
+  }
+  .navclose:hover{color:var(--maroon);border-color:var(--maroon)}
+  .navclose svg{width:16px;height:16px}
+
+  .nav-backdrop{
+    display:block;position:fixed;inset:0;z-index:55;
+    background:rgba(27,26,24,.45);opacity:0;pointer-events:none;
+    transition:opacity .25s ease;
+  }
+  .nav-backdrop.show{opacity:1;pointer-events:auto}
+  body.nav-open{overflow:hidden}
+
+  main{padding:26px 22px 60px}
+  h1{font-size:30px}
+  .masthead,.status-in,.filters-in,.footer,.contact-bar-in{padding-left:22px;padding-right:22px}
+  .social-row span{display:none}
+  .status-in{gap:12px}
+  /* step titles vary in length; on narrow screens let the banner wrap rather than push the page wide */
+  .status-step,.status-verdict{white-space:normal}
+  /* wrapped, the banner is tall enough that pinning it would eat the phone screen */
+  .status{position:static}
+}
+@media (max-width:600px){
+  .g3{grid-template-columns:1fr}
+  /* .mono cells are nowrap, so multi-column tables cannot shrink to a phone width.
+     Let them wrap first, then let the table scroll inside itself rather than
+     widening the whole page. */
+  td.mono{white-space:normal}
+  table{display:block;overflow-x:auto;max-width:100%}
+}
+/* 1100px, not 900: between 901 and 1180 the sidebar is still taking 242px, so the
+   content column is already too narrow for four cards. 2x2 then, never 3+1. */
+@media (max-width:1100px){
+  .g4{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:560px){
+  .g4{grid-template-columns:1fr}
+}
+
+/* ---- site footer: replica of the taaleem.ae footer ---- */
+.site-footer{background:#3B3735;color:#fff;padding:44px 28px 40px}
+.site-footer-in{
+  max-width:1180px;margin:0 auto;
+  /* three content-sized columns pushed out to the edges. space-between keeps the gaps
+     between them mathematically equal whatever the longest link in each column is, so
+     the balance holds if the lists change. */
+  display:grid;grid-template-columns:repeat(3,max-content);justify-content:space-between;
+  gap:30px;align-items:start;
+}
+.fhead{
+  display:inline-block;border:1px solid rgba(255,255,255,.85);border-radius:3px;
+  padding:6px 14px;font-family:var(--display);font-size:15px;font-weight:600;color:#fff;
+  margin:0 0 16px;
+}
+.fcol .fhead:not(:first-child){margin-top:30px}
+.flist{list-style:none;padding:0;margin:0}
+.flist li{margin:0 0 7px}
+.flist a{color:rgba(255,255,255,.88);text-decoration:none;font-size:13px;line-height:1.35;display:inline-block}
+.flist a:hover{color:#fff;text-decoration:underline}
+.fstrong{margin:22px 0 0;display:flex;flex-direction:column;gap:6px}
+.fstrong a{color:#fff;font-weight:600;font-size:14.5px;text-decoration:none;line-height:1.4}
+.fstrong a:hover{text-decoration:underline}
+.fstrong-label{margin:26px 0 12px;font-weight:600;font-size:14.5px;color:#fff}
+.fsocial{display:flex;gap:8px;flex-wrap:wrap}
+.fsocial a{
+  width:26px;height:26px;border-radius:6px;background:var(--maroon);color:#fff;
+  display:inline-flex;align-items:center;justify-content:center;flex:none;
+}
+.fsocial a:hover{background:var(--maroon-deep)}
+.fsocial svg{width:13px;height:13px}
+.flogo{margin-top:34px}
+.flogo svg{display:block;height:56px;width:auto}
+@media (max-width:980px){
+  .site-footer-in{grid-template-columns:1fr 1fr;justify-content:normal;gap:32px}
+}
+@media (max-width:560px){
+  .site-footer-in{grid-template-columns:1fr}
+  .site-footer{padding:34px 22px 30px}
+}
+</style>
+</head>
+<body>
+
+<div class="frame"></div>
+
+<div class="contact-bar">
+  <div class="contact-bar-in">
+    <div class="contact-info">
+      <a href="tel:+97143498806">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.57.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.57 1 1 0 01-.24 1.02z"/></svg>
+        +971 4 349 8806
+      </a>
+      <a href="mailto:info@taaleem.ae">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M0 4v16h24V4H0zm21.518 2L12 12.713 2.482 6h19.036zM2 18V8.239l10 6.928 10-6.928V18H2z"/></svg>
+        info@taaleem.ae
+      </a>
+    </div>
+    <div class="social-row">
+      <span>Follow us on</span>
+      <a href="https://www.facebook.com/Taaleem.InspiringYoungMinds/" aria-label="Facebook" target="_blank" rel="noopener">
+        <svg viewBox="0 0 320 512" fill="var(--maroon)" aria-hidden="true"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg>
+      </a>
+      <a href="https://www.linkedin.com/company/taaleem" aria-label="LinkedIn" target="_blank" rel="noopener">
+        <svg viewBox="0 0 448 512" fill="var(--maroon)" aria-hidden="true"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/taaleemuae/" aria-label="Instagram" target="_blank" rel="noopener">
+        <svg viewBox="0 0 448 512" fill="var(--maroon)" aria-hidden="true"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
+      </a>
+      <a href="https://www.youtube.com/user/taaleemdxb" aria-label="YouTube" target="_blank" rel="noopener">
+        <svg viewBox="0 0 576 512" fill="var(--maroon)" aria-hidden="true"><path d="M549.7 124.1c-6.3-23.7-24.8-42.3-48.3-48.6C458.8 64 288 64 288 64S117.2 64 74.6 75.5c-23.5 6.3-42 24.9-48.3 48.6-11.4 42.9-11.4 132.3-11.4 132.3s0 89.4 11.4 132.3c6.3 23.7 24.8 41.5 48.3 47.8C117.2 448 288 448 288 448s170.8 0 213.4-11.5c23.5-6.3 42-24.2 48.3-47.8 11.4-42.9 11.4-132.3 11.4-132.3s0-89.4-11.4-132.3zm-317.5 213.5V175.2l142.7 81.2-142.7 81.2z"/></svg>
+      </a>
+      <a href="https://x.com/Taaleem" aria-label="X" target="_blank" rel="noopener">
+        <svg viewBox="0 0 512 512" fill="var(--maroon)" aria-hidden="true"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>
+      </a>
+      <a href="https://www.taaleem.ae/" aria-label="Newsletter" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="var(--maroon)" aria-hidden="true">
+          <path d="M3 4a1 1 0 011-1h10a1 1 0 011 1v14a2 2 0 002 2H5a2 2 0 01-2-2V4z"/>
+          <path d="M17 6h3a1 1 0 011 1v11a3 3 0 01-3 3v-2a1 1 0 001-1V8h-2V6z"/>
+          <rect x="5.5" y="5.5" width="5" height="4" rx=".5"/>
+          <rect x="5.5" y="11" width="7" height="1.4" rx=".5"/>
+          <rect x="5.5" y="13.6" width="7" height="1.4" rx=".5"/>
+          <rect x="5.5" y="16.2" width="7" height="1.4" rx=".5"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="masthead-in">
+    <div class="masthead-brand">
+      <div class="masthead-logo">
+        <svg viewBox="0 0 172 61" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Taaleem">
+          <g>
+            <path d="M33.070938,7.72530608 C33.6884738,2.25028223 38.3029889,-0.645679611 42.7164229,0.214336287 L42.7272655,0.216800516 C42.185628,5.34436808 37.8505564,8.65678462 33.070938,7.72530608" fill="#73B043"></path>
+            <path d="M44.8376312,32.9348609 L40.8933863,32.9348609 L40.8933863,30.3257353 C38.4365501,32.8688196 35.208903,33.439535 33.2094277,33.439535 C26.1637043,33.439535 21.5245469,28.0275954 21.1366773,21.5994078 C20.5610334,12.0613633 29.1833704,7.34778621 33.070938,11.2353538 C36.8840859,7.47641896 44.908601,11.6197735 44.8376312,20.8980883 L44.8376312,32.9348609 Z M40.9096502,23.2257989 C42.4675358,17.1347178 38.25469,10.8529054 33.070938,15.4265143 C27.8438156,10.8188991 23.6166773,17.1332393 25.1681558,23.2257989 C26.3889348,28.0068959 29.6762162,29.6712361 33.070938,29.6712361 C36.480938,29.6712361 39.6873927,28.0068959 40.9096502,23.2257989 Z M77.1914785,32.9348609 L77.1914785,3.32813597 C77.4891574,0.89594201 79.491097,-0.301673252 81.3870747,0.0650040133 L81.3870747,32.9348609 L77.1914785,32.9348609 Z M52.9316375,21.7157194 C52.9316375,26.1015541 56.1440064,29.6712361 60.9650238,29.6712361 C65.1837838,29.6712361 68.8037361,26.2760215 68.8037361,21.6767846 C68.8037361,17.3486129 65.4563275,13.6044635 60.9650238,13.6044635 C56.6432591,13.6044635 52.9316375,16.7143204 52.9316375,21.7157194 Z M60.9650238,33.439535 C53.9188076,33.439535 48.8917806,28.0542091 48.8917806,21.5994078 C48.8917806,15.5926034 53.6265501,9.83616459 60.9650238,9.83616459 C65.7081717,9.83616459 72.5882989,13.8045589 72.5882989,21.6127147 L72.5927345,32.9348609 L68.6785533,32.9348609 L68.6785533,30.3257353 C66.221717,32.8688196 62.9644992,33.439535 60.9650238,33.439535 Z M171.681351,19.6580883 L171.681351,32.9348609 L167.641494,32.9348609 L167.641494,19.9685811 C167.641494,17.7448609 167.243275,16.737977 166.758808,15.8735255 C165.98504,14.5605843 164.575008,13.6044635 162.519348,13.6044635 C160.463688,13.6044635 159.053657,14.5605843 158.279889,15.8735255 C157.795421,16.737977 157.397202,17.7448609 157.397202,19.9685811 L157.397202,32.9348609 L153.357345,32.9348609 L153.357345,19.9685811 C153.357345,17.7448609 152.959126,16.737977 152.474658,15.8735255 C151.70089,14.5605843 150.291351,13.6044635 148.235692,13.6044635 C146.180032,13.6044635 144.77,14.5605843 143.995739,15.8735255 C143.511272,16.737977 143.113052,17.7448609 143.113052,19.9685811 L143.113052,32.9348609 L139.073196,32.9348609 L139.073196,19.6580883 C139.073196,11.9480088 144.7493,9.83616459 148.235692,9.83616459 C149.931081,9.83616459 153.414022,10.5217131 155.377027,13.2826352 C157.340525,10.5217131 160.822973,9.83616459 162.519348,9.83616459 C166.006232,9.83616459 171.681351,11.9480088 171.681351,19.6580883 Z M89.4815739,19.5402981 L104.435008,19.5402981 C103.380811,15.4447496 99.8766773,13.6044635 96.9452305,13.6044635 C94.0408903,13.6044635 90.4781081,15.4516495 89.4815739,19.5402981 Z M108.653768,22.9266415 L108.632083,23.308597 L89.4086328,23.308597 C89.9551987,26.7905525 93.3183784,29.6712361 96.8998887,29.6712361 C99.2788553,29.6239229 101.290159,28.7269436 102.676041,27.0768959 L107.257536,27.0768959 C105.195962,30.8831439 101.697742,33.439535 96.9452305,33.439535 C90.651097,33.439535 85.2209221,28.3410453 85.2209221,21.6767846 C85.2209221,15.3018244 90.3686963,9.95986888 96.9028458,9.83616459 C101.830811,9.87756363 105.333466,12.7907751 106.945564,15.5935891 C108.397488,17.9153856 108.802607,20.288438 108.653768,22.9266415 Z M115.864102,19.5402981 L130.817536,19.5402981 C129.762846,15.4447496 126.259205,13.6044635 123.327266,13.6044635 C120.423911,13.6044635 116.860636,15.4516495 115.864102,19.5402981 Z M135.037281,22.9266415 L135.015596,23.308597 L115.790668,23.308597 C116.337727,26.7905525 119.700906,29.6712361 123.282417,29.6712361 C125.661383,29.6239229 127.672194,28.7269436 129.059555,27.0768959 L133.640556,27.0768959 C131.57849,30.8831439 128.08027,33.439535 123.327266,33.439535 C117.033625,33.439535 111.60345,28.3410453 111.60345,21.6767846 C111.60345,15.3018244 116.751224,9.95986888 123.285374,9.83616459 C128.213831,9.87756363 131.715994,12.7907751 133.328092,15.5935891 C134.780016,17.9153856 135.185628,20.288438 135.037281,22.9266415 Z M13.4551828,33.439535 C9.82488076,33.439535 6.57505564,31.6460692 6.57505564,27.0547178 L6.57505564,13.7597099 L0,13.7597099 C0,12.3472139 1.40953895,9.83616459 4.12019078,9.83616459 L6.57505564,9.83616459 L6.57505564,6.37244439 C6.87224165,3.94074328 8.87418124,2.74312802 10.770159,3.10931244 L10.770159,9.83616459 L17.9174086,9.83616459 L17.9174086,13.7597099 L10.770159,13.7597099 L10.770159,25.8117608 C10.770159,28.5672616 12.3014308,29.572667 14.5744356,29.572667 C15.7114308,29.572667 16.7365501,29.3548291 17.9174086,28.7860851 L17.9174086,32.4775 C16.7365501,33.0901074 15.0736884,33.439535 13.4551828,33.439535 L13.4551828,33.439535 Z" fill="#8C202F"></path>
+          </g>
+          <g transform="translate(31.837838, 46.918919)" fill="#73B043">
+            <path d="M26.394029,7.92119675 C26.394029,5.20376442 25.1850852,4.09123658 23.6503865,4.09123658 C22.9031628,4.09123658 22.3052434,4.44320163 21.790869,4.91779281 L21.790869,4.24124296 L20.4045385,4.24124296 L20.4045385,13.9918919 L21.790869,13.2725165 L21.790869,10.7036864 C22.1844895,11.1401325 22.8629115,11.5204139 23.5832229,11.5204139 C25.0631611,11.5204139 26.394029,10.3655285 26.394029,7.92119675 M24.9962316,7.96004395 C24.9962316,9.46923454 24.4514346,10.2297973 23.4472577,10.2297973 C22.7400513,10.2297973 22.0894776,9.71191257 21.7756577,9.29137986 L21.7756577,6.29078415 C22.1426,5.82906404 22.7269462,5.37927891 23.3924972,5.37927891 C24.4242884,5.37927891 24.9962316,6.16862607 24.9962316,7.96004395"></path>
+            <path d="M30.3596423,2.41893453 C30.3596423,1.91602701 29.8615327,1.50976948 29.261563,1.50976948 C28.6460992,1.50976948 28.1442595,1.91602701 28.1442595,2.41893453 C28.1442595,2.90756687 28.6460992,3.31569656 29.261563,3.31569656 C29.8615327,3.31569656 30.3596423,2.90756687 30.3596423,2.41893453 L30.3596423,2.41893453 Z M28.3936012,11.3701735 L30.1108744,11.3701735 L30.1108744,4.23983885 L28.3936012,4.23983885 L28.3936012,11.3701735 Z"></path>
+            <path d="M36.2511567,4.38844111 C35.9656531,4.19818341 35.6139221,4.09123658 35.0424469,4.09123658 C34.3361766,4.09123658 33.7391933,4.44320163 33.4125024,4.91779281 L33.4125024,4.24124296 L32.0137689,4.24124296 L32.0137689,11.3701735 L33.4125024,11.3701735 L33.4125024,7.29636517 C33.4125024,6.08648529 33.929685,5.46352586 34.8110018,5.46352586 C35.27319,5.46352586 35.5863078,5.55666555 35.8849165,5.71977702 L36.2511567,4.38844111"></path>
+            <path d="M39.9062264,2.41893453 C39.9062264,1.91602701 39.4078298,1.50976948 38.8081471,1.50976948 C38.1903878,1.50976948 37.6908435,1.91602701 37.6908435,2.41893453 C37.6908435,2.90756687 38.1903878,3.31569656 38.8081471,3.31569656 C39.4078298,3.31569656 39.9062264,2.90756687 39.9062264,2.41893453 L39.9062264,2.41893453 Z M37.9421938,11.3701735 L39.6571716,11.3701735 L39.6571716,4.23983885 L37.9421938,4.23983885 L37.9421938,11.3701735 Z"></path>
+            <path d="M47.2924222,11.3701735 L47.2924222,7.28208999 C47.2924222,5.17544808 46.4087652,4.09123658 44.7516744,4.09123658 C44.0184919,4.09123658 43.3131577,4.40248227 42.9593205,4.91943095 L42.9593205,4.23983885 L41.5594169,4.23983885 L41.5594169,11.3701735 L42.9593205,11.3701735 L42.9593205,7.20158734 C42.9593205,6.04717004 43.4886722,5.3816191 44.4259195,5.3816191 C45.3495938,5.3816191 45.8934547,5.89669562 45.8934547,7.33568041 L45.8934547,11.3701735 L47.2924222,11.3701735"></path>
+            <path d="M55.1142839,10.6912834 L55.1142839,4.24124296 L53.7157844,4.24124296 L53.7157844,4.90492175 C53.3340989,4.47151797 52.656847,4.09123658 51.9367696,4.09123658 C50.4682983,4.09123658 49.1245594,5.24541986 49.1245594,7.68975164 C49.1245594,10.4053118 50.3475444,11.5204139 51.8684359,11.5204139 C52.6140215,11.5204139 53.1990698,11.1654066 53.7157844,10.6912834 L53.7157844,10.8148456 C53.7157844,12.2929116 53.2795724,12.8372406 51.2705166,12.9324864 L51.7460438,13.9918919 C54.3258728,13.9090491 55.1142839,12.8643868 55.1142839,10.6912834 M53.7415265,9.31922816 C53.3745843,9.78094827 52.7918761,10.2297973 52.1270273,10.2297973 C51.093598,10.2297973 50.5235269,9.44232232 50.5235269,7.64856424 C50.5235269,6.14030973 51.0657497,5.37927891 52.0715647,5.37927891 C52.777835,5.37927891 53.4300468,5.89669562 53.7415265,6.31722834 L53.7415265,9.31922816"></path>
+            <path d="M67.1833622,4.23983885 L65.702722,4.23983885 L64.4951823,7.75644715 C64.2768422,8.36817365 63.9779996,9.38826386 63.8553735,9.80739246 C63.7748708,9.41470804 63.4481798,8.35389847 63.2298398,7.72953493 L62.0627855,4.23983885 L60.5292569,4.23983885 L63.1493372,11.2358464 L62.117546,13.8821368 L63.5967821,13.8821368 L67.1833622,4.23983885"></path>
+            <path d="M74.4754042,7.77072233 C74.4754042,5.54426253 73.1176241,4.09123658 71.2978898,4.09123658 C69.5038977,4.09123658 68.1187374,5.47429075 68.1187374,7.81144169 C68.1187374,10.0400077 69.4634124,11.5204139 71.2562344,11.5204139 C73.0907118,11.5204139 74.4754042,10.1345515 74.4754042,7.77072233 M73.0635656,7.81144169 C73.0635656,9.11633341 72.3692303,10.189078 71.3109949,10.189078 C70.2520575,10.189078 69.531746,9.3330353 69.531746,7.77072233 C69.531746,6.35841574 70.1839579,5.42093435 71.2435974,5.42093435 C72.3692303,5.42093435 73.0635656,6.35841574 73.0635656,7.81144169"></path>
+            <path d="M82.0124643,11.3701735 L82.0124643,4.23983885 L80.6144329,4.23983885 L80.6144329,8.40748889 C80.6144329,9.56377835 80.0848472,10.2283932 79.1452597,10.2283932 C78.2218194,10.2283932 77.6814688,9.71425277 77.6814688,8.27386386 L77.6814688,4.23983885 L76.2796931,4.23983885 L76.2796931,8.32745428 C76.2796931,10.4336282 77.1621799,11.5204139 78.8195048,11.5204139 C79.5550275,11.5204139 80.2603617,11.207062 80.6144329,10.6912834 L80.6144329,11.3701735 L82.0124643,11.3701735"></path>
+            <path d="M89.9445492,11.3701735 L89.9445492,7.28208999 C89.9445492,5.17544808 89.0606582,4.09123658 87.4030994,4.09123658 C86.6692148,4.09123658 85.9641146,4.40248227 85.6100433,4.91943095 L85.6100433,4.23983885 L84.2101398,4.23983885 L84.2101398,11.3701735 L85.6100433,11.3701735 L85.6100433,7.20158734 C85.6100433,6.04717004 86.139629,5.3816191 87.0773445,5.3816191 C88.0007847,5.3816191 88.5448796,5.89669562 88.5448796,7.33568041 L88.5448796,11.3701735 L89.9445492,11.3701735"></path>
+            <path d="M97.7659428,10.6912834 L97.7659428,4.24124296 L96.3660393,4.24124296 L96.3660393,4.90492175 C95.9866939,4.47151797 95.3066338,4.09123658 94.5872584,4.09123658 C93.1194892,4.09123658 91.7773885,5.24541986 91.7773885,7.68975164 C91.7773885,10.4053118 92.9980332,11.5204139 94.5193928,11.5204139 C95.2654464,11.5204139 95.8507287,11.1654066 96.3660393,10.6912834 L96.3660393,10.8148456 C96.3660393,12.2929116 95.9312314,12.8372406 93.9212394,12.9324864 L94.3974687,13.9918919 C96.9789358,13.9090491 97.7659428,12.8643868 97.7659428,10.6912834 M96.3934195,9.31922816 C96.0260092,9.78094827 95.442599,10.2297973 94.7768141,10.2297973 C93.7443208,10.2297973 93.1751858,9.44232232 93.1751858,7.64856424 C93.1751858,6.14030973 93.7174086,5.37927891 94.7232236,5.37927891 C95.4283238,5.37927891 96.0817058,5.89669562 96.3934195,6.31722834 L96.3934195,9.31922816"></path>
+            <path d="M113.447811,11.3701735 L113.447811,7.28208999 C113.447811,5.17544808 112.659868,4.09123658 111.003012,4.09123658 C109.890016,4.09123658 109.331178,4.4972601 108.816101,5.13613284 C108.436756,4.45794485 107.824561,4.09123658 106.861104,4.09123658 C106.127687,4.09123658 105.515727,4.40248227 105.160953,4.91943095 L105.160953,4.23983885 L103.765262,4.23983885 L103.765262,11.3701735 L105.160953,11.3701735 L105.160953,7.20158734 C105.160953,6.04717004 105.597867,5.3816191 106.535583,5.3816191 C107.459725,5.3816191 107.906468,5.89669562 107.906468,7.33568041 L107.906468,11.3701735 L109.306371,11.3701735 L109.306371,7.20158734 C109.306371,6.04717004 109.739307,5.3816191 110.677491,5.3816191 C111.600931,5.3816191 112.050014,5.89669562 112.050014,7.33568041 L112.050014,11.3701735 L113.447811,11.3701735"></path>
+            <path d="M117.67108,2.41893453 C117.67108,1.91602701 117.173006,1.50976948 116.574572,1.50976948 C115.958072,1.50976948 115.455697,1.91602701 115.455697,2.41893453 C115.455697,2.90756687 115.958072,3.31569656 116.574572,3.31569656 C117.173006,3.31569656 117.67108,2.90756687 117.67108,2.41893453 L117.67108,2.41893453 Z M115.708318,11.3701735 L117.421039,11.3701735 L117.421039,4.23983885 L115.708318,4.23983885 L115.708318,11.3701735 Z"></path>
+            <path d="M125.058212,11.3701735 L125.058212,7.28208999 C125.058212,5.17544808 124.175725,4.09123658 122.518166,4.09123658 C121.78475,4.09123658 121.079415,4.40248227 120.72511,4.91943095 L120.72511,4.23983885 L119.325675,4.23983885 L119.325675,11.3701735 L120.72511,11.3701735 L120.72511,7.20158734 C120.72511,6.04717004 121.254462,5.3816191 122.192879,5.3816191 C123.116086,5.3816191 123.66018,5.89669562 123.66018,7.33568041 L123.66018,11.3701735 L125.058212,11.3701735"></path>
+            <path d="M132.880776,11.3701735 L132.880776,1.46858208 L131.495849,2.18795746 L131.495849,4.90492175 C131.099889,4.47011386 130.421701,4.09123658 129.702325,4.09123658 C128.220515,4.09123658 126.890349,5.24307967 126.890349,7.68975164 C126.890349,10.4067159 128.098591,11.5204139 129.63446,11.5204139 C130.380513,11.5204139 130.97656,11.1677468 131.495849,10.6912834 L131.495849,11.3701735 Z M131.506614,9.31922816 C131.141076,9.78094827 130.557666,10.2283932 129.892115,10.2283932 C128.859388,10.2283932 128.288849,9.44232232 128.288849,7.64856424 C128.288849,6.14218189 128.832475,5.3816191 129.838758,5.3816191 C130.543391,5.3816191 131.195134,5.89669562 131.506614,6.31722834 L131.506614,9.31922816 Z"></path>
+            <path d="M140.063297,9.41470804 C140.063297,8.069565 139.248909,7.63452308 137.65945,7.0242007 C136.586003,6.603902 136.342389,6.34414056 136.342389,5.99170747 C136.342389,5.61189411 136.63936,5.33996366 137.31942,5.33996366 C137.999948,5.33996366 138.583124,5.54426253 139.166534,5.95028605 L139.778495,4.87847757 C139.14009,4.4148853 138.257369,4.09123658 137.360373,4.09123658 C135.93426,4.09123658 134.930083,4.75631948 134.930083,6.03102271 C134.930083,7.16063396 135.484943,7.67571048 137.022449,8.27386386 C138.053305,8.66701632 138.677668,8.92490561 138.677668,9.46923454 C138.677668,9.97190804 138.257369,10.2562415 137.374883,10.2562415 C136.707459,10.2562415 135.963278,10.0112233 135.297259,9.54950317 L134.656748,10.6096107 C135.377996,11.1389624 136.424764,11.5204139 137.38752,11.5204139 C138.786955,11.5204139 140.063297,10.9898921 140.063297,9.41470804"></path>
+            <path d="M3.96343329,2.41893453 C3.96343329,1.91602701 3.46414765,1.50976948 2.86477545,1.50976948 C2.24934352,1.50976948 1.74805041,1.91602701 1.74805041,2.41893453 C1.74805041,2.90756687 2.24934352,3.31569656 2.86477545,3.31569656 C3.46414765,3.31569656 3.96343329,2.90756687 3.96343329,2.41893453 L3.96343329,2.41893453 Z M2.00013087,11.3701735 L3.7133603,11.3701735 L3.7133603,4.23983885 L2.00013087,4.23983885 L2.00013087,11.3701735 Z"></path>
+            <path d="M11.349395,11.3701735 L11.349395,7.28208999 C11.349395,5.17544808 10.4659721,4.09123658 8.80958335,4.09123658 C8.07686886,4.09123658 7.37059856,4.40248227 7.01722939,4.91943095 L7.01722939,4.23983885 L5.61638975,4.23983885 L5.61638975,11.3701735 L7.01722939,11.3701735 L7.01722939,7.20158734 C7.01722939,6.04717004 7.54681511,5.3816191 8.48289238,5.3816191 C9.40750271,5.3816191 9.9513636,5.89669562 9.9513636,7.33568041 L9.9513636,11.3701735 L11.349395,11.3701735"></path>
+            <path d="M18.4787936,9.41470804 C18.4787936,8.069565 17.6634702,7.63452308 16.0742451,7.0242007 C15.0022026,6.603902 14.7569503,6.34414056 14.7569503,5.99170747 C14.7569503,5.61189411 15.055559,5.33996366 15.7351511,5.33996366 C16.4149772,5.33996366 16.9976853,5.54426253 17.5832016,5.95028605 L18.193524,4.87847757 C17.5553533,4.4148853 16.6721644,4.09123658 15.7751684,4.09123658 C14.3499907,4.09123658 13.3458138,4.75631948 13.3458138,6.03102271 C13.3458138,7.16063396 13.9006736,7.67571048 15.4360744,8.27386386 C16.4688016,8.66701632 17.0936332,8.92490561 17.0936332,9.46923454 C17.0936332,9.97190804 16.6721644,10.2562415 15.7906136,10.2562415 C15.1227225,10.2562415 14.377371,10.0112233 13.71182,9.54950317 L13.0729473,10.6096107 C13.7923227,11.1389624 14.8393251,11.5204139 15.8032507,11.5204139 C17.2017501,11.5204139 18.4787936,10.9898921 18.4787936,9.41470804"></path>
+          </g>
+        </svg>
+      </div>
+      <div class="masthead-tag">Staff onboarding</div>
+    </div>
+    <button class="mobnav" id="mobnav" aria-label="Open menu" aria-expanded="false" aria-controls="sidebar">
+      <span class="mobnav-bars" aria-hidden="true"><i></i><i></i><i></i></span>
+    </button>
+    <div class="search" role="search">
+      <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      <input type="search" id="searchInput" placeholder="Search the site" autocomplete="off"
+             aria-label="Search the site" aria-expanded="false" aria-controls="searchResults"
+             role="combobox" aria-autocomplete="list">
+      <button type="button" class="search-clear" id="searchClear" aria-label="Clear search" hidden>&times;</button>
+      <div class="search-results" id="searchResults" role="listbox" aria-label="Search results" hidden></div>
+    </div>
+    <div class="mast-links">
+      <a href="#help">Ask a question</a>
+      <a href="#journey">Where am I?</a>
+    </div>
+  </div>
+</header>
+
+<div class="nav-backdrop" id="navBackdrop"></div>
+
+<div class="status">
+  <div class="status-in">
+    <span class="status-step" id="statusStep">Step 1 of 11 &middot; Offer accepted</span>
+    <span class="status-bar"><i id="statusBar"></i></span>
+    <span class="status-verdict" id="statusVerdict">This one's on you
+      <span id="statusDetail">Offer accepted.</span>
+    </span>
+  </div>
+</div>
+
+<div class="filters">
+  <div class="filters-in">
+    <div class="fgroup">
+      <span class="flabel">Joining</span>
+      <button class="chip" data-cat="origin" data-val="overseas" aria-pressed="true">From overseas</button>
+      <button class="chip" data-cat="origin" data-val="inuae" aria-pressed="false">Already in the UAE</button>
+    </div>
+    <div class="fgroup">
+      <span class="flabel">Based in</span>
+      <button class="chip" data-cat="emirate" data-val="dubai" aria-pressed="true">Dubai</button>
+      <button class="chip" data-cat="emirate" data-val="abudhabi" aria-pressed="false">Abu Dhabi</button>
+    </div>
+    <div class="fgroup">
+      <span class="flabel">Moving</span>
+      <button class="chip" data-cat="family" data-val="alone" aria-pressed="false">On my own</button>
+      <button class="chip" data-cat="family" data-val="family" aria-pressed="true">With family</button>
+    </div>
+  </div>
+</div>
+
+<div class="subject-bar">
+  <div class="subject-bar-in">
+    This guide is for information only and <strong>all details are subject to change</strong>. Your employment contract and Taaleem's policies take precedence.
+  </div>
+</div>
+
+<div class="shell">
+
+<nav class="sidebar" id="sidebar">
+  <button class="navclose" id="navClose" aria-label="Close menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+  <div class="navsec">Start</div>
+  <a href="#home">Welcome on board</a>
+  <a href="#journey">Your journey, step by step</a>
+  <a href="#safeguarding">Safeguarding</a>
+
+  <div class="navsec">Getting ready</div>
+  <a href="#documents">Your documents</a>
+  <a href="#attestation">Attestation</a>
+  <a href="#visas">Visas and sponsorship</a>
+  <a href="#approval">Teaching approval</a>
+  <a href="#oracle">Oracle</a>
+  <a href="#insurance">Medical insurance</a>
+
+  <div class="navsec">Moving to the UAE</div>
+  <a href="#uae">About the UAE</a>
+  <a href="#culture">Culture and customs</a>
+  <a href="#conduct">Code of conduct</a>
+
+  <div class="navsec">Getting settled</div>
+  <a href="#accommodation">Your accommodation</a>
+  <a href="#money">Money and banking</a>
+  <a href="#connectivity">Phone, wifi and apps</a>
+  <a href="#transport">Getting around</a>
+  <a href="#explore">Exploring the UAE</a>
+
+  <div class="navsec">Working at Taaleem</div>
+  <a href="#probation">Your probation</a>
+  <a href="#performance">Performance and appraisal</a>
+  <a href="#leave">Types of leave</a>
+  <a href="#inspections">School inspections</a>
+  <a href="#iloe">Unemployment insurance</a>
+
+  <div class="navsec">More</div>
+  <a href="#downloads">Downloads</a>
+  <a href="#about">About Taaleem</a>
+  <a href="#help">Ask a question</a>
+</nav>
+
+<main>
+
+<!-- ============ HOME ============ -->
+<section class="page" id="home">
+  <div class="eyebrow-lg">Welcome</div>
+  <h1 class="h1-oneline">You're joining Taaleem. Here's everything, in order.</h1>
+  <p class="lede">From the day you accept your offer through to your first weeks at school &mdash; whenever in the year you are joining.</p>
+
+  <div class="you-box">
+    <div class="you-head">What this means for you</div>
+    <ul class="you-list">
+      <li data-when="overseas"><b>Joining from overseas.</b> If you are eligible for a Taaleem-provided flight, HR will arrange your ticket. HR also applies for your entry permit, and your residence visa is completed in your first 30 days in the country.</li>
+      <li data-when="inuae"><b>Already in the UAE.</b> You won't need an entry permit — your status transfers to Taaleem from inside the country. Your current visa has to be cancelled first, and that part is on you.</li>
+      <li data-when="dubai"><b>Based in Dubai.</b> Your teaching approval goes through KHDA, and your visa medical is at a Medical Fitness Centre.</li>
+      <li data-when="abudhabi"><b>Based in Abu Dhabi.</b> Your teaching approval goes through ADEK, and your visa medical is at the Etihad Visa Screening Centre.</li>
+      <li data-when="family"><b>Moving with family.</b> You sponsor their visas yourself once your own is issued. Start the attested marriage and birth certificates now — they are the slowest part.</li>
+      <li data-when="alone"><b>Moving on your own.</b> Nothing to arrange for dependents, so the family visa step won't apply to you.</li>
+    </ul>
+  </div>
+
+  <figure class="hero">
+    <img src="images/taaleem-hero.jpg" alt="A Teacher sitting on the floor with a group of pupils gathered around a globe in a bright classroom." width="870" height="580">
+  </figure>
+
+  <h2>Before you accept, or straight after</h2>
+  <p>Some things can be started before your paperwork formally begins, and they are the ones most likely to hold everything else up if they are left late. If you are still considering an offer, none of this commits you to anything.</p>
+  <div class="grid g3">
+    <a class="card card-link" href="#attestation"><span class="card-num">Start now</span><h3>Certificate attestation</h3><p>The longest task in the process, and it runs at the pace of embassies rather than yours.</p></a>
+    <a class="card card-link" href="#documents"><span class="card-num">Start now</span><h3>Line up your references</h3><p>Two covering the last five years, from your Principal or Line Manager. Ask before you need them.</p></a>
+    <a class="card card-link" href="#documents"><span class="card-num">Start now</span><h3>Gather your documents</h3><p>Passport, previous visas, qualifications. Clear colour scans save a round of rejections later.</p></a>
+  </div>
+
+  <div class="note note-urgent">
+    <h3>Safeguarding is mandatory for every member of staff</h3>
+    <p>It applies from the moment you accept, whatever your role. The essentials — how to recognise a concern, who to report it to, and why you must never investigate it yourself — take a few minutes to read and are the most important thing on this site.</p>
+    <div class="btnrow" style="margin-bottom:0"><a class="btn" href="#safeguarding">Read the safeguarding essentials</a></div>
+  </div>
+
+  <div class="note note-urgent">
+    <h3>You must be financially prepared for your first 6&ndash;8 weeks</h3>
+    <p>Moving to a new country can be expensive. <strong>You should not assume that Taaleem will cover your personal relocation or living expenses.</strong> You are personally responsible for making sure you have enough money available to support yourself until your salary and UAE banking arrangements are fully established.</p>
+    <p>This is the single thing new joiners most often underestimate. Read the detail and the indicative costs, and plan your finances before you join.</p>
+    <div class="btnrow" style="margin-bottom:0"><a class="btn" href="#money">What you need to budget for</a></div>
+  </div>
+
+  <div class="note note-urgent">
+    <h3>Start these four today</h3>
+    <p>They take the longest and everything else waits on them. None of them can be rushed at the last minute.</p>
+    <div class="grid g4" style="margin-bottom:0">
+      <a class="card card-link" href="#attestation"><div class="card-media"><img src="images/attest-certificate.jpg" alt=""></div><span class="card-num">01</span><h3>Attest your certificates</h3><p>Your education certificates need to be attested before they count here.</p></a>
+      <a class="card card-link" href="#attestation"><div class="card-media"><img src="images/certificate-equal.jpg" alt=""></div><span class="card-num">02</span><h3>Equivalence Certificate</h3><p>Qualifications gained outside the UAE need an Equivalence Certificate from the Ministry of Education.</p></a>
+      <a class="card card-link" href="#documents"><div class="card-media"><img src="images/police-clearance.jpg" alt=""></div><span class="card-num">03</span><h3>Police clearance</h3><p>Must be dated within three months of joining.</p></a>
+      <a class="card card-link" href="#documents"><div class="card-media"><img src="images/reference-two.jpg" alt=""></div><span class="card-num">04</span><h3>Two references</h3><p>From your Principal, covering five years.</p></a>
+    </div>
+  </div>
+
+  <h2>Where you are in the journey</h2>
+  <p>11 steps to take you from signed offer to residence visa.<span data-when="alone"> The last one covers family visas, so it won't apply to you.</span><span data-when="inuae"> Flights won't apply to you either, since you're already here.</span></p>
+  <div class="btnrow"><a class="btn" href="#journey">Open your journey tracker</a></div>
+
+  <h2>The rest of the guide</h2>
+  <div class="grid g2">
+    <a class="card card-link" href="#documents"><h3>Getting ready</h3><p>Documents, attestation, visas, teaching approval, Oracle and insurance.</p></a>
+    <a class="card card-link" href="#uae" data-when="overseas"><h3>Moving to the UAE</h3><p>The country, its culture and customs, and the conduct expected of you.</p></a>
+    <a class="card card-link" href="#uae" data-when="inuae"><h3>Living in the UAE</h3><p>The country, its culture and customs, and the conduct expected of you as a Taaleem employee.</p></a>
+    <a class="card card-link" href="#accommodation" data-when="overseas"><h3>Getting settled</h3><p>Your apartment, salary, banking, phone, driving and weekends.</p></a>
+    <a class="card card-link" href="#accommodation" data-when="inuae"><h3>Getting settled</h3><p>Your apartment, salary, payroll transfer, driving and weekends.</p></a>
+    <a class="card card-link" href="#probation"><h3>Working at Taaleem</h3><p>Probation, appraisals, leave, inspections and your employee pack.</p></a>
+  </div>
+
+  <h2>People, not pages</h2>
+  <p>Some things are better asked than read. Your HR representative stays with you from offer through to your first weeks at school, and your school will match you with a colleague who can help you settle in.</p>
+  <div class="btnrow"><a class="btn btn-ghost" href="#help">See who to contact</a></div>
+</section>
+
+<!-- ============ JOURNEY ============ -->
+<section class="page" id="journey">
+  <div class="eyebrow">Getting ready</div>
+  <h1>Your journey, step by step</h1>
+  <p class="lede">11 steps to take you from signed offer to residence visa. Each one says whose move it is, so you always know whether you're waiting or holding things up.</p>
+
+  <p class="track-hint">Select the step you've reached and the banner at the top of every page will follow you.</p>
+
+  <div class="track" id="track">
+
+    <div class="step" data-step="1" data-actor="you" data-title="Offer accepted">
+      <div class="step-rail"><span class="dot">1</span><span class="line"></span></div>
+      <div class="step-body"><div class="step-inner">
+        <div class="step-title">Offer accepted</div>
+        <p>Your offer is signed and references are requested from your referees.</p>
+        <div class="note note-urgent" style="margin:12px 0 0">
+          <p><strong>All Taaleem policies apply from this stage onwards.</strong> That includes safeguarding, which is mandatory for every member of staff.</p>
+          <div class="btnrow" style="margin-bottom:0"><a class="btn btn-ghost" href="#safeguarding">Read the safeguarding essentials</a></div>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="step" data-step="2" data-actor="you" data-title="Documents">
+      <div class="step-rail"><span class="dot">2</span><span class="line"></span></div>
+      <div class="step-body"><div class="step-inner">
+        <div class="step-title">Documents <span class="tag tag-you">You do this</span></div>
+        <p>You'll receive a request for documentation. Return everything on the list in clear, complete scans — this is the step that most often holds the rest up.</p>
+        <div class="btnrow"><a class="btn btn-ghost" href="#documents">See the checklist</a></div>
+      </div></div>
+    </div>
+
+    <div class="step" data-step="3" data-actor="hr" data-title="Employment contract">
+      <div class="step-rail"><span class="dot">3</span><span class="line"></span></div>
+      <div class="step-body"><div class="step-inner">
+        <div class="step-title">Employment contract <span class="tag tag-hr">HR does this</span></div>
+        <p>Once your documents are processed, your employment contract is issued and comes to you for signature, so the entry permit application can begin.</p>
+      </div></div>
+    </div>
+
+    <div class="step" data-step="4" data-actor="hr" data-title="Flights" data-dim="overseas">
+      <div class="step-rail"><span class="dot">4</span><span class="line"></span></div>
+      <div class="step-body"><div class="step-inner">
+        <div class="step-title">Flights <span class="tag tag-hr">HR does this</span></div>
+        <p>If you are eligible for a Taaleem-provided flight, HR will send or arrange your flight ticket and provide you with the relevant details. Your flight details come back to HR at the same time, so the school knows when to expect you. <span class="dim-note">Overseas joiners only — this doesn't apply to you.</span></p>
+      </div></div>
+    </div>
+
+    <div class="step" data-step="5" data-actor="hr" data-title="Entry permit">
+      <div class="step-rail"><span class="dot">5</span><span class="line"></span></div>
+      <div class="step-body"><div class="step-inner">
+        <div class="step-title">Entry permit <span class="tag tag-hr">HR does this</span></div>
+        <p>Your permit is with immigration. It arrives by email as soon as HR receives it. Nothing is needed from you until you land.</p>
+        <div class="note note-warn" data-when="family" style="margin:14px 0 0">
+          <h3>Your family does need you now, though</h3>
+          <p>Your spouse and children don't travel on your permit — they enter on visit visas. Check whether their nationality gets a visa on arrival or has to apply in advance, and book them a return flight home, which visit visas require.</p>
+        </div>
+        <div class="btnrow"><a class="btn btn-ghost" href="#visas">How the visa process works</a><a class="btn btn-ghost" href="#help">Message your HR rep</a></div>
+      </div></div>
+    </div>
+
+    <div class="step" data-step="6" data-actor="hr" data-title="Orientation and induction">
+      <div class="step-rail"><span class="dot">6</span><span class="line"></span></div>
+      <div class="step-body"><div class="step-inner">
+        <div class="step-title">Orientation and induction <span class="tag tag-hr">HR does this</span></div>
+        <p>If you are joining at the start of a new academic year, you may attend onboarding, orientation and induction events arranged by your school. If you are joining at another point during the academic year, your onboarding and induction will be provided through the relevant activities and information for your joining date and role.</p>
+        <p style="margin-bottom:0">Your school will send you the details that apply to you, along with the school calendar and any arrangements for your arrival and first days.</p>
+      </div></div>
+    </div>
+
+    <div class="step" data-step="7" data-actor="you" data-title="Arrival">
+      <div class="step-rail"><span class="dot">7</span><span class="line"></span></div>
+      <div class="step-body"><div class="step-inner">
+        <div class="step-title">Arrival <span class="tag tag-you">You do this</span></div>
+        <p>You complete the relevant immigration process on arrival. <strong>Your passport or entry permit may not be physically stamped, so don't worry if you don't receive a physical stamp.</strong> HR will let you know what immigration documentation or passport information you need to provide afterwards.</p>
+        <p style="margin-bottom:0" data-when="overseas">Your school will have confirmed the arrangements that apply to your arrival and transfer to your accommodation.</p>
+        <p style="margin-bottom:0" data-when="inuae">You are responsible for making your own arrangements to travel to your accommodation or school.</p>
+      </div></div>
+    </div>
+
+    <div class="step" data-step="8" data-actor="hr" data-title="Medical insurance">
+      <div class="step-rail"><span class="dot">8</span><span class="line"></span></div>
+      <div class="step-body"><div class="step-inner">
+        <div class="step-title">Medical insurance <span class="tag tag-hr">HR does this</span></div>
+        <p>HR applies once your Emirates ID application form is complete. <span data-when="family">Your family should hold their own cover until theirs is set up.</span></p>
+      </div></div>
+    </div>
+
+    <div class="step" data-step="9" data-actor="you" data-title="Visa medical">
+      <div class="step-rail"><span class="dot">9</span><span class="line"></span></div>
+      <div class="step-body"><div class="step-inner">
+        <div class="step-title">Visa medical <span class="tag tag-you">You attend</span></div>
+        <p data-when="dubai">HR books the appointment. In Dubai this is at a Medical Fitness Centre — a blood test and an x-ray, or just the blood test if you've lived in Dubai before.</p>
+        <p data-when="abudhabi">HR books the appointment. In Abu Dhabi this is at the Etihad Visa Screening Centre — a blood test and an x-ray.</p>
+      </div></div>
+    </div>
+
+    <div class="step" data-step="10" data-actor="you" data-title="Residence visa and Emirates ID">
+      <div class="step-rail"><span class="dot">10</span><span class="line"></span></div>
+      <div class="step-body"><div class="step-inner">
+        <div class="step-title">Residence visa and Emirates ID <span class="tag tag-time">Up to 10 days</span></div>
+        <p>Biometrics and an eye scan at an Emirates ID centre, then your card is sent to HR. This is the step that unlocks your bank account, your driving licence and your family's visas.</p>
+      </div></div>
+    </div>
+
+    <div class="step" data-step="11" data-actor="you" data-title="Family visas" data-dim="family">
+      <div class="step-rail"><span class="dot">11</span></div>
+      <div class="step-body"><div class="step-inner">
+        <div class="step-title">Family visas <span class="tag tag-you">You arrange and pay</span></div>
+        <p>Can't begin until step 10 is finished. You'll need attested marriage and birth certificates with Arabic legal translations — start those early, because they're slow. <span class="dim-note">Moving with family only — this doesn't apply to you.</span></p>
+        <div class="btnrow"><a class="btn btn-ghost" href="#visas">What you'll need</a></div>
+      </div></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ SAFEGUARDING ============ -->
+<section class="page" id="safeguarding">
+  <div class="eyebrow">Start</div>
+  <h1>Safeguarding</h1>
+  <p class="lede">Safeguarding is the responsibility of every adult in a Taaleem school, from your first day and whatever your role. You do not need to be an expert — you need to know what to do if you are ever worried about a child.</p>
+
+  <div class="note note-urgent">
+    <h3>Never investigate a concern yourself</h3>
+    <p>If something worries you, your job is to <strong>notice it, record it and report it</strong> — not to work out whether it is true. Don't question the student for more detail, don't approach the family, and don't discuss it with colleagues who aren't part of the reporting process. Well-meant questions can compromise a later inquiry.</p>
+    <p style="margin-bottom:0"><strong>Report the same day. Never hold a concern overnight.</strong></p>
+  </div>
+
+  <h2>If a concern arises</h2>
+  <ol>
+    <li><strong>Listen.</strong> Let the student speak without interrupting or leading them. Don't promise to keep it secret — you can't.</li>
+    <li><strong>Reassure them</strong> that they were right to tell you.</li>
+    <li><strong>Record it</strong> as soon as you can, in the student's own words where possible, with the date, time and place. Stick to what was said and seen rather than what you concluded.</li>
+    <li><strong>Report it the same day</strong> to your <strong>Designated Safeguarding Lead and your Principal or Superintendent</strong>. You can raise it through any appropriate route — what matters is that it reaches them quickly.</li>
+  </ol>
+  <p>Never decide a concern is too small to pass on. Judging significance isn't your call, and a small piece may complete a picture someone else already holds.</p>
+
+  <div class="note note-warn">
+    <h3>If the concern involves a member of staff</h3>
+    <p>The duty to report is exactly the same. Where the concern involves the <strong>Designated Safeguarding Lead or another senior leader</strong>, raise it directly with your <strong>Principal or Superintendent</strong>. Where that would not be appropriate, raise it with the <strong>Head of Safeguarding at Central Office</strong>.</p>
+    <p style="margin-bottom:0">There is always a route. If one feels closed to you, another is open.</p>
+  </div>
+
+  <h2>Confidentiality</h2>
+  <p>You cannot promise a student that you will keep something to yourself. If they ask, explain gently that you may have to tell someone whose job it is to help. Information is shared on a need-to-know basis only — discussing a concern with colleagues who have no role in it is a breach in itself.</p>
+
+  <h2>Professional boundaries</h2>
+  <p>Keep your relationships with students professional and visible. Communicate through school systems and your school account so there is always a record, rather than personal phone numbers or social media. Avoid being alone with a student out of sight of others; where a one-to-one conversation is necessary, stay somewhere visible and let a colleague know. Don't transport students in your own car, photograph them on a personal device, or give and accept personal gifts.</p>
+  <p>Physical contact should be limited to what your role genuinely requires — first aid, keeping someone safe, or the demands of subjects like PE, drama and music. If a situation forces you into contact that could be misread, record it and tell a colleague at the time rather than afterwards.</p>
+
+  <div class="note note-school">
+    <span class="school-tag">Find this out in your first week</span>
+    <h3>Who your Designated Safeguarding Lead is</h3>
+    <p>Each school has its own DSL. Their name is listed in the Taaleem safeguarding policy and displayed on your school noticeboards. Find out who yours is before you need them, and save the contact somewhere you can reach quickly.</p>
+  </div>
+
+  <h2>The policy</h2>
+  <p>This page is an orientation, not the policy. Taaleem has a group-wide safeguarding policy which sets out the full guidance and lists the Designated Safeguarding Lead for every school. It is an internal document, available to you through <strong>StaffRoom</strong> and <strong>Taaleem OneDrive</strong>, and you are expected to read it.</p>
+
+  <div class="btnrow"><a class="btn btn-ghost" href="#conduct">The code of conduct</a><a class="btn btn-ghost" href="#help">Ask a question</a></div>
+</section>
+
+<!-- ============ DOCUMENTS ============ -->
+<section class="page" id="documents">
+  <div class="eyebrow">Getting ready</div>
+  <h1>Your documents</h1>
+  <p class="lede">You'll receive a request for documentation from your HR representative. What you send back is used for your teaching approval, your visa, your insurance and your personnel file.</p>
+
+  <figure class="hero hero-sm">
+    <img src="images/onboarding-image.jpg" alt="A new joiner working through their onboarding checklist on a laptop, with a passport and documents on the desk." width="512" height="512">
+  </figure>
+
+  <h2>Your checklist</h2>
+  <p>The Staff Information Form sent with your Letter of Intent confirms exactly what applies to you, but in almost every case it comes down to these.</p>
+  <ul class="checklist">
+    <li>Passport copy</li>
+    <li>Previous visa, where applicable</li>
+    <li>Attested education certificates</li>
+    <li>Equivalence certificate</li>
+    <li>Police clearance certificate</li>
+    <li>References</li>
+    <li>Any other required supporting documents</li>
+  </ul>
+
+  <div class="note note-warn">
+    <h3>Check your scans before you send them</h3>
+    <p>Rejected scans are the single most common cause of delay. Every scan must be <strong>clear</strong>, <strong>not blurry</strong> and <strong>free from glare</strong>. Send colour copies as PDF or JPG — photographs of documents and CamScanner files cannot be used for official purposes and are rejected automatically.</p>
+  </div>
+
+  <div class="note note-good">
+    <p><strong>Once your documents are processed, your employment contract is issued for signature.</strong> That signature is what allows the entry permit application to begin, so the sooner the documents are complete, the sooner everything downstream can move.</p>
+  </div>
+
+  <h2>References</h2>
+  <p>You need two, covering the last five years of employment. If you've had more than two employers in that time, you'll need more references to cover the full five years.</p>
+  <ul>
+    <li>Academic applicants: from your current or previous School Principal</li>
+    <li>Administrative applicants: from your direct Line Manager</li>
+    <li>Not from relatives or friends, and not from a private email address</li>
+    <li>Fully completed, signed and dated by every referee</li>
+  </ul>
+  <p>Referees are asked about your suitability to work with children, your conduct and attendance, any disciplinary procedures, and any substantiated concerns relating to the safety and welfare of children.</p>
+
+  <h2>Police clearance</h2>
+  <p>A police clearance or criminal background check from your country of residence, always covering the last five years.</p>
+  <table>
+    <tr><th>Requirement</th><th>Detail</th></tr>
+    <tr><td class="mono">Coverage</td><td>The last five years. If you've lived in your current country for under five years, you need a second check from your previous country too.</td></tr>
+    <tr><td class="mono">Age</td><td>Dated within three months of your joining date.</td></tr>
+    <tr><td class="mono">Scope</td><td>Must cover the whole country. State or county-restricted checks are not accepted for overseas candidates.</td></tr>
+  </table>
+  <p data-when="inuae">If you are already in the UAE, Dubai Police issue the certificate online or through the Dubai Police smart app.</p>
+  <p data-when="overseas">If you have previously lived in the UAE, Dubai Police issue a certificate covering that period online or through the Dubai Police smart app.</p>
+
+  <div class="note note-urgent">
+    <h3>The certificate has to be addressed to the right authority</h3>
+    <p>A police clearance certificate is issued <em>for</em> a named body, and one addressed to the wrong authority will not be accepted for your teaching approval — you would have to apply again.</p>
+    <p data-when="dubai" style="margin-bottom:0">You're joining a Dubai school, so it must be addressed to the <strong>Knowledge and Human Development Authority (KHDA)</strong>. When applying through Dubai Police, select KHDA under <em>Certificate Required By</em>, with <strong>Purpose: Work</strong>, <strong>Requested Party: Government Sector</strong> and <strong>Language: English</strong>. You will need your UAE Pass to sign in.</p>
+    <p data-when="abudhabi" style="margin-bottom:0">You're joining an Abu Dhabi school, so it must be addressed to the <strong>Department of Education and Knowledge (ADEK)</strong> rather than KHDA. Select ADEK as the requesting authority when you apply, with <strong>Purpose: Work</strong> and <strong>Language: English</strong>.</p>
+  </div>
+
+  <div class="btnrow">
+    <a class="btn btn-ghost" href="https://www.dubaipolice.gov.ae/wps/portal/home/services/individualservices/goodconductcertificate" target="_blank" rel="noopener">Apply through Dubai Police</a>
+    <a class="btn btn-ghost" href="downloads/police-clearance-khda-guide.pdf" target="_blank" rel="noopener">Step-by-step guide (PDF)</a>
+  </div>
+  <p class="step-meta" data-when="abudhabi">The step-by-step guide above shows the KHDA route. The stages are the same for ADEK — only the authority you select differs.</p>
+
+  <h2>What happens next</h2>
+  <p>Everything goes to your HR representative, and is used for your KHDA, ADEK or MOE approval, your visa application, your medical insurance and your school records. Once it's processed, your employment contract is issued for signature.</p>
+
+  <div class="btnrow"><a class="btn btn-ghost" href="#attestation">Which documents need attesting</a></div>
+</section>
+
+<!-- ============ ATTESTATION ============ -->
+<section class="page" id="attestation">
+  <div class="eyebrow">Getting ready</div>
+  <h1>Attestation</h1>
+  <p class="lede">Your education certificates need to be attested — verified by the UAE Embassy and the Ministry of Foreign Affairs — before they are recognised here. Your visa and your teaching approval both depend on it.</p>
+
+  <div class="note note-calm">
+    <p><strong>The Ministry of Foreign Affairs handles the final attestation.</strong> Their service page sets out what's accepted, what it costs and how to submit documents, including the digital route for certificates issued in the UAE.</p>
+    <div class="btnrow" style="margin-bottom:0"><a class="btn btn-ghost" href="https://www.mofa.gov.ae/en/Services/Attestation" target="_blank" rel="noopener">MOFA document attestation</a></div>
+  </div>
+
+  <h2>Which documents</h2>
+  <ul>
+    <li>Your degree and teaching qualification</li>
+    <li>Equivalence certificate</li>
+    <li data-when="family">Your marriage certificate</li>
+    <li data-when="family">Birth certificates for your children</li>
+    <li data-when="family">A name change certificate, if applicable</li>
+  </ul>
+  <p data-when="family">Family documents need attesting a second time by the UAE Embassy in order for you to sponsor your dependents. Sponsorship is your responsibility and is done at your own cost — your HR representative will guide you through it.</p>
+
+  <h2 data-when="overseas">Attesting before you come</h2>
+  <ol data-when="overseas">
+    <li>Have your certificates notarised by a solicitor</li>
+    <li>UK certificates only: legalised by the FCO</li>
+    <li>Attested by the UAE Embassy in the country the certificates were issued</li>
+    <li>Bring the documents or copies to the UAE and submit them to the Ministry of Foreign Affairs for final attestation</li>
+  </ol>
+
+  <h2 data-when="inuae">Attesting once you're here</h2>
+  <ol data-when="inuae">
+    <li>Take the documents to your home country's embassy for authentication</li>
+    <li>Take them to the Department of Foreign Affairs to verify authenticity</li>
+    <li>Take them to the Ministry of Foreign Affairs in Dubai for final attestation</li>
+  </ol>
+  <p data-when="inuae">Alternatively, you can send your documents back to your home country and have the whole process completed there.</p>
+
+  <h2>Using a service</h2>
+  <p>Taaleem has partnered with two external attestation providers if you'd rather not handle it yourself. Both charge their own fees.</p>
+  <div class="grid g2">
+    <div class="card"><h3>Work Abroad Legal</h3><p>Attestation service partner</p></div>
+    <div class="card"><h3>Argentum</h3><p>Attestation service partner</p></div>
+  </div>
+
+  <div class="note note-calm">
+    <p><strong>Bring the originals.</strong> Not copies. You'll need the physical attested documents with you when you arrive.</p>
+  </div>
+</section>
+
+<!-- ============ VISAS ============ -->
+<section class="page" id="visas">
+  <div class="eyebrow">Getting ready</div>
+  <h1>Visas and sponsorship</h1>
+  <p class="lede">Your HR representative handles most of the visa process for you. This page explains what's happening, and the points where you have to turn up in person.</p>
+
+  <div class="note note-calm" data-when="overseas">
+    <p>Working in the UAE requires an employment visa for the whole of your employment. <strong>Once you arrive you have a 30-day window</strong> to complete it, and HR will move it along within that time.</p>
+  </div>
+  <div class="note note-calm" data-when="inuae">
+    <p>Working in the UAE requires an employment visa for the whole of your employment. Because you're already in the country, you won't need an entry permit — instead your status is transferred to Taaleem from inside the UAE. <strong>The 30-day window starts when your current visa is cancelled.</strong></p>
+  </div>
+
+  <h2 data-when="overseas">How it runs, joining from overseas</h2>
+  <ol data-when="overseas">
+    <li>Your entry permit is processed by HR and emailed to you</li>
+    <li>You travel to the UAE and complete the relevant immigration process on arrival &mdash; your passport or entry permit may not be physically stamped, and HR will tell you what documentation to provide afterwards</li>
+    <li>HR changes your status from entry permit to residence</li>
+    <li><strong>You attend a medical</strong> — blood test and x-ray<span data-when="dubai">, or blood test only if you've lived in Dubai before</span></li>
+    <li><strong>You attend an Emirates ID centre</strong> for biometrics and an eye scan<span data-when="dubai">, which you may be able to skip if you've lived in the UAE before</span></li>
+    <li>You return all documents and your passport to HR, who complete the process</li>
+    <li>Your Emirates ID is issued and handed to you once it reaches the school</li>
+  </ol>
+
+  <h2 data-when="inuae">How it runs, joining from inside the UAE</h2>
+  <ol data-when="inuae">
+    <li><strong>Your current visa is cancelled by your existing sponsor.</strong> This is the step you have to drive — HR can't begin until the cancellation paperwork exists, so agree the date with your current employer early</li>
+    <li>You give HR the cancellation document and your passport</li>
+    <li>HR applies for a change of status inside the country — no entry permit and, in most cases, no need to leave and re-enter</li>
+    <li><strong>You attend a medical</strong> — blood test and x-ray<span data-when="dubai">, or blood test only if you've lived in Dubai before</span></li>
+    <li><strong>You attend an Emirates ID centre</strong> for biometrics and an eye scan<span data-when="dubai">, which you may be able to skip if you've held a UAE residence visa before</span></li>
+    <li>You return all documents and your passport to HR, who complete the process</li>
+    <li>Your Emirates ID is issued and handed to you once it reaches the school</li>
+  </ol>
+
+  <div class="note note-warn" data-when="inuae">
+    <h3>Mind the gap between visas</h3>
+    <p>There is usually a short period between your old visa being cancelled and your Taaleem residence visa being issued. Check the grace period that applies to you before you cancel, and tell HR straight away if the dates look tight.</p>
+  </div>
+
+  <div class="note note-warn">
+    <p><strong>If your passport ever changes, tell HR immediately.</strong> Your visa is linked to your Emirates ID, and out-of-date passport details in the immigration system cause problems when you travel.</p>
+  </div>
+
+  <div data-when="family">
+    <h2>Sponsoring your family</h2>
+    <p>Family visa applications can only start once your own residence visa and Emirates ID are issued. Expect a gap of a few weeks.</p>
+    <table>
+      <tr><th>You'll need</th><th>Where it comes from</th></tr>
+      <tr><td>Your own visa and Emirates ID</td><td>Issued at step 10</td></tr>
+      <tr><td>An Arabic salary certificate &mdash; <strong>not always required</strong></td><td>Where your immigration contract is available once your visa is completed, that can often be used instead. Check with HR before requesting one.</td></tr>
+      <tr><td>Attested marriage certificate with Arabic legal translation</td><td>You arrange</td></tr>
+      <tr><td>Attested birth certificates with Arabic legal translation</td><td>You arrange</td></tr>
+      <tr><td>Tenancy contract (Ejari)</td><td>Ask your Building Manager if you're in Taaleem accommodation</td></tr>
+      <tr><td>Fully signed employment contract</td><td>HR</td></tr>
+      <tr><td>Passports and photographs of your dependents</td><td>You provide</td></tr>
+    </table>
+    <p>Visit any AMER Centre to begin. Requirements change from time to time, so the GDRFA website will always have the most current position.</p>
+    <p class="step-meta">AMER: +971 42 300 500</p>
+  </div>
+
+  <h2>Occupational Health Certificate</h2>
+  <p>Required if you work with students aged six and under, if you're a PE Teacher, or if your role touches public health or food handling. Valid for a year, and involves an x-ray, a blood sample and a stool sample. Your HR representative will tell you if you need one.</p>
+  <p data-when="dubai">In Dubai the certificate is issued by the <strong>Dubai Health Authority</strong>.</p>
+  <p data-when="abudhabi">In Abu Dhabi the certificate is issued through the <strong>Department of Health &ndash; Abu Dhabi (DoH)</strong>.</p>
+</section>
+
+<!-- ============ APPROVAL ============ -->
+<section class="page" id="approval">
+  <div class="eyebrow">Getting ready</div>
+  <h1>Teaching approval</h1>
+  <p class="lede">Teachers and Learning Assistants must meet the relevant regulator's approval requirements before they can be employed by a Taaleem school.</p>
+
+  <div class="note note-warn">
+    <h3>Who submits the application depends on your school</h3>
+    <p>Schools currently use different regulatory portals, so either <strong>you submit the application yourself</strong> or <strong>your HR representative submits it for you</strong>. Your HR representative will tell you which applies to your school — don't assume it's being handled until you've heard.</p>
+  </div>
+
+  <h2>Who approves you</h2>
+  <table>
+    <tr><th>Regulator</th><th>Covers</th></tr>
+    <tr><td class="mono">KHDA</td><td>The Knowledge and Human Development Authority — the education quality and regulatory authority for the Government of Dubai.</td></tr>
+    <tr><td class="mono">ADEK</td><td>The Abu Dhabi Department of Education and Knowledge — the education authority for the Emirate of Abu Dhabi.</td></tr>
+    <tr><td class="mono">MOE</td><td>The Ministry of Education, responsible for regulating all forms of education across the UAE.</td></tr>
+  </table>
+
+  <div class="note note-good" data-when="dubai">
+    <p><strong>You're joining a Dubai school</strong>, so your approval goes through KHDA.</p>
+  </div>
+  <div class="note note-good" data-when="abudhabi">
+    <p><strong>You're joining an Abu Dhabi school</strong>, so your approval goes through ADEK.</p>
+  </div>
+
+  <h2>What the application uses</h2>
+  <p>Whoever submits it, the application draws on the documents you've already provided. Approval can't be granted until all of these are in and verified.</p>
+  <ul class="checklist">
+    <li>References</li>
+    <li>Police clearance certificate</li>
+    <li>Attested education certificates</li>
+    <li>Equivalence certificate</li>
+  </ul>
+  <div class="btnrow"><a class="btn btn-ghost" href="#documents">Check your full document list</a></div>
+</section>
+
+<!-- ============ ORACLE ============ -->
+<section class="page" id="oracle">
+  <div class="eyebrow">Getting ready</div>
+  <h1>Oracle</h1>
+  <p class="lede">Oracle is the HR system you'll use for the rest of your time at Taaleem — booking leave, downloading payslips, requesting letters and keeping your own details up to date. It is worth twenty minutes early on to learn where things are.</p>
+
+  <div class="note note-calm">
+    <h3>Employee documentation</h3>
+    <p>Much of your employee documentation is automated using the information you provide when you apply for your role and complete your pre-employment requirements.</p>
+    <p style="margin-bottom:0">Your HR team will keep you informed of anything further that we need you to provide or complete as part of your employee documentation. <strong>You don't need Oracle before you start.</strong></p>
+  </div>
+
+  <h2>Getting in</h2>
+  <table>
+    <tr><th>Question</th><th>Answer</th></tr>
+    <tr><td>When do I get my login?</td><td>As part of joining, once your Office 365 account is created. You don't need to request it.</td></tr>
+    <tr><td>Where do I sign in?</td><td>Through the Office 365 portal — look for the <strong>Oracle Fusion HCM</strong> icon. Because it uses your Taaleem account, you don't set a separate Oracle password.</td></tr>
+    <tr><td>Can I use my phone?</td><td>Yes. The interface adapts to a phone, which is usually enough for booking leave or checking a payslip.</td></tr>
+  </table>
+
+  <div class="note note-warn">
+    <h3>If you can't log in</h3>
+    <p>Almost every first-time problem is the Office 365 account rather than Oracle itself. Check you can sign in to Office 365 first — if that fails, it's an IT issue, not an HR one.</p>
+    <p style="margin-bottom:0">If Office 365 works but the Oracle icon is missing or rejects you, contact your HR representative, who can raise a helpdesk query. Include what you tried, the exact error, and a screenshot — it's the difference between a same-day fix and a week of messages.</p>
+  </div>
+
+  <h2>What you'll use it for</h2>
+  <p>The Employee Self Service manual is the authoritative guide, and the paths below follow the standard Oracle layout — start from <strong>Me</strong> on the home page.</p>
+
+  <h3>Requesting annual leave</h3>
+  <p>Under <strong>Me → Time and Absences → Add Absence</strong>. Choose the absence type, set the dates and submit — it routes to your Line Manager for approval. You can see the status of a request, and cancel or amend one that hasn't been approved yet, in the same place.</p>
+  <p>Annual leave for teaching staff follows the school calendar rather than being taken freely, so check your school's calendar before requesting anything in term time. See <a class="link" href="#leave">types of leave</a> for what each kind covers.</p>
+
+  <h3>Finding your payslips</h3>
+  <p>Under <strong>Me → Pay → Payslips</strong>. Payslips are posted each month and remain available, so you can download past ones as PDFs — useful for visa applications, tenancy contracts and loan applications.</p>
+
+  <h3>Updating your personal information</h3>
+  <p>Under <strong>Me → Personal Information</strong>: address, phone number, emergency contacts and bank details. Keep these current — payroll and HR use them, and an out-of-date emergency contact is the one that matters most.</p>
+  <p>Tell HR separately if your <strong>passport</strong> changes, as your visa and Emirates ID are linked to it.</p>
+
+  <h3>Salary certificates and employment letters</h3>
+  <p>Salary certificates are the document banks, landlords and embassies ask for. Other letters — employment confirmation, NOC, visa support letters — work the same way. Request these through Oracle rather than emailing HR directly.</p>
+
+  <h3>Key employment information</h3>
+  <p>Your job details, contract information, Line Manager and team sit under <strong>Me → Employment Info</strong>. Your medical insurance details are also held here once cover begins.</p>
+
+  <div class="note note-calm">
+    <h3>Links and step-by-step guides are shared when you join</h3>
+    <p style="margin-bottom:0">The Oracle sign-in link, the Employee Self Service manual and short instructional videos — including one for requesting a salary certificate — are shared with you when you join. They aren't published here because they sit behind Taaleem's internal systems.</p>
+  </div>
+
+  <h2>If something goes wrong</h2>
+  <table>
+    <tr><th>Problem</th><th>Who to contact</th></tr>
+    <tr><td>Can't sign in to Office 365</td><td>IT, through your school's usual route</td></tr>
+    <tr><td>Oracle icon missing, or access rejected</td><td>Your HR representative, who raises a helpdesk query</td></tr>
+    <tr><td>Leave request stuck or wrongly rejected</td><td>Your Line Manager first, then HR</td></tr>
+    <tr><td>Payslip looks wrong</td><td>Your HR representative — don't wait for the next pay run</td></tr>
+    <tr><td>Personal details won't save</td><td>Your HR representative; some fields are locked and only HR can change them</td></tr>
+  </table>
+
+  <div class="btnrow"><a class="btn btn-ghost" href="#downloads">Oracle manual and other downloads</a><a class="btn btn-ghost" href="#help">Ask a question</a></div>
+</section>
+
+<!-- ============ INSURANCE ============ -->
+<section class="page" id="insurance">
+  <div class="eyebrow">Getting ready</div>
+  <h1>Medical insurance</h1>
+  <p class="lede">Your cover is arranged by HR once your Emirates ID application form is complete, and managed day to day through the Sukoon app.</p>
+
+  <div class="note note-urgent">
+    <h3>You must arrange your own cover until your Taaleem insurance is active</h3>
+    <p>You must arrange personal medical insurance to cover the period from travelling to the UAE, through your arrival in the UAE, and until your Taaleem company medical insurance becomes active.</p>
+    <p><strong>Any medical costs incurred before your company medical insurance becomes active will be your own responsibility.</strong></p>
+    <p style="margin-bottom:0">Please make sure you have appropriate cover in place before travelling.</p>
+  </div>
+
+  <div class="note note-urgent">
+    <h3>Do not wait until you are sick to understand your medical insurance</h3>
+    <p>Half an hour now saves you a bad afternoon later. Before you need it, make sure you have:</p>
+    <ul style="margin-bottom:0">
+      <li><strong>Read your welcome pack</strong> — it sets out exactly what you're covered for</li>
+      <li><strong>Downloaded the insurer's app</strong> and signed in, so your digital card is on your phone</li>
+      <li><strong>Understood the telemedicine service</strong> and how to start a video consultation</li>
+      <li><strong>Checked how claims work</strong>, in and out of network</li>
+    </ul>
+  </div>
+
+  <div class="note note-good">
+    <h3>Telemedicine is often the right first call</h3>
+    <p>Unnecessary absence puts additional pressure on your colleagues and on your students — someone has to cover your classes. A video consultation is frequently the quickest and most appropriate option: you get seen sooner, you get a prescription if you need one, and you don't lose half a day to a waiting room.</p>
+  </div>
+
+  <div class="note note-warn">
+    <h3>In a genuine emergency, go straight to a hospital</h3>
+    <p>Don't wait for approval — go to the nearest emergency department. For anything that isn't an emergency, use a clinic or telemedicine rather than a hospital.</p>
+  </div>
+
+  <div class="note note-warn" data-when="family">
+    <p><strong>Your family needs their own cover to begin with.</strong> Their Taaleem insurance can't start until your residency is issued and they are sponsored, so arrange interim cover before you travel and keep it until theirs is confirmed.</p>
+    <p style="margin-bottom:0"><em>Terms and conditions apply.</em> Check the position for your own family with your HR representative.</p>
+  </div>
+
+  <h2>What's covered</h2>
+  <p>Alongside standard medical cover, your policy includes psychiatry, eye care and blood tests. Once your employment visa is processed you can see everything in the Sukoon app.</p>
+  <div class="grid g2">
+    <div class="card"><h3>In the app</h3><p>Digital insurance card, symptom checker, find a facility, book appointments, submit and track claims, reimbursement by bank transfer, and video consultations.</p></div>
+    <div class="card"><h3>How to get it</h3><p>Download Sukoon from the App Store, Google Play or HUAWEI AppGallery. Keep your contact details current so notifications reach you.</p></div>
+  </div>
+
+  <h2>How billing works</h2>
+  <table>
+    <tr><th>Situation</th><th>What happens</th></tr>
+    <tr><td>Inside the network</td><td>Direct billing. Taaleem's network of clinics and hospitals is extensive — there's more than enough choice.</td></tr>
+    <tr><td>Outside the network</td><td>Additional cost, always pay and claim. Avoid where you can.</td></tr>
+    <tr><td>Every visit</td><td>There's a co-payment, plus a small percentage contribution on pharmacy prescriptions.</td></tr>
+  </table>
+
+  <h2>Getting help with a claim</h2>
+  <p>Claims support and escalations are handled by Lockton. Your HR representative has the current contacts, and there's an out-of-hours emergency hotline covering evenings after 5pm, weekends and public holidays.</p>
+  <div class="btnrow"><a class="btn btn-ghost" href="#help">Get the claims contacts</a></div>
+</section>
+
+<!-- ============ UAE ============ -->
+<section class="page" id="uae">
+  <div class="eyebrow">Moving to the UAE</div>
+  <h1>About the UAE</h1>
+  <p class="lede">A federation of seven emirates on the eastern side of the Arabian Peninsula, formed on 2 December 1971. Around 9.9 million people live here, and roughly 88 in every 100 are expatriates.</p>
+
+  <figure class="hero">
+    <img src="images/skyline.jpg" alt="The Dubai skyline at dusk, with the Burj Khalifa, the Marina towers and Sheikh Zayed Road lit up along the waterfront." width="1408" height="768">
+  </figure>
+
+  <h2>The seven emirates</h2>
+  <table>
+    <tr><th>Emirate</th><th>Population</th><th>Dialling code</th></tr>
+    <tr><td>Dubai</td><td class="mono">3.32m</td><td class="mono">04</td></tr>
+    <tr><td>Abu Dhabi</td><td class="mono">3.23m</td><td class="mono">02</td></tr>
+    <tr><td>Sharjah</td><td class="mono">1.51m</td><td class="mono">06</td></tr>
+    <tr><td>Ajman</td><td class="mono">0.54m</td><td class="mono">06</td></tr>
+    <tr><td>Ras Al Khaimah</td><td class="mono">0.39m</td><td class="mono">07</td></tr>
+    <tr><td>Fujairah</td><td class="mono">0.25m</td><td class="mono">09</td></tr>
+    <tr><td>Umm Al Quwain</td><td class="mono">0.08m</td><td class="mono">06</td></tr>
+  </table>
+  <p>Al Ain, in the Emirate of Abu Dhabi, has its own dialling code of 03. The international code for the UAE is +971.</p>
+
+  <h2>Language and money</h2>
+  <p>Arabic is the official language, but Arabic and English are both official business languages and a great many others are spoken across the expatriate community. The currency in the UAE is the United Arab Emirates Dirham (AED), divided into 100 fils, with notes from 5 to 1,000.</p>
+
+  <h2>Climate</h2>
+  <p>A desert climate: mild, pleasant winters and very hot summers, with humidity that makes the heat harder work than the number suggests.</p>
+  <p>The UAE has a hot climate for much of the year, with particularly high temperatures during the summer months. <strong>Please check the expected conditions for your arrival period and plan accordingly.</strong></p>
+  <h3>Temperatures through the year</h3>
+  <table>
+    <tr><th>Season</th><th>Typical temperature</th><th>What to expect</th></tr>
+    <tr><td class="mono">Dec&ndash;Feb</td><td class="mono">18&ndash;23&deg;C</td><td>The coolest months. Windy days in January. Popular for mountains and camping.</td></tr>
+    <tr><td class="mono">Jun&ndash;Aug</td><td class="mono">35&ndash;36&deg;C average</td><td>Daytime highs of 40&ndash;45&deg;C, feeling like 50&ndash;55&deg;C with humidity. Almost everything is air conditioned.</td></tr>
+  </table>
+  <p>The months in between run warm rather than extreme, cooling through autumn and heating up again through spring.</p>
+
+  <h3>Rainfall (Dec&ndash;Mar)</h3>
+  <p>What little rain there is falls in these months. It is infrequent, but it can arrive as an intense downpour — roads flood quickly because they are not built to drain heavy rain.</p>
+</section>
+
+<!-- ============ CULTURE ============ -->
+<section class="page" id="culture">
+  <div class="eyebrow">Moving to the UAE</div>
+  <h1>Culture and customs</h1>
+  <p class="lede">The UAE welcomes newcomers, and it does so with clear expectations. Knowing them makes life here easier from the first week.</p>
+
+  <figure class="hero">
+    <img src="images/culture-image.jpg" alt="Emirati men in kandura and visitors from many nationalities gathered on the promenade in Downtown Dubai at dusk." width="1640" height="1091">
+  </figure>
+
+  <h2>Respecting local culture and customs</h2>
+  <p>The UAE is a multicultural country with its own customs and traditions. Please be respectful of local culture and customs, particularly when visiting government buildings and other formal settings.</p>
+  <p><strong>Dress should be respectful and appropriate for the setting.</strong> Standards are more relaxed in some places than others, and what is fine at a beach club is not appropriate at a government office, a mosque or a school.</p>
+  <p>The UAE government publishes guidance on living here, covering culture, customs and everyday practicalities. If you are ever unsure, ask your buddy &mdash; it is exactly the kind of question they are there for.</p>
+  <div class="btnrow"><a class="btn btn-ghost" href="https://u.ae/en/information-and-services" target="_blank" rel="noopener">Information and services on u.ae</a></div>
+
+  <h2>What matters here</h2>
+  <p>Hospitality, tolerance, family cohesion and solidarity run through Emirati society, along with real pride in that heritage. After faith, family comes first — children are considered jewels and family structures are close-knit.</p>
+  <p>The country's roots are in trade, fishing and pearl diving, which was the main source of income for many well into the early twentieth century. That history sits alongside a strong present-day push in science, technology and innovation.</p>
+
+  <h2>Ramadan</h2>
+  <p>The ninth month of the Islamic calendar, observed as a month of fasting, prayer, reflection and community. The dates vary each year because the Islamic calendar is based on the lunar cycle.</p>
+  <div class="note note-warn">
+    <p><strong>Don't eat, drink or smoke in public during daylight hours.</strong> This applies to non-Muslims too, and it's taken seriously — doing so can attract a fine or a reprimand from the police. Restaurants stay open and serve as normal, and most businesses work shorter hours.</p>
+  </div>
+
+  <h2>Food and drink</h2>
+  <p>An enormous range of cuisines, and supermarkets that cater to a very diverse population. Imported products cost more; local produce is cheap and good. Pork isn't served in most restaurants — designated venues hold pork licences, and selected supermarkets have separately labelled areas.</p>
+</section>
+
+<!-- ============ CONDUCT ============ -->
+<section class="page" id="conduct">
+  <div class="eyebrow">Moving to the UAE</div>
+  <h1>Code of conduct</h1>
+  <p class="lede">Every Taaleem employee commits to a set of professional, behavioural and moral obligations — towards students, parents, colleagues and UAE society. The Code of Conduct is the document that sets them out.</p>
+
+  <div class="note note-urgent">
+    <h3>You are required to read it</h3>
+    <p>The Code of Conduct is an internal Taaleem policy, and you are given access to it from the outset. Reading it and familiarising yourself with it is a requirement of your employment, not an optional extra — <strong>breaches can result in penalties against you</strong>.</p>
+    <p style="margin-bottom:0">It applies from the moment you accept your offer, not from your first day in a classroom.</p>
+  </div>
+
+  <h2>What it covers</h2>
+  <p>In broad terms: professional appearance and behaviour, how you conduct yourself with students, conflicts of interest and the use of school resources, alcohol and substances, and confidentiality — including what you may and may not share publicly or on social media.</p>
+  <p>The policy itself is the authoritative statement of each of these. It sits alongside <a class="link" href="#safeguarding">safeguarding</a>, which carries its own obligations.</p>
+
+  <h2>Where to find it</h2>
+  <p>The Code of Conduct is available to you internally through <strong>StaffRoom</strong> and <strong>Taaleem OneDrive</strong>. If you cannot locate it, ask your HR representative rather than assuming it does not apply yet.</p>
+
+  <div class="btnrow"><a class="btn btn-ghost" href="#safeguarding">Safeguarding</a><a class="btn btn-ghost" href="#help">Ask a question</a></div>
+</section>
+
+<!-- ============ ACCOMMODATION ============ -->
+<section class="page" id="accommodation">
+  <div class="eyebrow">Getting settled</div>
+  <h1>Your accommodation</h1>
+  <p class="lede" data-when="overseas">If you are eligible for Taaleem-provided accommodation and are joining from outside the UAE, your school or HR team will give you information about your accommodation arrangements before you travel.</p>
+  <p class="lede" data-when="inuae">If you are eligible for Taaleem-provided accommodation, your school or HR team will confirm the address and your move-in date. If you are already renting here, you may receive a housing allowance instead.</p>
+
+  <figure class="hero hero-tall" style="--focus:57%">
+    <img src="images/accomodation.jpg" alt="A modern low-rise apartment building with balconies, of the kind used for provided accommodation." width="1640" height="2460">
+  </figure>
+
+  <div class="note note-good" data-when="overseas">
+    <h3>If you're in Taaleem accommodation</h3>
+    <p><strong>A welcome pack with basic essentials will be waiting for you</strong>, so you don't have to find a supermarket on your first night. Someone will also help you locate local amenities to get the apartment properly equipped.</p>
+  </div>
+
+  <div class="note note-good" data-when="inuae">
+    <h3>If you're in Taaleem accommodation</h3>
+    <p><strong>A welcome pack with basic essentials will be waiting for you</strong> when you move in, and someone will help you locate local amenities to get the apartment properly equipped.</p>
+    <p>Agree your move-in date with your HR representative early, particularly if you're giving notice on a current tenancy — the two dates don't always line up neatly.</p>
+  </div>
+
+  <h2>What's included</h2>
+  <p>All Taaleem accommodation is approved and sourced by the Housing Department, and includes gym and pool access.</p>
+  <table>
+    <tr><th>Cost</th><th>Who pays</th></tr>
+    <tr><td>Rent</td><td>Covered by Taaleem</td></tr>
+    <tr><td>Utilities, air conditioning and wifi</td><td>Payable by you, monthly</td></tr>
+  </table>
+
+  <h2>Airport arrival and connection</h2>
+  <p data-when="overseas">If you are new to the UAE and are eligible for Taaleem-provided accommodation, your school will confirm the arrangements for your arrival and transfer to your accommodation. Depending on your circumstances and your school, this may include airport collection or an airport assistance service such as Marhaba.</p>
+  <p data-when="overseas">Your school or HR team will tell you what applies to you before you travel. Don't assume you will be collected until that has been confirmed.</p>
+  <p data-when="inuae">If you are already living in the UAE, you will be responsible for making your own arrangements to travel to your accommodation or school.</p>
+
+  <h2 data-when="inuae">Arranging your own accommodation</h2>
+  <p data-when="inuae">If you're already renting here and staying put, you'll receive a housing allowance instead. Tell HR which you're taking as early as you can, because it affects your payroll setup and, if you're sponsoring family, the tenancy contract (Ejari) you'll need for their visa applications.</p>
+
+  <div class="note note-calm" data-when="family">
+    <p>If your children will attend a Taaleem school, staff admissions are handled separately from your accommodation — raise it with your HR representative as early as you can, since places are limited and availability depends on the year group and the point in the year you are joining.</p>
+  </div>
+</section>
+
+<!-- ============ MONEY ============ -->
+<section class="page" id="money">
+  <div class="eyebrow">Getting settled</div>
+  <h1>Money and banking</h1>
+  <p class="lede" data-when="overseas">You can't open a UAE bank account until your visa and Emirates ID are complete, and you can't be paid without one. <strong>You must have enough of your own money to support yourself until your salary and banking are established.</strong></p>
+  <p class="lede" data-when="inuae">Your salary can only be paid into a UAE account, so the main job here is getting your existing account onto Taaleem's payroll — and funding the gap until the first run yourself.</p>
+
+  <div class="note note-urgent">
+    <h3>Be financially prepared for your first 6&ndash;8 weeks</h3>
+    <p>Moving to a new country can be expensive, and you must make sure you have sufficient personal funds to support yourself during your first 6&ndash;8 weeks in the UAE.</p>
+    <p><strong>You should not assume that Taaleem will cover your personal relocation or living expenses.</strong> You are personally responsible for ensuring that you have enough money available to cover your costs until your salary and UAE banking arrangements are fully established.</p>
+    <p>You should budget for costs including:</p>
+    <ul>
+      <li>Travel from the airport</li>
+      <li>Food and groceries</li>
+      <li>Transport</li>
+      <li>Accommodation costs where applicable</li>
+      <li>Deposits and initial accommodation set-up</li>
+      <li>Utilities</li>
+      <li>Mobile phone and SIM</li>
+      <li>Household and personal essentials</li>
+      <li>Other day-to-day living expenses</li>
+    </ul>
+    <p style="margin-bottom:0"><strong>You must have sufficient personal funds to cover these costs.</strong></p>
+  </div>
+
+  <h2>What it actually costs</h2>
+  <p>These are indicative figures to give you a sense of the scale of the expenditure involved. They are not an entitlement, an allowance or a quote &mdash; your own costs will depend on your circumstances, your emirate, your school and how you choose to live.</p>
+
+  <!-- ============================================================
+       EDITABLE FIGURES: indicative relocation and living costs
+       To update: change the amounts in the second column below,
+       then update the "last reviewed" date underneath the table.
+       Keep the AED prefix format, e.g. "AED 500".
+       ============================================================ -->
+  <table>
+    <tr><th>Cost</th><th>Indicative amount</th></tr>
+    <tr><td>Taxi from the airport</td><td class="mono">AED 80&ndash;150</td></tr>
+    <tr><td>First grocery and household stock-up</td><td class="mono">AED 500&ndash;800</td></tr>
+    <tr><td>Food and groceries, per month</td><td class="mono">AED 1,200&ndash;1,800</td></tr>
+    <tr><td>Household and personal essentials, one-off<br><span class="step-meta" style="margin:0">Bedding, towels, kitchen basics</span></td><td class="mono">AED 1,500&ndash;3,000</td></tr>
+    <tr><td>Transport by taxi and metro, per month</td><td class="mono">AED 400&ndash;800</td></tr>
+    <tr><td>Car hire, per month</td><td class="mono">AED 1,500&ndash;2,500</td></tr>
+    <tr><td>Utilities, per month<br><span class="step-meta" style="margin:0">Higher in summer, when air conditioning runs constantly</span></td><td class="mono">AED 400&ndash;800</td></tr>
+    <tr><td>Home internet, per month</td><td class="mono">AED 100&ndash;350</td></tr>
+    <tr><td>Prepaid SIM to start with</td><td class="mono">AED 50&ndash;125</td></tr>
+    <tr><td>Mobile plan, per month</td><td class="mono">AED 100&ndash;250</td></tr>
+    <tr><td>Driving licence conversion, one-off</td><td class="mono">AED 870</td></tr>
+  </table>
+  <p class="step-meta">Indicative only &middot; will vary by emirate and circumstances &middot; figures last reviewed September 2026</p>
+
+  <div class="note note-warn">
+    <h3>If you are arranging your own accommodation, budget considerably more</h3>
+    <p>A private tenancy in the UAE normally requires a security deposit of around 5% of the annual rent, an agency fee of around 5%, an Ejari registration fee and a utilities connection deposit &mdash; all payable up front, and often before your first salary arrives.</p>
+    <p style="margin-bottom:0">Landlords here also commonly expect rent in one to four cheques for the year, rather than monthly.</p>
+  </div>
+
+  <h2>When will I receive my first salary?</h2>
+  <p>Your first salary will depend on your joining date and the monthly payroll cut-off. <strong>If you join before the payroll cut-off, your salary may be included in that month's payroll. If you join after the payroll cut-off, your first salary may be paid in the following month's payroll.</strong></p>
+  <p>Please plan your personal finances accordingly and make sure you have sufficient funds to cover your living expenses until your first salary is received.</p>
+  <p>Your HR team will confirm the position that applies to your own joining date.</p>
+
+  <div class="note note-warn" data-when="inuae">
+    <h3>Budget for the gap between employers</h3>
+    <p style="margin-bottom:0">If you already bank here you can keep the account, but your salary transfer only starts once your new visa is issued. Depending on your joining date that can leave a few weeks without an incoming salary, so plan for it — especially if your previous employer's final settlement is also pending.</p>
+  </div>
+
+  <h2>When you get paid</h2>
+  <table>
+    <tr><th>Situation</th><th>What happens</th></tr>
+    <tr><td>When</td><td>Salary is paid <strong>by the last working day of each month</strong>, and may be received on the final working day itself.</td></tr>
+    <tr><td>From when</td><td>Salary is paid from your official joining date, as stated in your employment contract.</td></tr>
+    <tr><td>Your first salary</td><td>Depends on your joining date and the monthly payroll cut-off, as set out above.</td></tr>
+    <tr><td>Housing allowance</td><td>Pro-rated in your first salary where applicable.</td></tr>
+    <tr><td>Relocation payment</td><td>Where applicable, paid in line with your employment contract. Your HR team will confirm the arrangements for you.</td></tr>
+  </table>
+
+  <div class="note note-warn">
+    <h3>Set your direct debits for the start of the following month</h3>
+    <p style="margin-bottom:0">Because salary can arrive as late as the final working day, <strong>arrange your direct debits, recurring payments and other regular expenses for the beginning of the following month</strong>. Do not assume your salary will be received earlier in the month.</p>
+  </div>
+
+  <div class="note note-good">
+    <h3>You will be paid even if your bank account isn't open yet</h3>
+    <p>If your UAE account isn't set up in time, your <strong>first salary payment may be made by cheque</strong>. Where an account is already established, salary is paid straight into it. Either way, not having an account yet doesn't delay being paid.</p>
+  </div>
+
+  <h2 data-when="overseas">Opening an account</h2>
+  <h2 data-when="inuae">Opening or switching an account</h2>
+  <p data-when="inuae">If you already hold a UAE account you can usually keep it — just give HR the details so payroll can be updated, and tell your bank your sponsor has changed, since your account is linked to your visa.</p>
+
+  <div class="note note-warn">
+    <h3>You will need your Emirates ID</h3>
+    <p><strong>Very few banks will open an account without one.</strong> Plan on opening your account <strong>as soon as your Emirates ID is available</strong> rather than expecting to arrange it beforehand — that is the single thing that unlocks it.</p>
+  </div>
+
+  <p>Taaleem signposts new joiners towards <strong>ADCB, Emirates NBD, Emirates Islamic and HSBC</strong>, and HR can support you with the documents a bank asks for — typically your Letter of Intent or employment contract, a salary certificate and a passport copy. Treat that as help with the process rather than a guarantee that an account can be opened before your Emirates ID is issued; each bank sets its own requirements.</p>
+
+  <div class="note note-calm">
+    <p><strong>Your card arrives in 2&ndash;3 working days by Aramex courier.</strong> You need your original passport to receive it. If you won't have it, tell the bank in advance so Aramex can accept a passport copy instead — and note the copy must carry the Taaleem company stamp, which HR can arrange.</p>
+  </div>
+
+  <h2>Everyday spending apps</h2>
+  <p>Most day-to-day spending here happens through apps — taxis, fuel, food and transport. Careem, Uber, CAFU, RTA, Talabat and Deliveroo are the ones you'll use most, and several can be set up before you arrive.</p>
+  <div class="btnrow"><a class="btn btn-ghost" href="#connectivity">Open the apps list</a></div>
+</section>
+
+<!-- ============ CONNECTIVITY ============ -->
+<section class="page" id="connectivity">
+  <div class="eyebrow">Getting settled</div>
+  <h1>Phone, wifi and apps</h1>
+  <p class="lede">Arranging your personal mobile phone and SIM card is your own responsibility. Your buddy can help you understand the options available locally if you need assistance.</p>
+
+  <div class="note note-warn">
+    <h3>Mobile phones and SIM cards are your responsibility</h3>
+    <p style="margin-bottom:0">Taaleem does not arrange your mobile phone or mobile service. The information below is to help you work out what to do, not a service that is provided for you.</p>
+  </div>
+
+  <p><strong>Etisalat</strong> and <strong>du</strong> are the two main operators covering the country, and <strong>Virgin Mobile</strong> is one of the other options available. Compare what each offers before committing to a plan.</p>
+
+  <div class="note note-calm" data-when="overseas">
+    <h3>If you are new to the UAE</h3>
+    <p>You can purchase a <strong>temporary SIM at the airport</strong> to use while you are waiting for your Emirates ID. Once your Emirates ID is issued, you can arrange your permanent mobile service.</p>
+    <p style="margin-bottom:0">For a postpaid plan you'll need your original Emirates ID and a UAE bank-issued credit card, neither of which you'll have on day one. Start on prepaid and switch later.</p>
+  </div>
+
+  <div class="note note-calm" data-when="inuae">
+    <h3>If you are already resident in the UAE</h3>
+    <p>If you are changing employer, you are responsible for updating your mobile provider records with your new Emirates ID and employment details where required.</p>
+    <p style="margin-bottom:0"><strong>Keep your number, but update your details.</strong> Your SIM is registered against your Emirates ID, so once a new card is issued let your operator know. Numbers registered to a cancelled visa can be suspended.</p>
+  </div>
+
+  <div class="note note-warn" data-when="overseas">
+    <h3>If you enter on a visit visa, expect your first SIM to stop working</h3>
+    <p>A SIM issued against a visit visa is <strong>cancelled automatically</strong> the moment your status changes to an employment visa. It isn't a fault and there's no warning — you'll simply lose service, often at the point you most need it.</p>
+    <p>Get a replacement SIM once your status has changed. An <strong>eSIM is often the easier option</strong> in the gap while your employment visa and Emirates ID are being completed, since you can activate it without waiting for a physical SIM to be issued and swapped.</p>
+    <p style="margin-bottom:0">Keep a note of any number you give to HR, the bank or a landlord, so you know what to update if the number changes.</p>
+  </div>
+
+  <h2>Emergency numbers</h2>
+  <table>
+    <tr><th>Service</th><th>Number</th></tr>
+    <tr><td>Police</td><td class="mono">999</td></tr>
+    <tr><td>Ambulance</td><td class="mono">998</td></tr>
+    <tr><td>Fire (Civil Defence)</td><td class="mono">997</td></tr>
+  </table>
+  <p>These work anywhere in the UAE. Worth saving to your phone if you haven't already.</p>
+
+  <h2>Apps worth having</h2>
+  <p data-when="overseas">Download these before you travel where you can — several are much easier to set up on home wifi than on a fresh prepaid SIM.</p>
+  <p data-when="inuae">You'll know most of these already, but it's worth checking you have them.</p>
+
+  <h3>Getting around</h3>
+  <ul class="applist">
+    <li><a class="link" href="https://www.careem.com/" target="_blank" rel="noopener">Careem</a><span>Rides, food and payments. The one most people here use daily.</span></li>
+    <li><a class="link" href="https://www.uber.com/ae/en/" target="_blank" rel="noopener">Uber</a><span>Rides, available across Dubai and Abu Dhabi.</span></li>
+    <li><a class="link" href="https://www.cafu.com/" target="_blank" rel="noopener">CAFU</a><span>Fuel delivered to your car, wherever it's parked.</span></li>
+    <li><a class="link" href="https://www.rta.ae/" target="_blank" rel="noopener">RTA</a><span>Dubai's transport authority — metro, buses, Nol card, Salik and licensing.</span></li>
+  </ul>
+
+  <h3>Food and groceries</h3>
+  <ul class="applist">
+    <li><a class="link" href="https://www.talabat.com/uae" target="_blank" rel="noopener">Talabat</a><span>Restaurant delivery, and the widest coverage outside the main cities.</span></li>
+    <li><a class="link" href="https://deliveroo.ae/" target="_blank" rel="noopener">Deliveroo</a><span>Restaurant delivery.</span></li>
+    <li><span class="applist-plain">InstaShop, Noon and Kibsons</span><span>Groceries, delivered same day in most areas.</span></li>
+  </ul>
+
+  <h3>Weekends and everything else</h3>
+  <ul class="applist">
+    <li><span class="applist-plain">Dubai Calendar, Visit Abu Dhabi</span><span>What's on, wherever you are.</span></li>
+    <li><span class="applist-plain">The Entertainer, Privilee</span><span>Offers on restaurants, beach clubs and gyms.</span></li>
+    <li><span class="applist-plain">Duolingo</span><span>If you'd like to pick up some Arabic.</span></li>
+  </ul>
+</section>
+
+<!-- ============ TRANSPORT ============ -->
+<section class="page" id="transport">
+  <div class="eyebrow">Getting settled</div>
+  <h1>Getting around</h1>
+  <p class="lede">Your school will provide you with details of any transport arrangements that apply to your onboarding and initial days at school.</p>
+  <p data-when="inuae">If you're already settled with your own car, the sections below on licence renewal and tolls are the parts that matter.</p>
+
+  <figure class="hero">
+    <img src="images/transport-image.jpg" alt="A lorry on a coastal road at sunset." width="1640" height="1089">
+  </figure>
+
+  <h2>Before you have residency</h2>
+  <p data-when="overseas">You can't get a UAE driving licence until your residency comes through, but renting is straightforward during the change-of-status period.</p>
+  <p data-when="inuae">Between your old visa being cancelled and your Taaleem residency being issued you're technically without residency, which can affect renting a car and any licence renewal falling in that window. A rental can bridge the gap if you need one.</p>
+  <p>Car hire is widely available in the UAE and you can choose from a range of providers, including the international brands you will recognise and a large number of local companies. Compare terms, insurance excess and mileage limits before you commit.</p>
+  <p><strong>To rent you'll need:</strong> a passport copy, a licence copy, and a tourist or employment visa copy. Costs vary by provider and vehicle, but budget roughly AED 1,500&ndash;2,500 a month as a starting point.</p>
+
+  <h2 data-when="overseas">Converting your licence</h2>
+  <h2 data-when="inuae">If you already hold a UAE licence</h2>
+  <p data-when="inuae">Your existing UAE licence stays valid — it isn't tied to your employer. When it comes up for renewal you'll need your new Emirates ID, so keep the sequence in mind if the dates are close together. If you don't yet hold one, the conversion route below applies.</p>
+  <p data-when="overseas">Whether you can exchange your licence without taking a test depends on <strong>where the licence was issued</strong> and on meeting the relevant eligibility criteria — not simply on your nationality. The RTA maintains the current list and conditions for direct exchange, so check yours against it rather than relying on what a colleague was told.</p>
+  <p data-when="inuae">Whether you can exchange a foreign licence without taking a test depends on <strong>where the licence was issued</strong> and on meeting the relevant eligibility criteria — not simply on your nationality. The RTA maintains the current list and conditions for direct exchange.</p>
+  <table>
+    <tr><th>You'll need</th></tr>
+    <tr><td>Emirates ID, original and copy</td></tr>
+    <tr><td>Your driving licence, original and copy</td></tr>
+    <tr><td>Electronic eye test results &mdash; the test must be completed at an <strong>RTA-approved centre</strong></td></tr>
+    <tr><td>An NOC from Taaleem, if required</td></tr>
+    <tr><td>A completed licence conversion form and two passport-sized photos</td></tr>
+    <tr><td>A copy of your passport page and residence visa</td></tr>
+  </table>
+  <table>
+    <tr><th>Fee</th><th>Amount</th></tr>
+    <tr><td>Opening a new file</td><td class="mono">AED 200</td></tr>
+    <tr><td>Issuing the licence</td><td class="mono">AED 600</td></tr>
+    <tr><td>Handbook manual</td><td class="mono">AED 50</td></tr>
+    <tr><td>Knowledge and innovation fees</td><td class="mono">AED 20</td></tr>
+  </table>
+
+  <h2>Tolls</h2>
+  <div data-when="dubai">
+    <p>Salik charges apply when you pass through a Salik toll gate.</p>
+    <!-- ============================================================
+         EDITABLE FIGURES: Salik charges
+         To update: change the amounts in the table below, then update
+         the "last reviewed" date underneath it. Amounts shown include VAT.
+         ============================================================ -->
+    <table>
+      <tr><th>When</th><th>Charge per crossing</th></tr>
+      <tr><td>Peak hours</td><td class="mono">AED 6.30</td></tr>
+      <tr><td>Off-peak hours</td><td class="mono">AED 4.20</td></tr>
+      <tr><td>Sundays</td><td class="mono">AED 4.20</td></tr>
+      <tr><td>Between 1:00am and 6:00am</td><td class="mono">No charge</td></tr>
+    </table>
+    <p class="step-meta">Charges may change &middot; last reviewed September 2026</p>
+  </div>
+  <p data-when="abudhabi">Abu Dhabi charges AED 4 per vehicle at toll gates during peak hours only — 7 to 9am and 5 to 7pm, Saturday to Thursday.</p>
+</section>
+
+<!-- ============ EXPLORE ============ -->
+<section class="page" id="explore">
+  <div class="eyebrow">Getting settled</div>
+  <h1>Exploring the UAE</h1>
+  <p class="lede">Dubai and Abu Dhabi get the attention, but the other five emirates are worth your weekends too. Here's a starting list.</p>
+
+  <figure class="hero">
+    <img src="images/weekend-life-image.jpg" alt="The Museum of the Future in Dubai, its steel facade covered in Arabic calligraphy, against the Sheikh Zayed Road skyline." width="1640" height="1034">
+  </figure>
+
+  <div class="grid g2">
+    <div class="card"><h3>Dubai</h3><p>Burj Khalifa, the historic souks either side of the creek, Sky Dive Dubai, Global Village, Miracle Garden, and Ski Dubai when the heat wins. The Metro and hop-on buses cover a lot of ground.</p></div>
+    <div class="card"><h3>Abu Dhabi</h3><p>Sheikh Zayed Grand Mosque, Louvre Abu Dhabi, Emirates Palace and the Corniche. Yas Island holds Ferrari World, Warner Bros World and Yas Waterworld.</p></div>
+    <div class="card"><h3>Ras Al Khaimah</h3><p>Mountains, rock climbing and camping, plus the world's longest zipline at Jebel Jais.</p></div>
+    <div class="card"><h3>Fujairah</h3><p>On the Gulf of Oman coast. Diving and snorkelling, Snoopy Island for coral, turtles and reef sharks, and the country's oldest castle.</p></div>
+    <div class="card"><h3>Sharjah</h3><p>The Khor Fakkan amphitheatre and waterfall, and a lot for families.</p></div>
+    <div class="card"><h3>Ajman and Umm Al Quwain</h3><p>The quieter end. Ajman Museum in a restored fort, Al Hamriya Beach, and mangroves and kite surfing at Umm Al Quwain.</p></div>
+  </div>
+
+  <div class="note note-calm">
+    <p>Social life here can get expensive quickly if you let it. Most people find that after the first few months they settle into something a lot more sustainable.</p>
+  </div>
+</section>
+
+<!-- ============ PROBATION ============ -->
+<section class="page" id="probation">
+  <div class="eyebrow">Working at Taaleem</div>
+  <h1>Your probation</h1>
+  <p class="lede">Six months, in line with UAE labour law, with structured check-ins along the way. It's designed as a conversation, not an exam.</p>
+
+  <h2>Your role and expectations</h2>
+  <p>Your role, responsibilities and expectations will be explained when you join. <strong>Your job description, KPIs, roles and responsibilities will be established within your first four weeks.</strong></p>
+
+  <h2>Reviews and observations</h2>
+  <p>Your probation reviews will take place during your probationary period. Teaching staff may also have lesson observations or learning walks as part of their induction, development and probation process.</p>
+  <p>Your school will provide you with all relevant details when you join, including when your reviews will happen and who will carry them out.</p>
+  <p>These are two-way conversations — a chance to talk about how it's going and where you'd like more support.</p>
+
+  <div class="note note-good">
+    <p><strong>Don't wait for the formal meeting.</strong> If something isn't working, raise it with your Line Manager when it happens.</p>
+  </div>
+
+  <div class="note note-warn">
+    <p><strong>One thing to know:</strong> under UAE labour law there's no paid sick leave during probation. See <a class="link" href="#leave">types of leave</a> for the detail.</p>
+  </div>
+</section>
+
+<!-- ============ PERFORMANCE ============ -->
+<section class="page" id="performance">
+  <div class="eyebrow">Working at Taaleem</div>
+  <h1>Performance and appraisal</h1>
+  <p class="lede">Everyone has an annual appraisal. The cycle normally follows the academic year rather than the calendar year, and your school will confirm how it works for you.</p>
+
+  <h2>The cycle</h2>
+  <div class="grid g2">
+    <div class="card"><span class="card-num">Plan</span><h3>Set objectives</h3><p>SMART objectives and an agreed personal development plan.</p></div>
+    <div class="card"><span class="card-num">Act</span><h3>Do the work</h3><p>Achieve the objectives, carry out your role, work through your development plan.</p></div>
+    <div class="card"><span class="card-num">Track</span><h3>Check progress</h3><p>Regular feedback and coaching along the way.</p></div>
+    <div class="card"><span class="card-num">Evaluate</span><h3>Review</h3><p>Review achievements, identify areas to improve, discuss career goals, agree actions.</p></div>
+  </div>
+
+  <h2>Your first year</h2>
+  <p>Your school and Line Manager will confirm your objectives, targets and KPIs in line with your role, your joining date and the school's appraisal cycle.</p>
+  <p>You will have a formal appraisal meeting with your Line Manager, who will confirm exact dates with you.</p>
+  <p>Objectives should be specific, measurable, achievable, relevant and time-bound — clearly defined, quantifiable, realistic, aligned to the wider strategy, and set within a time frame.</p>
+</section>
+
+<!-- ============ LEAVE ============ -->
+<section class="page" id="leave">
+  <div class="eyebrow">Working at Taaleem</div>
+  <h1>Types of leave</h1>
+  <p class="lede">Beyond your annual leave, which follows the school calendar, there are four other kinds you should know about.</p>
+
+  <h2>Sick leave</h2>
+  <p class="step-meta">Maximum 15 calendar days per year</p>
+  <div class="note note-warn">
+    <h3>Reporting an absence</h3>
+    <p>Tell your Line Manager <strong>as soon as you know you will be absent</strong>, and <strong>by 6:00am at the latest</strong> on the morning of the absence. That is the minimum across all Taaleem schools. Cover has to be arranged before the school day starts, so the earlier someone knows, the less disruption there is to your students.</p>
+    <p style="margin-bottom:0">Sick leave is for <strong>genuine sickness or illness</strong>. Other reasons for being away are covered by the leave types below.</p>
+  </div>
+
+  <div class="note note-school">
+    <span class="school-tag">This varies by school</span>
+    <h3>Your school's procedure</h3>
+    <p>The 6:00am deadline is the group-wide minimum. Beyond that, each school sets its own procedure — how to notify, who to notify, and which form to complete so cover can be arranged. Some schools require notification by phone rather than by email or message.</p>
+    <p style="margin-bottom:0">Your school will confirm the procedure that applies to you. Check it when you join rather than assuming.</p>
+  </div>
+
+  <ul>
+    <li>A medical certificate is required from day three, and must be an official document from the Dubai or Abu Dhabi Health Authority, at your own expense</li>
+    <li>Under UAE labour law there's no paid sick leave during your probation period</li>
+    <li>Weekends immediately before or after a period of sick leave aren't counted — but if the absence runs across both sides of a weekend, those days do count, and the certificate must cover the whole period including the weekend</li>
+  </ul>
+
+  <h2>Bereavement Leave</h2>
+  <p>Employees may be entitled to <strong>5 working days</strong> of bereavement leave where the funeral is held within the country, and <strong>up to 10 working days</strong> where the funeral is held outside the country, in accordance with the applicable policy.</p>
+  <p>Taaleem understands that living away from home means a bereavement may require you to travel at short notice.</p>
+
+  <h2>Exceptional Circumstances leave</h2>
+  <p class="step-meta">Maximum 5 working days per year</p>
+  <p>For the hospitalisation of a dependent, or an embassy or government appointment that can only be taken during working hours. Both Bereavement and Exceptional Circumstances leave are approved by your Principal, following your school's procedure.</p>
+  <div class="note note-good">
+    <p><strong>In a genuine emergency, contact someone first and sort the paperwork afterwards.</strong></p>
+  </div>
+
+  <h2>Mental Wellness Leave</h2>
+  <p>Mental Wellness Leave is subject to the applicable Taaleem policy and to discussion and approval with your Principal.</p>
+
+  <h2>Leaving school during the working day</h2>
+  <div class="note note-warn">
+    <p><strong>If you need to leave school during the working day, or before the end of the working day, 48 hours' notice should normally be provided.</strong> Cover has to be arranged, so the earlier your Line Manager knows, the easier it is to accommodate.</p>
+  </div>
+</section>
+
+<!-- ============ INSPECTIONS ============ -->
+<section class="page" id="inspections">
+  <div class="eyebrow">Working at Taaleem</div>
+  <h1>School inspections</h1>
+  <p class="lede">Schools in the UAE are inspected by their education regulator. If you haven't worked in an inspected school before, this is the general shape of it.</p>
+
+  <h2>Regulatory requirements</h2>
+  <p>Every Taaleem school operates under the requirements of the education authority for its emirate, and is inspected against that authority's published framework. Inspections look at the quality of teaching and learning, students' attainment and progress, wellbeing, leadership and the school's own improvement planning.</p>
+  <p>The inspection body, the framework, the notice period and the way an inspection runs differ depending on which authority regulates your school. <strong>Your school will tell you what applies, and what is expected of you, well before any inspection takes place.</strong></p>
+
+  <h2>What it means for you</h2>
+  <ul>
+    <li>Lesson observations may form part of an inspection, and inspectors may speak to staff, students, parents and governors</li>
+    <li>You may be asked to have your planning and relevant assessment data available</li>
+    <li>Your school will brief you on its own preparation, expectations and timings</li>
+  </ul>
+
+  <div class="note note-good">
+    <h3>Inspections judge the school, not you individually</h3>
+    <p>You won't receive a personal judgement grade from an inspection. The outcome is a judgement about the school as a whole.</p>
+  </div>
+
+  <h2>Afterwards</h2>
+  <p>Inspection outcomes are normally shared with school leaders first, and judgements stay provisional and confidential until the regulator's quality assurance is complete. Reports are usually published on the regulating authority's website in due course.</p>
+</section>
+
+<!-- ============ ILOE ============ -->
+<section class="page" id="iloe">
+  <div class="eyebrow">Working at Taaleem</div>
+  <h1>Unemployment insurance</h1>
+  <p class="lede">The ILOE scheme provides income if you lose your job for reasons other than resignation or disciplinary action. Subscription has been mandatory since 1 January 2023 under Federal Decree Law No. 13 of 2022.</p>
+
+  <div class="note note-urgent">
+    <h3>You subscribe to this yourself — and failing to do so results in fines</h3>
+    <p>It's mandatory but it isn't automatic. It is not deducted through payroll and Taaleem does not enrol you, so it is <strong>every employee's personal responsibility</strong> to make sure they are subscribed and that they renew on time. Sort it once your Emirates ID arrives.</p>
+  </div>
+
+  <h2>What it costs</h2>
+  <p>Your category depends on your <strong>basic salary</strong>, not your total monthly package.</p>
+  <table>
+    <tr><th>Category</th><th>Basic salary</th><th>Premium</th><th>Maximum payout</th></tr>
+    <tr><td class="mono">A</td><td>AED 16,000 or below</td><td class="mono">AED 5 + VAT / month</td><td>Up to AED 10,000, up to 3 months</td></tr>
+    <tr><td class="mono">B</td><td>Above AED 16,000</td><td class="mono">AED 10 + VAT / month</td><td>Up to AED 20,000, up to 3 months</td></tr>
+  </table>
+  <p>You can pay monthly, quarterly, semi-annually, or annually in full.</p>
+
+  <h2>What you'd receive</h2>
+  <p>60% of your average basic salary over the six months before the job loss, for up to three months — provided you've been subscribed for at least twelve consecutive months, and capped at the figure for your category above.</p>
+
+  <h2>To subscribe or renew</h2>
+  <p>You need your <strong>Emirates ID or Unified Number</strong> and a valid UAE mobile number. Note that your Emirates ID number and Unified Number are the same — it appears as the EID on your Emirates ID and as the UID on your visa. The scheme is open to Emiratis and residents working in the private and federal government sectors.</p>
+  <ol>
+    <li>Go to <a class="link" href="https://www.iloe.ae/" target="_blank" rel="noopener">iloe.ae</a> and choose <strong>Subscribe Here</strong> under Involuntary Loss of Employment.</li>
+    <li>Choose <strong>Non-Registered in MOHRE</strong> — not Private. This is the option that applies to Taaleem employees.</li>
+    <li>Sign in with the OTP. Don't use the Registered User option.</li>
+    <li>Enter your <strong>basic salary only</strong>, not your full monthly income. Your basic salary is shown on your payslip.</li>
+    <li>Complete the payment.</li>
+    <li>Download the insurance policy from your registered email and save it as a PDF.</li>
+  </ol>
+  <p>You can also subscribe through the ILOE mobile app, exchange centres including Al Ansari, your telecom bill, SMS, bank apps, business centres, kiosks and ATMs.</p>
+
+  <div class="note note-good">
+    <p><strong>Send HR your receipt.</strong> Save the policy or receipt as a PDF and email it to your HR representative for your file.</p>
+  </div>
+
+  <h2>Downloads</h2>
+  <ul class="applist">
+    <li><a class="link" href="downloads/iloe-step-by-step.pdf" target="_blank" rel="noopener">Step-by-step guide (PDF)</a><span>Screenshots of each stage of subscribing and renewing, including which options to select.</span></li>
+    <li><a class="link" href="downloads/iloe-info-flyer.pdf" target="_blank" rel="noopener">Information flyer (PDF)</a><span>Categories, premiums, payout limits and the full list of ways to subscribe.</span></li>
+  </ul>
+
+  <p class="step-meta">ILOE: 600 599 555 &middot; iloehelp@iloe.ae &middot; iloe.ae</p>
+</section>
+
+<!-- ============ DOWNLOADS ============ -->
+<section class="page" id="downloads">
+  <div class="eyebrow">More</div>
+  <h1>Downloads</h1>
+  <p class="lede">Everything you may need to keep, print or refer back to, in one place. Documents are also linked from the sections they relate to.</p>
+
+  <h2>Available now</h2>
+  <ul class="dl">
+    <li>
+      <a class="dl-name" href="downloads/iloe-step-by-step.pdf" target="_blank" rel="noopener">Unemployment insurance — step-by-step guide<span class="dl-type">PDF</span></a>
+      <span class="dl-desc">How to subscribe to and renew the ILOE scheme, with a screenshot of each stage and the options to select. <a class="link" href="#iloe">Unemployment insurance</a></span>
+    </li>
+    <li>
+      <a class="dl-name" href="downloads/iloe-info-flyer.pdf" target="_blank" rel="noopener">Unemployment insurance — information flyer<span class="dl-type">PDF</span></a>
+      <span class="dl-desc">Categories, premiums, payout limits and every way to subscribe. <a class="link" href="#iloe">Unemployment insurance</a></span>
+    </li>
+    <li>
+      <a class="dl-name" href="downloads/police-clearance-khda-guide.pdf" target="_blank" rel="noopener">Police clearance certificate for KHDA approval<span class="dl-type">PDF</span></a>
+      <span class="dl-desc">Applying through Dubai Police with the correct selections. The route can differ by school and emirate &mdash; check with your school or HR team which applies to you. <a class="link" href="#documents">Your documents</a></span>
+    </li>
+  </ul>
+
+  <h2>Shared with you when you join</h2>
+  <p>Taaleem's internal documents aren't published on this site. They are provided when you join and are then available to you through <strong>StaffRoom</strong> and <strong>Taaleem OneDrive</strong> — including the Employee Handbook, the safeguarding policy, the Code of Conduct, the Leave Policy, the Oracle Employee Self Service manual, your medical insurance guide and your school calendar.</p>
+  <p>If you can't find something once you've joined, ask your HR representative rather than assuming it doesn't exist yet.</p>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="page" id="about">
+  <div class="eyebrow">More</div>
+  <h1>About Taaleem</h1>
+  <p class="lede">The second largest private education provider in the UAE, and a workplace of more than 88 nationalities.</p>
+
+  <figure class="hero" style="--focus:52%">
+    <img src="images/campus-image-nowatermark.jpg" alt="A modern school campus building with lawns and students walking along the path outside." width="1640" height="1091">
+  </figure>
+
+  <blockquote style="border-left:3px solid var(--green);margin:22px 0;padding:2px 0 2px 18px;font-family:var(--display);font-size:20px;line-height:1.45;color:var(--ink)">
+    People are, and always will be, our greatest asset.
+    <span style="display:block;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);margin-top:9px">Alan Williamson, CEO</span>
+  </blockquote>
+
+  <h2>Vision and mission</h2>
+  <p>Our vision is to be the most respected provider of early childhood, primary and secondary education in the Gulf region.</p>
+  <p>Our mission is to inspire students to identify their passions and talents, and to develop the holistic skills that let them compete on the global stage and become responsible world citizens. We place as much emphasis on emotional, social, moral and physical development as on the academic.</p>
+
+  <h2>Our values</h2>
+  <div class="grid g2">
+    <div class="card"><h3>Pioneering</h3><p>Visionary &middot; authentic &middot; aspirational &middot; focused</p></div>
+    <div class="card"><h3>Professional</h3><p>Skilled &middot; principled &middot; insightful &middot; creative</p></div>
+    <div class="card"><h3>Spirited</h3><p>Courageous &middot; determined &middot; engaging &middot; adaptable</p></div>
+    <div class="card"><h3>Nurturing</h3><p>Inclusive &middot; respectful &middot; compassionate &middot; communicative</p></div>
+  </div>
+
+  <h2>Our schools</h2>
+  <p>Taaleem operates British, American and IB curriculum schools across Dubai and Abu Dhabi, alongside public-private partnership schools spanning six emirates, plus a group of nurseries. Whichever school you're joining, your Principal will introduce it properly when you arrive.</p>
+  <p>School counts, student numbers and every individual school page are maintained on the main Taaleem website.</p>
+  <div class="btnrow"><a class="btn" href="https://www.taaleem.ae/" target="_blank" rel="noopener">Visit taaleem.ae</a></div>
+</section>
+
+<!-- ============ HELP ============ -->
+<section class="page" id="help">
+  <div class="eyebrow">More</div>
+  <h1>Ask a question</h1>
+  <p class="lede">Nobody expects you to get through this from a website alone. Here's who does what.</p>
+
+  <figure class="hero">
+    <img src="images/hr-onboarding.jpg" alt="A new joiner sitting across a desk from an HR representative who is going through their paperwork." width="1640" height="1093">
+  </figure>
+
+  <div class="grid g2">
+    <div class="card"><h3>Your HR representative</h3><p>Your main contact from offer through to your first weeks at school. Documents, visas, insurance, accommodation and anything you're unsure about.</p></div>
+    <div class="card"><h3>Your buddy</h3><p>Your school will match you with an appropriate colleague who can help you settle in, answer questions and navigate your first few weeks.</p></div>
+    <div class="card"><h3>Your Line Manager</h3><p>Once you've joined, the first person to raise anything about your role, your timetable or your probation with.</p></div>
+    <div class="card"><h3>Teams</h3><p>Groups for new joiners, so you arrive already knowing a few names.</p></div>
+  </div>
+
+  <h2>Before you join</h2>
+  <p>Before you join, you may receive pre-arrival information, online calls, meetings and briefings from Taaleem and/or your school. <strong>Please make every effort to attend and engage with these sessions</strong>, as they are designed to help you prepare for your arrival and first days at work.</p>
+  <p>Where these sessions run, they typically cover:</p>
+  <table>
+    <tr><th>Topic</th><th>What it covers</th></tr>
+    <tr><td>Your school</td><td>An introduction to your school from the Principal, meeting the Senior Leadership Team, an overview of the academic programme, and open Q&amp;A.</td></tr>
+    <tr><td>Onboarding with HR</td><td>The visa process, medical insurance, what your first days look like, policies and work culture, and your benefits — accommodation or housing allowance, flights where applicable, and admissions for your children.</td></tr>
+  </table>
+
+  <div class="note note-calm">
+    <p>There will be a lot of information to take in. That's normal, and you're not expected to hold all of it in your head — this guide isn't going anywhere.</p>
+  </div>
+</section>
+
+</main>
+</div>
+
+<div class="schools-carousel">
+  <div class="schools-carousel-in">
+    <button class="schools-arrow" id="schoolsPrev" aria-label="Previous schools" aria-controls="schoolsTrack">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <div class="schools-viewport">
+    <div class="schools-track" id="schoolsTrack">
+      <img src="images/schools/harrow-abu-dhabi.png" alt="Harrow International School Abu Dhabi">
+      <img src="images/schools/harrow-dubai.png" alt="Harrow International School Dubai">
+      <img src="images/schools/dubai-british-school-jumeira.png" alt="Dubai British School Jumeira">
+      <img src="images/schools/american-academy-for-girls.svg" alt="American Academy for Girls">
+      <img src="images/schools/uptown-international-school.svg" alt="Uptown International School">
+      <img src="images/schools/dubai-british-school-emirates-hills.svg" alt="Dubai British School Emirates Hills">
+      <img src="images/schools/dubai-schools.png" alt="Dubai Schools">
+      <img src="images/schools/greenfield-international-school.svg" alt="Greenfield International School">
+      <img src="images/schools/dubai-british-school-jumeirah-park-foundation.png" alt="Dubai British School Jumeirah Park Foundation">
+      <img src="images/schools/jebel-ali-school.png" alt="Jebel Ali School">
+      <img src="images/schools/raha-international-school-garden-campus.svg" alt="Raha International School Gardens Campus">
+      <img src="images/schools/raha-international-school-khalifa-city-campus.svg" alt="Raha International School Khalifa City Campus">
+      <img src="images/schools/lycee-libanais-francophone-prive-meydan.png" alt="Lycée Libanais Francophone Privé Meydan">
+    </div>
+    </div>
+    <button class="schools-arrow" id="schoolsNext" aria-label="Next schools" aria-controls="schoolsTrack">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
+  </div>
+</div>
+
+
+<footer class="site-footer">
+  <div class="site-footer-in">
+
+    <div class="fcol">
+      <div class="fhead">About Us</div>
+      <ul class="flist">
+        <li><a href="https://www.taaleem.ae/about-us/" target="_blank" rel="noopener">Overview</a></li>
+        <li><a href="https://www.taaleem.ae/about-us/message-from-the-ceo/" target="_blank" rel="noopener">Message from The CEO</a></li>
+        <li><a href="https://www.taaleem.ae/about-us/our-team/" target="_blank" rel="noopener">Our Team</a></li>
+        <li><a href="https://www.taaleem.ae/about-us/mission-vision/" target="_blank" rel="noopener">Mission and Vision</a></li>
+        <li><a href="https://www.taaleem.ae/about-us/our-initiatives/" target="_blank" rel="noopener">Our Initiatives</a></li>
+      </ul>
+
+      <div class="fstrong">
+        <a href="https://www.taaleem.ae/academics/safeguarding/" target="_blank" rel="noopener">Safeguarding at Taaleem</a>
+        <a href="https://www.taaleem.ae/academics/whistleblowing-hotline" target="_blank" rel="noopener">Whistleblowing Hotline</a>
+      </div>
+
+      <div class="fstrong-label">Stay connected</div>
+      <div class="fsocial">
+        <a href="https://www.facebook.com/Taaleem.InspiringYoungMinds/" aria-label="Facebook" target="_blank" rel="noopener"> <svg viewBox="0 0 320 512" fill="currentColor" aria-hidden="true"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg> </a>
+        <a href="https://www.linkedin.com/company/taaleem" aria-label="LinkedIn" target="_blank" rel="noopener"> <svg viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg> </a>
+        <a href="https://www.instagram.com/taaleemuae/" aria-label="Instagram" target="_blank" rel="noopener"> <svg viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg> </a>
+        <a href="https://www.youtube.com/user/taaleemdxb" aria-label="YouTube" target="_blank" rel="noopener"> <svg viewBox="0 0 576 512" fill="currentColor" aria-hidden="true"><path d="M549.7 124.1c-6.3-23.7-24.8-42.3-48.3-48.6C458.8 64 288 64 288 64S117.2 64 74.6 75.5c-23.5 6.3-42 24.9-48.3 48.6-11.4 42.9-11.4 132.3-11.4 132.3s0 89.4 11.4 132.3c6.3 23.7 24.8 41.5 48.3 47.8C117.2 448 288 448 288 448s170.8 0 213.4-11.5c23.5-6.3 42-24.2 48.3-47.8 11.4-42.9 11.4-132.3 11.4-132.3s0-89.4-11.4-132.3zm-317.5 213.5V175.2l142.7 81.2-142.7 81.2z"/></svg> </a>
+        <a href="https://x.com/Taaleem" aria-label="X" target="_blank" rel="noopener"> <svg viewBox="0 0 512 512" fill="currentColor" aria-hidden="true"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg> </a>
+      </div>
+
+      <div class="flogo">
+        <svg viewBox="0 0 172 61" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Taaleem">
+          <g>
+            <path d="M33.070938,7.72530608 C33.6884738,2.25028223 38.3029889,-0.645679611 42.7164229,0.214336287 L42.7272655,0.216800516 C42.185628,5.34436808 37.8505564,8.65678462 33.070938,7.72530608" fill="#73B043"></path>
+            <path d="M44.8376312,32.9348609 L40.8933863,32.9348609 L40.8933863,30.3257353 C38.4365501,32.8688196 35.208903,33.439535 33.2094277,33.439535 C26.1637043,33.439535 21.5245469,28.0275954 21.1366773,21.5994078 C20.5610334,12.0613633 29.1833704,7.34778621 33.070938,11.2353538 C36.8840859,7.47641896 44.908601,11.6197735 44.8376312,20.8980883 L44.8376312,32.9348609 Z M40.9096502,23.2257989 C42.4675358,17.1347178 38.25469,10.8529054 33.070938,15.4265143 C27.8438156,10.8188991 23.6166773,17.1332393 25.1681558,23.2257989 C26.3889348,28.0068959 29.6762162,29.6712361 33.070938,29.6712361 C36.480938,29.6712361 39.6873927,28.0068959 40.9096502,23.2257989 Z M77.1914785,32.9348609 L77.1914785,3.32813597 C77.4891574,0.89594201 79.491097,-0.301673252 81.3870747,0.0650040133 L81.3870747,32.9348609 L77.1914785,32.9348609 Z M52.9316375,21.7157194 C52.9316375,26.1015541 56.1440064,29.6712361 60.9650238,29.6712361 C65.1837838,29.6712361 68.8037361,26.2760215 68.8037361,21.6767846 C68.8037361,17.3486129 65.4563275,13.6044635 60.9650238,13.6044635 C56.6432591,13.6044635 52.9316375,16.7143204 52.9316375,21.7157194 Z M60.9650238,33.439535 C53.9188076,33.439535 48.8917806,28.0542091 48.8917806,21.5994078 C48.8917806,15.5926034 53.6265501,9.83616459 60.9650238,9.83616459 C65.7081717,9.83616459 72.5882989,13.8045589 72.5882989,21.6127147 L72.5927345,32.9348609 L68.6785533,32.9348609 L68.6785533,30.3257353 C66.221717,32.8688196 62.9644992,33.439535 60.9650238,33.439535 Z M171.681351,19.6580883 L171.681351,32.9348609 L167.641494,32.9348609 L167.641494,19.9685811 C167.641494,17.7448609 167.243275,16.737977 166.758808,15.8735255 C165.98504,14.5605843 164.575008,13.6044635 162.519348,13.6044635 C160.463688,13.6044635 159.053657,14.5605843 158.279889,15.8735255 C157.795421,16.737977 157.397202,17.7448609 157.397202,19.9685811 L157.397202,32.9348609 L153.357345,32.9348609 L153.357345,19.9685811 C153.357345,17.7448609 152.959126,16.737977 152.474658,15.8735255 C151.70089,14.5605843 150.291351,13.6044635 148.235692,13.6044635 C146.180032,13.6044635 144.77,14.5605843 143.995739,15.8735255 C143.511272,16.737977 143.113052,17.7448609 143.113052,19.9685811 L143.113052,32.9348609 L139.073196,32.9348609 L139.073196,19.6580883 C139.073196,11.9480088 144.7493,9.83616459 148.235692,9.83616459 C149.931081,9.83616459 153.414022,10.5217131 155.377027,13.2826352 C157.340525,10.5217131 160.822973,9.83616459 162.519348,9.83616459 C166.006232,9.83616459 171.681351,11.9480088 171.681351,19.6580883 Z M89.4815739,19.5402981 L104.435008,19.5402981 C103.380811,15.4447496 99.8766773,13.6044635 96.9452305,13.6044635 C94.0408903,13.6044635 90.4781081,15.4516495 89.4815739,19.5402981 Z M108.653768,22.9266415 L108.632083,23.308597 L89.4086328,23.308597 C89.9551987,26.7905525 93.3183784,29.6712361 96.8998887,29.6712361 C99.2788553,29.6239229 101.290159,28.7269436 102.676041,27.0768959 L107.257536,27.0768959 C105.195962,30.8831439 101.697742,33.439535 96.9452305,33.439535 C90.651097,33.439535 85.2209221,28.3410453 85.2209221,21.6767846 C85.2209221,15.3018244 90.3686963,9.95986888 96.9028458,9.83616459 C101.830811,9.87756363 105.333466,12.7907751 106.945564,15.5935891 C108.397488,17.9153856 108.802607,20.288438 108.653768,22.9266415 Z M115.864102,19.5402981 L130.817536,19.5402981 C129.762846,15.4447496 126.259205,13.6044635 123.327266,13.6044635 C120.423911,13.6044635 116.860636,15.4516495 115.864102,19.5402981 Z M135.037281,22.9266415 L135.015596,23.308597 L115.790668,23.308597 C116.337727,26.7905525 119.700906,29.6712361 123.282417,29.6712361 C125.661383,29.6239229 127.672194,28.7269436 129.059555,27.0768959 L133.640556,27.0768959 C131.57849,30.8831439 128.08027,33.439535 123.327266,33.439535 C117.033625,33.439535 111.60345,28.3410453 111.60345,21.6767846 C111.60345,15.3018244 116.751224,9.95986888 123.285374,9.83616459 C128.213831,9.87756363 131.715994,12.7907751 133.328092,15.5935891 C134.780016,17.9153856 135.185628,20.288438 135.037281,22.9266415 Z M13.4551828,33.439535 C9.82488076,33.439535 6.57505564,31.6460692 6.57505564,27.0547178 L6.57505564,13.7597099 L0,13.7597099 C0,12.3472139 1.40953895,9.83616459 4.12019078,9.83616459 L6.57505564,9.83616459 L6.57505564,6.37244439 C6.87224165,3.94074328 8.87418124,2.74312802 10.770159,3.10931244 L10.770159,9.83616459 L17.9174086,9.83616459 L17.9174086,13.7597099 L10.770159,13.7597099 L10.770159,25.8117608 C10.770159,28.5672616 12.3014308,29.572667 14.5744356,29.572667 C15.7114308,29.572667 16.7365501,29.3548291 17.9174086,28.7860851 L17.9174086,32.4775 C16.7365501,33.0901074 15.0736884,33.439535 13.4551828,33.439535 L13.4551828,33.439535 Z" fill="#FFFFFF"></path>
+          </g>
+          <g transform="translate(31.837838, 46.918919)" fill="#73B043">
+            <path d="M26.394029,7.92119675 C26.394029,5.20376442 25.1850852,4.09123658 23.6503865,4.09123658 C22.9031628,4.09123658 22.3052434,4.44320163 21.790869,4.91779281 L21.790869,4.24124296 L20.4045385,4.24124296 L20.4045385,13.9918919 L21.790869,13.2725165 L21.790869,10.7036864 C22.1844895,11.1401325 22.8629115,11.5204139 23.5832229,11.5204139 C25.0631611,11.5204139 26.394029,10.3655285 26.394029,7.92119675 M24.9962316,7.96004395 C24.9962316,9.46923454 24.4514346,10.2297973 23.4472577,10.2297973 C22.7400513,10.2297973 22.0894776,9.71191257 21.7756577,9.29137986 L21.7756577,6.29078415 C22.1426,5.82906404 22.7269462,5.37927891 23.3924972,5.37927891 C24.4242884,5.37927891 24.9962316,6.16862607 24.9962316,7.96004395"></path>
+            <path d="M30.3596423,2.41893453 C30.3596423,1.91602701 29.8615327,1.50976948 29.261563,1.50976948 C28.6460992,1.50976948 28.1442595,1.91602701 28.1442595,2.41893453 C28.1442595,2.90756687 28.6460992,3.31569656 29.261563,3.31569656 C29.8615327,3.31569656 30.3596423,2.90756687 30.3596423,2.41893453 L30.3596423,2.41893453 Z M28.3936012,11.3701735 L30.1108744,11.3701735 L30.1108744,4.23983885 L28.3936012,4.23983885 L28.3936012,11.3701735 Z"></path>
+            <path d="M36.2511567,4.38844111 C35.9656531,4.19818341 35.6139221,4.09123658 35.0424469,4.09123658 C34.3361766,4.09123658 33.7391933,4.44320163 33.4125024,4.91779281 L33.4125024,4.24124296 L32.0137689,4.24124296 L32.0137689,11.3701735 L33.4125024,11.3701735 L33.4125024,7.29636517 C33.4125024,6.08648529 33.929685,5.46352586 34.8110018,5.46352586 C35.27319,5.46352586 35.5863078,5.55666555 35.8849165,5.71977702 L36.2511567,4.38844111"></path>
+            <path d="M39.9062264,2.41893453 C39.9062264,1.91602701 39.4078298,1.50976948 38.8081471,1.50976948 C38.1903878,1.50976948 37.6908435,1.91602701 37.6908435,2.41893453 C37.6908435,2.90756687 38.1903878,3.31569656 38.8081471,3.31569656 C39.4078298,3.31569656 39.9062264,2.90756687 39.9062264,2.41893453 L39.9062264,2.41893453 Z M37.9421938,11.3701735 L39.6571716,11.3701735 L39.6571716,4.23983885 L37.9421938,4.23983885 L37.9421938,11.3701735 Z"></path>
+            <path d="M47.2924222,11.3701735 L47.2924222,7.28208999 C47.2924222,5.17544808 46.4087652,4.09123658 44.7516744,4.09123658 C44.0184919,4.09123658 43.3131577,4.40248227 42.9593205,4.91943095 L42.9593205,4.23983885 L41.5594169,4.23983885 L41.5594169,11.3701735 L42.9593205,11.3701735 L42.9593205,7.20158734 C42.9593205,6.04717004 43.4886722,5.3816191 44.4259195,5.3816191 C45.3495938,5.3816191 45.8934547,5.89669562 45.8934547,7.33568041 L45.8934547,11.3701735 L47.2924222,11.3701735"></path>
+            <path d="M55.1142839,10.6912834 L55.1142839,4.24124296 L53.7157844,4.24124296 L53.7157844,4.90492175 C53.3340989,4.47151797 52.656847,4.09123658 51.9367696,4.09123658 C50.4682983,4.09123658 49.1245594,5.24541986 49.1245594,7.68975164 C49.1245594,10.4053118 50.3475444,11.5204139 51.8684359,11.5204139 C52.6140215,11.5204139 53.1990698,11.1654066 53.7157844,10.6912834 L53.7157844,10.8148456 C53.7157844,12.2929116 53.2795724,12.8372406 51.2705166,12.9324864 L51.7460438,13.9918919 C54.3258728,13.9090491 55.1142839,12.8643868 55.1142839,10.6912834 M53.7415265,9.31922816 C53.3745843,9.78094827 52.7918761,10.2297973 52.1270273,10.2297973 C51.093598,10.2297973 50.5235269,9.44232232 50.5235269,7.64856424 C50.5235269,6.14030973 51.0657497,5.37927891 52.0715647,5.37927891 C52.777835,5.37927891 53.4300468,5.89669562 53.7415265,6.31722834 L53.7415265,9.31922816"></path>
+            <path d="M67.1833622,4.23983885 L65.702722,4.23983885 L64.4951823,7.75644715 C64.2768422,8.36817365 63.9779996,9.38826386 63.8553735,9.80739246 C63.7748708,9.41470804 63.4481798,8.35389847 63.2298398,7.72953493 L62.0627855,4.23983885 L60.5292569,4.23983885 L63.1493372,11.2358464 L62.117546,13.8821368 L63.5967821,13.8821368 L67.1833622,4.23983885"></path>
+            <path d="M74.4754042,7.77072233 C74.4754042,5.54426253 73.1176241,4.09123658 71.2978898,4.09123658 C69.5038977,4.09123658 68.1187374,5.47429075 68.1187374,7.81144169 C68.1187374,10.0400077 69.4634124,11.5204139 71.2562344,11.5204139 C73.0907118,11.5204139 74.4754042,10.1345515 74.4754042,7.77072233 M73.0635656,7.81144169 C73.0635656,9.11633341 72.3692303,10.189078 71.3109949,10.189078 C70.2520575,10.189078 69.531746,9.3330353 69.531746,7.77072233 C69.531746,6.35841574 70.1839579,5.42093435 71.2435974,5.42093435 C72.3692303,5.42093435 73.0635656,6.35841574 73.0635656,7.81144169"></path>
+            <path d="M82.0124643,11.3701735 L82.0124643,4.23983885 L80.6144329,4.23983885 L80.6144329,8.40748889 C80.6144329,9.56377835 80.0848472,10.2283932 79.1452597,10.2283932 C78.2218194,10.2283932 77.6814688,9.71425277 77.6814688,8.27386386 L77.6814688,4.23983885 L76.2796931,4.23983885 L76.2796931,8.32745428 C76.2796931,10.4336282 77.1621799,11.5204139 78.8195048,11.5204139 C79.5550275,11.5204139 80.2603617,11.207062 80.6144329,10.6912834 L80.6144329,11.3701735 L82.0124643,11.3701735"></path>
+            <path d="M89.9445492,11.3701735 L89.9445492,7.28208999 C89.9445492,5.17544808 89.0606582,4.09123658 87.4030994,4.09123658 C86.6692148,4.09123658 85.9641146,4.40248227 85.6100433,4.91943095 L85.6100433,4.23983885 L84.2101398,4.23983885 L84.2101398,11.3701735 L85.6100433,11.3701735 L85.6100433,7.20158734 C85.6100433,6.04717004 86.139629,5.3816191 87.0773445,5.3816191 C88.0007847,5.3816191 88.5448796,5.89669562 88.5448796,7.33568041 L88.5448796,11.3701735 L89.9445492,11.3701735"></path>
+            <path d="M97.7659428,10.6912834 L97.7659428,4.24124296 L96.3660393,4.24124296 L96.3660393,4.90492175 C95.9866939,4.47151797 95.3066338,4.09123658 94.5872584,4.09123658 C93.1194892,4.09123658 91.7773885,5.24541986 91.7773885,7.68975164 C91.7773885,10.4053118 92.9980332,11.5204139 94.5193928,11.5204139 C95.2654464,11.5204139 95.8507287,11.1654066 96.3660393,10.6912834 L96.3660393,10.8148456 C96.3660393,12.2929116 95.9312314,12.8372406 93.9212394,12.9324864 L94.3974687,13.9918919 C96.9789358,13.9090491 97.7659428,12.8643868 97.7659428,10.6912834 M96.3934195,9.31922816 C96.0260092,9.78094827 95.442599,10.2297973 94.7768141,10.2297973 C93.7443208,10.2297973 93.1751858,9.44232232 93.1751858,7.64856424 C93.1751858,6.14030973 93.7174086,5.37927891 94.7232236,5.37927891 C95.4283238,5.37927891 96.0817058,5.89669562 96.3934195,6.31722834 L96.3934195,9.31922816"></path>
+            <path d="M113.447811,11.3701735 L113.447811,7.28208999 C113.447811,5.17544808 112.659868,4.09123658 111.003012,4.09123658 C109.890016,4.09123658 109.331178,4.4972601 108.816101,5.13613284 C108.436756,4.45794485 107.824561,4.09123658 106.861104,4.09123658 C106.127687,4.09123658 105.515727,4.40248227 105.160953,4.91943095 L105.160953,4.23983885 L103.765262,4.23983885 L103.765262,11.3701735 L105.160953,11.3701735 L105.160953,7.20158734 C105.160953,6.04717004 105.597867,5.3816191 106.535583,5.3816191 C107.459725,5.3816191 107.906468,5.89669562 107.906468,7.33568041 L107.906468,11.3701735 L109.306371,11.3701735 L109.306371,7.20158734 C109.306371,6.04717004 109.739307,5.3816191 110.677491,5.3816191 C111.600931,5.3816191 112.050014,5.89669562 112.050014,7.33568041 L112.050014,11.3701735 L113.447811,11.3701735"></path>
+            <path d="M117.67108,2.41893453 C117.67108,1.91602701 117.173006,1.50976948 116.574572,1.50976948 C115.958072,1.50976948 115.455697,1.91602701 115.455697,2.41893453 C115.455697,2.90756687 115.958072,3.31569656 116.574572,3.31569656 C117.173006,3.31569656 117.67108,2.90756687 117.67108,2.41893453 L117.67108,2.41893453 Z M115.708318,11.3701735 L117.421039,11.3701735 L117.421039,4.23983885 L115.708318,4.23983885 L115.708318,11.3701735 Z"></path>
+            <path d="M125.058212,11.3701735 L125.058212,7.28208999 C125.058212,5.17544808 124.175725,4.09123658 122.518166,4.09123658 C121.78475,4.09123658 121.079415,4.40248227 120.72511,4.91943095 L120.72511,4.23983885 L119.325675,4.23983885 L119.325675,11.3701735 L120.72511,11.3701735 L120.72511,7.20158734 C120.72511,6.04717004 121.254462,5.3816191 122.192879,5.3816191 C123.116086,5.3816191 123.66018,5.89669562 123.66018,7.33568041 L123.66018,11.3701735 L125.058212,11.3701735"></path>
+            <path d="M132.880776,11.3701735 L132.880776,1.46858208 L131.495849,2.18795746 L131.495849,4.90492175 C131.099889,4.47011386 130.421701,4.09123658 129.702325,4.09123658 C128.220515,4.09123658 126.890349,5.24307967 126.890349,7.68975164 C126.890349,10.4067159 128.098591,11.5204139 129.63446,11.5204139 C130.380513,11.5204139 130.97656,11.1677468 131.495849,10.6912834 L131.495849,11.3701735 Z M131.506614,9.31922816 C131.141076,9.78094827 130.557666,10.2283932 129.892115,10.2283932 C128.859388,10.2283932 128.288849,9.44232232 128.288849,7.64856424 C128.288849,6.14218189 128.832475,5.3816191 129.838758,5.3816191 C130.543391,5.3816191 131.195134,5.89669562 131.506614,6.31722834 L131.506614,9.31922816 Z"></path>
+            <path d="M140.063297,9.41470804 C140.063297,8.069565 139.248909,7.63452308 137.65945,7.0242007 C136.586003,6.603902 136.342389,6.34414056 136.342389,5.99170747 C136.342389,5.61189411 136.63936,5.33996366 137.31942,5.33996366 C137.999948,5.33996366 138.583124,5.54426253 139.166534,5.95028605 L139.778495,4.87847757 C139.14009,4.4148853 138.257369,4.09123658 137.360373,4.09123658 C135.93426,4.09123658 134.930083,4.75631948 134.930083,6.03102271 C134.930083,7.16063396 135.484943,7.67571048 137.022449,8.27386386 C138.053305,8.66701632 138.677668,8.92490561 138.677668,9.46923454 C138.677668,9.97190804 138.257369,10.2562415 137.374883,10.2562415 C136.707459,10.2562415 135.963278,10.0112233 135.297259,9.54950317 L134.656748,10.6096107 C135.377996,11.1389624 136.424764,11.5204139 137.38752,11.5204139 C138.786955,11.5204139 140.063297,10.9898921 140.063297,9.41470804"></path>
+            <path d="M3.96343329,2.41893453 C3.96343329,1.91602701 3.46414765,1.50976948 2.86477545,1.50976948 C2.24934352,1.50976948 1.74805041,1.91602701 1.74805041,2.41893453 C1.74805041,2.90756687 2.24934352,3.31569656 2.86477545,3.31569656 C3.46414765,3.31569656 3.96343329,2.90756687 3.96343329,2.41893453 L3.96343329,2.41893453 Z M2.00013087,11.3701735 L3.7133603,11.3701735 L3.7133603,4.23983885 L2.00013087,4.23983885 L2.00013087,11.3701735 Z"></path>
+            <path d="M11.349395,11.3701735 L11.349395,7.28208999 C11.349395,5.17544808 10.4659721,4.09123658 8.80958335,4.09123658 C8.07686886,4.09123658 7.37059856,4.40248227 7.01722939,4.91943095 L7.01722939,4.23983885 L5.61638975,4.23983885 L5.61638975,11.3701735 L7.01722939,11.3701735 L7.01722939,7.20158734 C7.01722939,6.04717004 7.54681511,5.3816191 8.48289238,5.3816191 C9.40750271,5.3816191 9.9513636,5.89669562 9.9513636,7.33568041 L9.9513636,11.3701735 L11.349395,11.3701735"></path>
+            <path d="M18.4787936,9.41470804 C18.4787936,8.069565 17.6634702,7.63452308 16.0742451,7.0242007 C15.0022026,6.603902 14.7569503,6.34414056 14.7569503,5.99170747 C14.7569503,5.61189411 15.055559,5.33996366 15.7351511,5.33996366 C16.4149772,5.33996366 16.9976853,5.54426253 17.5832016,5.95028605 L18.193524,4.87847757 C17.5553533,4.4148853 16.6721644,4.09123658 15.7751684,4.09123658 C14.3499907,4.09123658 13.3458138,4.75631948 13.3458138,6.03102271 C13.3458138,7.16063396 13.9006736,7.67571048 15.4360744,8.27386386 C16.4688016,8.66701632 17.0936332,8.92490561 17.0936332,9.46923454 C17.0936332,9.97190804 16.6721644,10.2562415 15.7906136,10.2562415 C15.1227225,10.2562415 14.377371,10.0112233 13.71182,9.54950317 L13.0729473,10.6096107 C13.7923227,11.1389624 14.8393251,11.5204139 15.8032507,11.5204139 C17.2017501,11.5204139 18.4787936,10.9898921 18.4787936,9.41470804"></path>
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <div class="fcol">
+      <div class="fhead">Our Schools</div>
+      <ul class="flist">
+        <li><a href="https://www.taaleem.ae/find-schools-near-you/" target="_blank" rel="noopener">Find Schools Near You</a></li>
+        <li><a href="https://www.taaleem.ae/schools/dubai-british-school-jumeirah-park/" target="_blank" rel="noopener">Dubai British School Jumeirah Park</a></li>
+        <li><a href="https://www.taaleem.ae/schools/dubai-british-school-jumeirah-park-foundation/" target="_blank" rel="noopener">Dubai British School Jumeirah Park Foundation</a></li>
+        <li><a href="https://www.taaleem.ae/schools/dubai-british-school-emirates-hills/" target="_blank" rel="noopener">Dubai British School Emirates Hills</a></li>
+        <li><a href="https://www.taaleem.ae/schools/dubai-british-school-jumeira/" target="_blank" rel="noopener">Dubai British School Jumeira</a></li>
+        <li><a href="https://www.taaleem.ae/schools/dubai-british-school-mira/" target="_blank" rel="noopener">Dubai British School Mira</a></li>
+        <li><a href="https://www.taaleem.ae/schools/jebel-ali-school/" target="_blank" rel="noopener">Jebel Ali School</a></li>
+        <li><a href="https://www.taaleem.ae/schools/jumeira-baccalaureate-school/" target="_blank" rel="noopener">Jumeira Baccalaureate School</a></li>
+        <li><a href="https://www.taaleem.ae/schools/greenfield-international-school/" target="_blank" rel="noopener">Greenfield International School</a></li>
+        <li><a href="https://www.taaleem.ae/schools/raha-international-school-garden-campus/" target="_blank" rel="noopener">Raha International School &ndash; Garden Campus</a></li>
+        <li><a href="https://www.taaleem.ae/schools/raha-international-school-khalifa-city-campus/" target="_blank" rel="noopener">Raha International School &ndash; Khalifa City Campus</a></li>
+        <li><a href="https://www.taaleem.ae/schools/uptown-international-school/" target="_blank" rel="noopener">Uptown International School</a></li>
+        <li><a href="https://www.taaleem.ae/schools/american-academy-for-girls/" target="_blank" rel="noopener">American Academy for Girls</a></li>
+        <li><a href="https://www.taaleem.ae/schools/dubai-schools-al-barsha/" target="_blank" rel="noopener">Dubai Schools Al Barsha</a></li>
+        <li><a href="https://www.taaleem.ae/schools/dubai-schools-al-khawaneej/" target="_blank" rel="noopener">Dubai Schools Al Khawaneej</a></li>
+        <li><a href="https://www.taaleem.ae/schools/dubai-schools-nad-al-sheba/" target="_blank" rel="noopener">Dubai Schools Nad Al Sheba</a></li>
+      </ul>
+    </div>
+
+    <div class="fcol">
+      <div class="fhead">Academics</div>
+      <ul class="flist">
+        <li><a href="https://www.taaleem.ae/academics/our-curricula/" target="_blank" rel="noopener">Our Curricula</a></li>
+        <li><a href="https://www.taaleem.ae/academics/khda-and-adek/" target="_blank" rel="noopener">KHDA and ADEK</a></li>
+        <li><a href="https://www.taaleem.ae/academics/english-as-an-additional-language-eal/" target="_blank" rel="noopener">English as an Additional Language (EAL)</a></li>
+        <li><a href="https://www.taaleem.ae/academics/special-education-needs-and-disabilities-send/" target="_blank" rel="noopener">Special Education Needs and Disabilities (SEND)</a></li>
+        <li><a href="https://www.taaleem.ae/academics/university-acceptances/" target="_blank" rel="noopener">University Acceptances</a></li>
+      </ul>
+
+      <div class="fhead">Careers</div>
+      <ul class="flist">
+        <li><a href="https://www.taaleem.ae/careers/apply-now/" target="_blank" rel="noopener">Apply Now</a></li>
+      </ul>
+
+    </div>
+
+  </div>
+
+  <div class="footer-note">
+    <p>This onboarding guide is provided for general information and orientation. <strong>All content is subject to change</strong> — processes, entitlements, providers and government requirements are updated from time to time, and the position at the time of reading may differ from what is described here.</p>
+    <p>Where anything here differs from your employment contract, Taaleem's policies or guidance from your HR representative, <strong>those take precedence</strong>. Terms and conditions apply throughout. If something matters to a decision you are making, check it with your HR representative rather than relying on this page.</p>
+  </div>
+</footer>
+
+<script>
+/* ---- schools carousel: infinite loop, autoplay plus arrows ----
+   Position is a single number driven from rAF rather than a CSS animation, so the
+   arrows can nudge the very same value that autoplay advances. The logo set is cloned
+   once and the offset wraps modulo one set's width, so there is no start or end. */
+(function(){
+  var track = document.getElementById('schoolsTrack');
+  var prev  = document.getElementById('schoolsPrev');
+  var next  = document.getElementById('schoolsNext');
+  if(!track) return;
+
+  var GAP = 40;    /* must match the flex gap in .schools-track */
+  var SPEED = 26;  /* px per second — deliberately slow and calm */
+  var STEP = 260;  /* how far one arrow press travels */
+
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  /* clone the set so the wrap always has content to hand off to.
+     the copies are decorative, so keep them out of the accessibility tree. */
+  var originals = [].slice.call(track.children);
+  originals.forEach(function(node){
+    var copy = node.cloneNode(true);
+    copy.setAttribute('aria-hidden', 'true');
+    track.appendChild(copy);
+  });
+
+  var setWidth = 0;   /* width of one full set, including its trailing gap */
+  var offset = 0;     /* px scrolled, always normalised to [0, setWidth) */
+  var nudge = 0;      /* outstanding arrow movement, eased out over a few frames */
+  var paused = false;
+
+  function measure(){
+    var w = 0;
+    originals.forEach(function(node){ w += node.getBoundingClientRect().width + GAP; });
+    setWidth = w;
+  }
+  function wrap(v){ return setWidth > 0 ? ((v % setWidth) + setWidth) % setWidth : 0; }
+  function draw(){ track.style.transform = 'translateX(' + (-offset).toFixed(2) + 'px)'; }
+
+  var last = 0;
+  function frame(now){
+    var dt = last ? Math.min((now - last) / 1000, 0.1) : 0;   /* clamp: tab switches */
+    last = now;
+    if(nudge !== 0){
+      /* ease the arrow movement out instead of jumping */
+      var step = nudge * Math.min(1, dt * 7);
+      if(Math.abs(nudge) < 0.5){ step = nudge; }
+      offset += step; nudge -= step;
+    } else if(!paused && !(reduce && reduce.matches)){
+      offset += SPEED * dt;
+    }
+    offset = wrap(offset);
+    draw();
+    requestAnimationFrame(frame);
+  }
+
+  function start(){
+    measure();
+    requestAnimationFrame(frame);
+  }
+
+  /* logos are svg/png of differing widths, so measure only once they have loaded */
+  var imgs = [].slice.call(track.querySelectorAll('img'));
+  var pending = imgs.filter(function(i){ return !i.complete; }).length;
+  if(pending === 0) start();
+  else {
+    var done = function(){ if(--pending === 0) start(); };
+    imgs.forEach(function(i){
+      if(i.complete) return;
+      i.addEventListener('load', done);
+      i.addEventListener('error', done);
+    });
+  }
+  window.addEventListener('resize', function(){ measure(); offset = wrap(offset); });
+
+  if(prev) prev.addEventListener('click', function(){ nudge -= STEP; });
+  if(next) next.addEventListener('click', function(){ nudge += STEP; });
+
+  /* let people stop on a logo they want to read */
+  ['mouseenter','focusin'].forEach(function(e){
+    track.addEventListener(e, function(){ paused = true; });
+  });
+  ['mouseleave','focusout'].forEach(function(e){
+    track.addEventListener(e, function(){ paused = false; });
+  });
+})();
+(function(){
+  var state = {origin:'overseas', emirate:'dubai', family:'family'};
+  var CATS = {
+    overseas:'origin', inuae:'origin',
+    dubai:'emirate', abudhabi:'emirate',
+    alone:'family', family:'family'
+  };
+
+  /* ---- conditional content ---- */
+  function matches(spec){
+    var groups = {};
+    spec.split(/\s+/).filter(Boolean).forEach(function(tok){
+      var cat = CATS[tok];
+      if(!cat) return;
+      (groups[cat] = groups[cat] || []).push(tok);
+    });
+    for(var cat in groups){
+      if(groups[cat].indexOf(state[cat]) === -1) return false;
+    }
+    return true;
+  }
+  function applyFilters(){
+    document.querySelectorAll('[data-when]').forEach(function(el){
+      el.classList.toggle('is-hidden', !matches(el.getAttribute('data-when')));
+    });
+    document.querySelectorAll('[data-dim]').forEach(function(el){
+      el.classList.toggle('is-dimmed', !matches(el.getAttribute('data-dim')));
+    });
+  }
+
+  document.querySelectorAll('.chip').forEach(function(chip){
+    chip.addEventListener('click', function(){
+      var cat = chip.dataset.cat, val = chip.dataset.val;
+      state[cat] = val;
+      document.querySelectorAll('.chip[data-cat="'+cat+'"]').forEach(function(c){
+        c.setAttribute('aria-pressed', String(c === chip));
+      });
+      applyFilters();
+      buildIndex();   /* filters changed, so what is findable changed with them */
+      renderProgress();
+    });
+  });
+
+  /* ---- journey progress ---- */
+  var steps = [].slice.call(document.querySelectorAll('#track .step'));
+  var TOTAL = steps.length;
+  var elStep = document.getElementById('statusStep');
+  var elBar = document.getElementById('statusBar');
+  var elVerdict = document.getElementById('statusVerdict');
+  var elDetail = document.getElementById('statusDetail');
+  var STORE = 'taaleem.step';
+
+  function readStep(){
+    var n = parseInt(localStorage.getItem(STORE), 10);
+    return (n >= 1 && n <= TOTAL) ? n : 1;
+  }
+  var current = readStep();
+
+  /* the banner reflects whose move it is at the current step */
+  function verdictFor(step){
+    var actor = step.getAttribute('data-actor');
+    var title = step.getAttribute('data-title');
+    var dim = step.getAttribute('data-dim');
+    if(dim && !matches(dim)){
+      return ['Nothing needs you right now', title + ' doesn’t apply to you — move on to the next step.'];
+    }
+    if(actor === 'you'){
+      return ['This one’s on you', title + ' — open the tracker to see what’s needed.'];
+    }
+    return ['Nothing needs you right now', 'HR is handling ' + title.toLowerCase() + '.'];
+  }
+
+  function renderProgress(){
+    steps.forEach(function(step, i){
+      var n = i + 1;
+      var dot = step.querySelector('.dot');
+      step.classList.toggle('is-done', n < current);
+      step.classList.toggle('is-now', n === current);
+      dot.classList.toggle('done', n < current);
+      dot.classList.toggle('now', n === current);
+      dot.innerHTML = (n < current) ? '&#10003;' : String(n);
+      var inner = step.querySelector('.step-inner');
+      inner.setAttribute('aria-current', n === current ? 'step' : 'false');
+    });
+
+    var step = steps[current - 1];
+    var v = verdictFor(step);
+    elStep.textContent = 'Step ' + current + ' of ' + TOTAL + ' · ' + step.getAttribute('data-title');
+    elBar.style.width = Math.round(current / TOTAL * 100) + '%';
+    elVerdict.firstChild.nodeValue = v[0];
+    elDetail.textContent = v[1];
+  }
+
+  function setStep(n){
+    current = n;
+    try { localStorage.setItem(STORE, String(n)); } catch(e){}
+    renderProgress();
+  }
+
+  steps.forEach(function(step, i){
+    var inner = step.querySelector('.step-inner');
+    inner.setAttribute('role', 'button');
+    inner.setAttribute('tabindex', '0');
+    inner.setAttribute('title', 'Mark this as where you are');
+    inner.addEventListener('click', function(e){
+      if(e.target.closest('a')) return;   /* let links inside a step behave normally */
+      setStep(i + 1);
+    });
+    inner.addEventListener('keydown', function(e){
+      if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); setStep(i + 1); }
+    });
+  });
+
+  /* ---- routing ---- */
+  var pages = document.querySelectorAll('.page');
+  var links = document.querySelectorAll('.sidebar a');
+  function show(id){
+    var found = false;
+    pages.forEach(function(p){
+      var on = (p.id === id);
+      p.classList.toggle('on', on);
+      if(on) found = true;
+    });
+    if(!found){ document.getElementById('home').classList.add('on'); id = 'home'; }
+    links.forEach(function(a){
+      a.classList.toggle('on', a.getAttribute('href') === '#' + id);
+    });
+    closeNav();
+    /* pages are swapped in place, so always start at the top. The browser's own jump to
+       the section anchor lands after this handler, so undo it on the next frame too. */
+    toTop();
+  }
+  /* html{scroll-behavior:smooth} would animate this and lose the race with the
+     browser's own fragment scroll, so jump instantly */
+  function toTop(){
+    var jump = function(){
+      try { window.scrollTo({top:0, left:0, behavior:'instant'}); }
+      catch(e){ window.scrollTo(0,0); }
+    };
+    jump();
+    requestAnimationFrame(jump);
+  }
+  function route(){ show((location.hash || '#home').slice(1)); }
+  window.addEventListener('hashchange', route);
+
+  /* ---- mobile nav: slide-in drawer ---- */
+  var sidebarEl = document.getElementById('sidebar');
+  var mobnavEl  = document.getElementById('mobnav');
+  var backdrop  = document.getElementById('navBackdrop');
+  var navCloseEl = document.getElementById('navClose');
+
+  function setNav(open){
+    sidebarEl.classList.toggle('open', open);
+    backdrop.classList.toggle('show', open);
+    document.body.classList.toggle('nav-open', open);
+    mobnavEl.setAttribute('aria-expanded', String(open));
+    mobnavEl.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    /* move focus with the drawer so keyboard and screen-reader users follow it */
+    if(open) navCloseEl.focus();
+    else if(document.activeElement && sidebarEl.contains(document.activeElement)) mobnavEl.focus();
+  }
+  function closeNav(){ if(sidebarEl.classList.contains('open')) setNav(false); }
+
+  mobnavEl.addEventListener('click', function(){
+    setNav(!sidebarEl.classList.contains('open'));
+  });
+  navCloseEl.addEventListener('click', closeNav);
+  backdrop.addEventListener('click', closeNav);
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeNav(); });
+  /* a link to the page you are already on does not fire hashchange, so close here too */
+  links.forEach(function(a){ a.addEventListener('click', closeNav); });
+  window.addEventListener('resize', function(){ if(window.innerWidth > 900) closeNav(); });
+
+  /* ---- keep the sidebar clear of the sticky status strip ---- */
+  var statusEl = document.querySelector('.status');
+  function measureStatus(){
+    document.documentElement.style.setProperty('--statush', statusEl.offsetHeight + 'px');
+  }
+  window.addEventListener('resize', measureStatus);
+  if(window.ResizeObserver) new ResizeObserver(measureStatus).observe(statusEl);
+
+  /* ---- site search ----
+     The index is built from what the filters currently leave visible, so a search
+     only ever returns content the reader would actually see on the page. It is
+     rebuilt whenever the filters change. */
+  var sInput   = document.getElementById('searchInput');
+  var sResults = document.getElementById('searchResults');
+  var sClear   = document.getElementById('searchClear');
+  var index = [];
+  var hits = [];
+  var cursor = -1;
+
+  function textOf(page){
+    var out = '';
+    (function walk(node){
+      for(var i = 0; i < node.childNodes.length; i++){
+        var c = node.childNodes[i];
+        if(c.nodeType === 3){ out += c.nodeValue + ' '; }
+        else if(c.nodeType === 1){
+          if(c.classList.contains('is-hidden')) continue;   /* filtered out for this reader */
+          if(c.tagName === 'SCRIPT' || c.tagName === 'STYLE') continue;
+          walk(c);
+        }
+      }
+    })(page);
+    return out.replace(/\s+/g, ' ').trim();
+  }
+
+  function buildIndex(){
+    index = [];
+    pages.forEach(function(page){
+      var h1 = page.querySelector('h1');
+      var eyebrow = page.querySelector('.eyebrow, .eyebrow-lg');
+      index.push({
+        id: page.id,
+        title: h1 ? h1.textContent.trim() : page.id,
+        section: eyebrow ? eyebrow.textContent.trim() : '',
+        text: textOf(page),
+      });
+    });
+  }
+
+  function esc(s){
+    return s.replace(/[&<>"]/g, function(c){
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];
+    });
+  }
+
+  function snippet(text, q){
+    var at = text.toLowerCase().indexOf(q);
+    if(at < 0) return '';
+    var start = Math.max(0, at - 40);
+    var end = Math.min(text.length, at + q.length + 70);
+    var s = text.slice(start, end);
+    var lead = start > 0 ? '…' : '';
+    var tail = end < text.length ? '…' : '';
+    /* escape first, then wrap the match, so page content can never inject markup */
+    var rel = at - start;
+    return lead + esc(s.slice(0, rel)) + '<mark>' + esc(s.slice(rel, rel + q.length)) + '</mark>' + esc(s.slice(rel + q.length)) + tail;
+  }
+
+  function search(q){
+    q = q.trim().toLowerCase();
+    if(q.length < 2) return [];
+    return index.map(function(e){
+      var inTitle = e.title.toLowerCase().indexOf(q) >= 0;
+      var body = e.text.toLowerCase();
+      var n = 0, from = 0, at;
+      while((at = body.indexOf(q, from)) >= 0){ n++; from = at + q.length; }
+      if(!inTitle && n === 0) return null;
+      return { entry: e, score: (inTitle ? 1000 : 0) + n, snip: inTitle && n === 0 ? '' : snippet(e.text, q) };
+    }).filter(Boolean).sort(function(a,b){ return b.score - a.score; }).slice(0, 8);
+  }
+
+  function renderResults(q){
+    sResults.innerHTML = '';
+    if(!hits.length){
+      sResults.innerHTML = '<div class="search-empty">No matches for <strong>' + esc(q) + '</strong>. Try a shorter word, or <a class="link" href="#help">ask a question</a>.</div>';
+    } else {
+      hits.forEach(function(h, i){
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'search-hit';
+        b.setAttribute('role', 'option');
+        b.setAttribute('aria-selected', 'false');
+        b.dataset.id = h.entry.id;
+        b.innerHTML =
+          (h.entry.section ? '<span class="sh-sec">' + esc(h.entry.section) + '</span>' : '') +
+          '<span class="sh-title">' + esc(h.entry.title) + '</span>' +
+          (h.snip ? '<span class="sh-snip">' + h.snip + '</span>' : '');
+        b.addEventListener('click', function(){ go(h.entry.id); });
+        sResults.appendChild(b);
+      });
+    }
+    open(true);
+  }
+
+  function open(state){
+    sResults.hidden = !state;
+    sInput.setAttribute('aria-expanded', String(!!state));
+    if(!state){ cursor = -1; }
+  }
+
+  function go(id){
+    open(false);
+    sInput.value = '';
+    sClear.hidden = true;
+    sInput.blur();
+    if(location.hash === '#' + id) show(id); else location.hash = '#' + id;
+  }
+
+  function move(delta){
+    var els = sResults.querySelectorAll('.search-hit');
+    if(!els.length) return;
+    if(cursor >= 0 && els[cursor]){ els[cursor].classList.remove('on'); els[cursor].setAttribute('aria-selected','false'); }
+    cursor = (cursor + delta + els.length) % els.length;
+    els[cursor].classList.add('on');
+    els[cursor].setAttribute('aria-selected','true');
+    els[cursor].scrollIntoView({block:'nearest'});
+  }
+
+  sInput.addEventListener('input', function(){
+    var q = sInput.value;
+    sClear.hidden = q.length === 0;
+    if(q.trim().length < 2){ open(false); hits = []; return; }
+    hits = search(q);
+    renderResults(q.trim());
+  });
+  sInput.addEventListener('keydown', function(e){
+    if(e.key === 'ArrowDown'){ e.preventDefault(); if(sResults.hidden && hits.length) open(true); move(1); }
+    else if(e.key === 'ArrowUp'){ e.preventDefault(); move(-1); }
+    else if(e.key === 'Enter'){
+      var els = sResults.querySelectorAll('.search-hit');
+      if(cursor >= 0 && els[cursor]) { e.preventDefault(); els[cursor].click(); }
+      else if(hits.length){ e.preventDefault(); go(hits[0].entry.id); }
+    }
+    else if(e.key === 'Escape'){ open(false); sInput.blur(); }
+  });
+  sClear.addEventListener('click', function(){
+    sInput.value = ''; sClear.hidden = true; hits = []; open(false); sInput.focus();
+  });
+  document.addEventListener('click', function(e){
+    if(!e.target.closest('.search')) open(false);
+  });
+
+  applyFilters();
+  buildIndex();
+  renderProgress();
+  measureStatus();
+  route();
+
+  /* the browser still jumps to the section matching the hash after parsing,
+     which scrolls the status strip off screen — undo it once on load */
+  if('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  window.addEventListener('load', toTop);
+})();
+</script>
+</body>
+</html>
